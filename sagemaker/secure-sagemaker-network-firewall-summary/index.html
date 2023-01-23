@@ -15,7 +15,7 @@
     
     
       
-        <title>Securing Amazon SageMaker Studio internet traffic using AWS Network Firewall - ml-papers-with-code</title>
+        <title>Secure Network Summary - ml-papers-with-code</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Securing Amazon SageMaker Studio internet traffic using AWS Network Firewall
+              Secure Network Summary
             
           </span>
         </div>
@@ -255,12 +255,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -286,6 +288,176 @@
       <a href="../secure-sagemaker-network-firewall/" class="md-nav__link">
         Secure Network
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Secure Network Summary
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Secure Network Summary
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-overview" class="md-nav__link">
+    Solution overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc-only-option" class="md-nav__link">
+    VPC only option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sagemaker-resources" class="md-nav__link">
+    SageMaker resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-cloudformation-resources" class="md-nav__link">
+    AWS CloudFormation resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment-with-network-firewall" class="md-nav__link">
+    Experiment with Network Firewall
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiment with Network Firewall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-setup" class="md-nav__link">
+    Initial setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-resources-not-on-the-allowed-domain-list" class="md-nav__link">
+    Access resources not on the allowed domain list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-domain-to-the-allowed-domain-list" class="md-nav__link">
+    Add a domain to the allowed domain list
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-firewall-logging" class="md-nav__link">
+    Network Firewall logging
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Firewall logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-firewall-rules" class="md-nav__link">
+    Additional firewall rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-security-controls-with-network-firewall" class="md-nav__link">
+    Additional security controls with Network Firewall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-secure-ml-environments" class="md-nav__link">
+    Build secure ML environments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -901,6 +1073,26 @@ This command fails with <code>ReadTimeoutError</code> because Network Firewall d
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../secure-sagemaker-network-firewall/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Secure Network" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Secure Network
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
