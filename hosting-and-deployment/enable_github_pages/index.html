@@ -15,7 +15,7 @@
     
     
       
-        <title>Github Pages Private Source Code - ml-papers-with-code</title>
+        <title>Enable Github Pages - ml-papers-with-code</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#github-pages-private-source-code" class="md-skip">
+        <a href="#enable-github-pages" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Github Pages Private Source Code
+              Enable Github Pages
             
           </span>
         </div>
@@ -269,35 +269,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-personal-token" class="md-nav__link">
-    Create Personal Token
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-secret-in-private-repository" class="md-nav__link">
-    Create secret in private repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-github-action-in-private-repopermalink" class="md-nav__link">
-    Create github action in private repoPermalink
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -310,104 +281,10 @@
                 
 
 
-<h1 id="github-pages-private-source-code">Github Pages Private Source Code</h1>
-<p>Github pages are great, it provides a free static page hosting, but the only caveat is the repository has to be public repository. And, if you want to keep your source private, you will have to opt for premium plans to host pages from private repository.</p>
-<p>Here is what I have done, github allows unlimited private repositories, so I created a new private repo where I kept my source code and another repo where my site is hosted.</p>
-<h2 id="create-personal-token">Create Personal Token</h2>
-<p>Create a personal access token. Navigate to <strong>Settings</strong> and create a PAT.</p>
-<p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213952811-20c57c38-913f-4de4-8536-c437b0716c11.png" /></p>
-<ul>
-<li>Select Developer settings</li>
-</ul>
-<p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213952714-262d97b3-f7bf-4aea-a16d-f3b5f19273f1.png" /></p>
-<ul>
-<li>Select Personal access tokens</li>
-</ul>
-<p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213952834-6108c58d-84fa-4c6e-b0fb-f44ed5dbac17.png" /></p>
-<ul>
-<li>Now generate a new token, with repo permissions.</li>
-</ul>
-<p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213952864-84850ec5-7b6e-4a4f-aff2-49f568c02f42.png" /></p>
-<p>Once you are done copy the generated token, we will need to set this token during our build.</p>
-<h2 id="create-secret-in-private-repository">Create secret in private repository</h2>
-<p>Go to your private repo and click the settings:</p>
-<p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213953053-8ace5fbc-1a23-4d80-b485-e087f71d794e.png" /></p>
-<p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213953005-9fa12325-d710-4cda-8f8e-7de603479746.png" /></p>
-<h2 id="create-github-action-in-private-repopermalink">Create github action in private repoPermalink</h2>
-<p>This is where the magic begins, we will build a github action in our private repo. You will need to create a file at .github/workflows/ci.yml</p>
-<pre><code class="language-yaml">name: Build &amp; Publish
-
-on:
-  push:
-    branches: [ gh_pages ]
-  pull_request:
-    branches: [ gh_pages ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout local code
-      uses: actions/checkout@v3
-      with:
-        path: code
-        token:  ${{ secrets.GH_PAGES}}
-        ref: gh_pages
-
-    # - name: Show Directory Files
-    #   run : |
-    #     cd code
-    #     ls -la
-
-    - name: python
-      uses: actions/setup-python@v4
-      with:
-        python-version: &quot;3.10&quot;
-
-    - name: Checkout public repo site
-      uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.GH_PAGES}}
-        repository: np-completed/np-completed.github.io
-        ref: gh_pages
-        path: site
-
-
-    - name: Install dependencies
-      run: python3 -m pip install -r code/requirements.txt
-
-    - name: Build website
-      run: mkdocs build --config-file code/mkdocs.yml
-
-    - name: Clean Website
-      run: |
-        pushd site
-        git rm -rf .
-        popd
-
-    - name: Copy website
-      run : |
-        pushd site
-        # cp -rvf ../code/build/* .
-        cp -rvf ../code/site/* .
-        popd
-        ls -la site/
-        # ls -la code/site/
-
-
-    - name: Deploy and Publish
-      run: |
-        git config --global user.email &quot;${GITHUB_ACTOR}@users.noreply.github.com&quot;
-        git config --global user.name &quot;github-actions&quot;
-        pushd site
-        git add .
-        git commit -m &quot;mkdocs build from Action ${GITHUB_SHA}&quot;
-        git push origin gh_pages
-        popd
-</code></pre>
-<p>Each push changes to the private repository triggers the github action. Next, the GH action job will be executed, to build and publish the site to the public repo without exposing your source code.</p>
+<h1 id="enable-github-pages">Enable Github Pages</h1>
+<p>Github pages requires permissions to be enabled but the process is pretty easy.</p>
+<p>Create a public repository</p>
+<p>Navigate to <strong>Settings &gt; Pages</strong></p>
 
               
             </article>
