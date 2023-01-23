@@ -15,7 +15,7 @@
     
     
       
-        <title>Secure Network - ml-papers-with-code</title>
+        <title>Securing Amazon SageMaker Studio internet traffic using AWS Network Firewall - ml-papers-with-code</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Secure Network
+              Securing Amazon SageMaker Studio internet traffic using AWS Network Firewall
             
           </span>
         </div>
@@ -255,14 +255,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -283,167 +281,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Secure Network
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../secure-sagemaker-network-firewall/" class="md-nav__link">
         Secure Network
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solution-overview" class="md-nav__link">
-    Solution overview
-  </a>
-  
-    <nav class="md-nav" aria-label="Solution overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vpc-resources" class="md-nav__link">
-    VPC resources
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sagemaker-resources" class="md-nav__link">
-    SageMaker resources
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aws-cloudformation-resources" class="md-nav__link">
-    AWS CloudFormation resources
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#experiment-with-network-firewall" class="md-nav__link">
-    Experiment with Network Firewall
-  </a>
-  
-    <nav class="md-nav" aria-label="Experiment with Network Firewall">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#initial-setup" class="md-nav__link">
-    Initial setup
-  </a>
-  
-    <nav class="md-nav" aria-label="Initial setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#access-resources-not-on-the-allowed-domain-list" class="md-nav__link">
-    Access resources not on the allowed domain list
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-a-domain-to-the-allowed-domain-list" class="md-nav__link">
-    Add a domain to the allowed domain list
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#network-firewall-logging" class="md-nav__link">
-    Network Firewall logging
-  </a>
-  
-    <nav class="md-nav" aria-label="Network Firewall logging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#additional-firewall-rules" class="md-nav__link">
-    Additional firewall rules
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#additional-security-controls-with-network-firewall" class="md-nav__link">
-    Additional security controls with Network Firewall
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-secure-ml-environments" class="md-nav__link">
-    Build secure ML environments
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -497,8 +339,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vpc-resources" class="md-nav__link">
-    VPC resources
+  <a href="#vpc-only-option" class="md-nav__link">
+    VPC only option
   </a>
   
 </li>
@@ -619,22 +461,21 @@
 
 <h1 id="securing-amazon-sagemaker-studio-internet-traffic-using-aws-network-firewall">Securing Amazon SageMaker Studio internet traffic using AWS Network Firewall</h1>
 <ul>
-<li><a href="https://github.com/np-completed/aws-sagemaker-studio-infra">Full github repo with code</a></li>
-</ul>
-<p>The work in this document complements previous work:
-- <a href="https://aws.amazon.com/blogs/machine-learning/building-secure-machine-learning-environments-with-amazon-sagemaker/">Building secure machine learning environments with Amazon SageMaker</a></p>
-<ul>
-<li><a href="https://aws.amazon.com/blogs/machine-learning/securing-amazon-sagemaker-studio-connectivity-using-a-private-vpc/">Securing Amazon SageMaker Studio connectivity using a private VPC.</a></li>
+<li>
+<p><a href="https://aws.amazon.com/blogs/machine-learning/building-secure-machine-learning-environments-with-amazon-sagemaker/">Building secure machine learning environments with Amazon SageMaker</a></p>
+</li>
+<li>
+<p><a href="https://aws.amazon.com/blogs/machine-learning/securing-amazon-sagemaker-studio-connectivity-using-a-private-vpc/">Securing Amazon SageMaker Studio connectivity using a private VPC.</a></p>
+</li>
 </ul>
 <h2 id="background">Background</h2>
 <p>Amazon SageMaker Studio is a web-based fully integrated development environment (IDE) where you can perform end-to-end machine learning (ML) development to prepare data and build, train, and deploy models.</p>
-<p>Like other AWS services, Studio supports a rich set of security-related features that allow you to build highly secure and compliant environments.</p>
 <p>One of these fundamental security features allows you to launch Studio in your own Amazon Virtual Private Cloud (Amazon VPC). This allows you to control, monitor, and inspect network traffic within and outside your VPC using standard AWS networking and security capabilities. For more information, see <a href="https://aws.amazon.com/blogs/machine-learning/securing-amazon-sagemaker-studio-connectivity-using-a-private-vpc/">Securing Amazon SageMaker Studio connectivity using a private VPC.</a></p>
-<p>Customers in regulated industries, such as financial services, often don’t allow any internet access in ML environments. They often use only VPC endpoints for AWS services, and connect only to private source code repositories in which all libraries have been vetted both in terms of security and licensing. Customers may want to provide internet access but also have some controls such as domain name or URL filtering and allow access to only specific public repositories and websites, possibly packet inspection, or other network traffic-related security controls. For these cases, AWS Network Firewall and NAT gateway-based deployment may provide a suitable use case.</p>
-<p>In this post, we show how you can use Network Firewall to build a secure and compliant environment by restricting and monitoring internet access, inspecting traffic, and using stateless and stateful firewall engine rules to control the network flow between Studio notebooks and the internet.</p>
+<p>SM Studio users may want to provide internet access but also have some controls such as domain name or URL filtering and allow access to only specific public repositories and websites, possibly packet inspection, or other network traffic-related security controls. For these cases, <strong>AWS Network Firewall</strong> and <strong>NAT gateway-based deployment</strong> may provide a suitable use case.</p>
+<p>In this post, I outline the use of network firewall to build a secure and compliant environment by restricting and monitoring internet access, inspecting traffic, and using stateless and stateful firewall engine rules to control the network flow between Studio notebooks and the internet.</p>
 <p>Depending on your security, compliance, and governance rules, you may not need to or cannot completely block internet access from Studio and your AI and ML workloads. You may have requirements beyond the scope of network security controls implemented by security groups and network access control lists (ACLs), such as application protocol protection, deep packet inspection, domain name filtering, and intrusion prevention system (IPS). Your network traffic controls may also require many more rules compared to what is currently supported in security groups and network ACLs. In these scenarios, you can use Network Firewall—a managed network firewall and IPS for your VPC.</p>
 <h2 id="solution-overview">Solution overview</h2>
-<p>When you deploy Studio in your VPC, you control how Studio accesses the internet with the parameter <code>AppNetworkAccessType</code> (via the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/Welcome.html">Amazon SageMaker API</a>) or by selecting your preference on the console when you create a Studio domain.</p>
+<p>Sagemaker Studio deployed in a VPC, provides internet access control, using the parameter <code>AppNetworkAccessType</code> (via the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/Welcome.html">Amazon SageMaker API</a>) or by selecting your preference on the console when you create a Studio domain.</p>
 <table>
 <thead>
 <tr>
@@ -675,7 +516,7 @@
 </tbody>
 </table>
 <p>In this mode, the direct internet access to or from notebooks is completely disabled, and all traffic is routed through an elastic network interface in your private VPC. This also includes traffic from Studio UI widgets and interfaces, such as <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/experiments.html">Experiments</a>, <a href="https://aws.amazon.com/sagemaker/autopilot/">Autopilot</a>, and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Model Monitor</a>, to their respective backend SageMaker APIs.</p>
-<p>For more information about network access parameters when creating a domain, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html">CreateDomain</a>.</p>
+<h3 id="vpc-only-option">VPC only option</h3>
 <p>The solution in this post uses the <code>VpcOnly</code> option and deploys the Studio domain into a VPC with three subnets:</p>
 <ul>
 <li>
@@ -703,81 +544,21 @@
 </tr>
 </tbody>
 </table>
-<h3 id="vpc-resources">VPC resources</h3>
-<p>The solution deploys the following resources in your account:</p>
-<ul>
-<li>
-<p>A VPC with a specified <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless Inter-Domain Routing (CIDR)</a> block
-&nbsp;</p>
-</li>
-<li>
-<p>Three private subnets with specified CIDRs
-&nbsp;</p>
-</li>
-<li>
-<p>Internet gateway, NAT gateway, Network Firewall, and a Network Firewall endpoint in the Network Firewall subnet
-&nbsp;</p>
-</li>
-<li>
-<p>A Network Firewall policy and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">stateful domain list group</a> with an allow domain list
-&nbsp;</p>
-</li>
-<li>
-<p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html">Elastic IP</a> allocated to the NAT gateway
-&nbsp;</p>
-</li>
-<li>
-<p>Two security groups for SageMaker workloads and VPC endpoints, respectively
-&nbsp;</p>
-</li>
-<li>
-<p>Four route tables with configured routes
-&nbsp;</p>
-</li>
-<li>
-<p>An <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html">Amazon S3 VPC endpoint</a> (type Gateway)
-&nbsp;</p>
-</li>
-<li>
-<p>AWS service access <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html">VPC endpoints</a> (type Interface) for various AWS services that need to be accessed from Studio
-&nbsp;</p>
-</li>
-<li>
-<p>The solution also creates an <a href="http://aws.amazon.com/iam">AWS Identity and Access Management</a> (IAM) <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">execution role</a> for SageMaker notebooks and Studio with preconfigured IAM policies.</p>
-</li>
-</ul>
-<p>Network routing for targets outside the VPC is configured in such a way that all ingress and egress internet traffic goes via the Network Firewall and NAT gateway. For details and reference network architectures with Network Firewall and NAT gateway, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/arch-igw-ngw.html">Architecture with an internet gateway and a NAT gateway</a>, <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/deployment-models-for-aws-network-firewall/">Deployment models for AWS Network Firewall</a>, and <a href="https://aws.amazon.com/blogs/security/enforce-your-aws-network-firewall-protections-at-scale-with-aws-firewall-manager/">Enforce your AWS Network Firewall protections at scale with AWS Firewall Manager</a>. The AWS re:Invent 2020 video <a href="https://www.youtube.com/watch?v=6TY7Ev9PhuE">Which inspection architecture is right for you?</a> discusses which inspection architecture is right for your use case.</p>
 <h3 id="sagemaker-resources">SageMaker resources</h3>
-<p>The solution creates a SageMaker domain and user profile.</p>
-<p>The solution uses only one <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone</a> and is not highly available. A best practice is to use a Multi-AZ configuration for any production deployment. You can implement the highly available solution by duplicating the Single-AZ setup—subnets, NAT gateway, and Network Firewall endpoints—to additional Availability Zones.</p>
-<p>You use Network Firewall and its policies to control entry and exit of the internet traffic in your VPC. You create an <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">allow domain list rule</a> to allow internet access to the specified network domains only and block traffic to any domain not on the allow list.</p>
+<p>Create a SageMaker domain and user profile.</p>
+<p>The solution uses only one <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone</a> and is not highly available. A best practice is to use a Multi-AZ configuration for any production deployment.</p>
+<p>We create an <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">allow domain list rule</a> to allow internet access to the specified network domains only and block traffic to any domain not on the allow list.</p>
 <h3 id="aws-cloudformation-resources">AWS CloudFormation resources</h3>
-<p>The source code and <a href="http://aws.amazon.com/cloudformation">AWS CloudFormation</a> template for solution deployment are provided in the <a href="https://github.com/aws-samples/amazon-sagemaker-studio-vpc-networkfirewall">GitHub repository</a>. To deploy the solution on your account, you need:</p>
-<ul>
-<li>An AWS account and the <a href="https://aws.amazon.com/cli/">AWS Command Line Interface</a> (AWS CLI) configured with administrator permissions</li>
-<li>An <a href="http://aws.amazon.com/s3">Amazon Simple Storage Service</a> (Amazon S3) bucket in your account in the same Region where you deploy the solution</li>
-</ul>
+<p>The source code and <a href="http://aws.amazon.com/cloudformation">AWS CloudFormation</a> template for solution deployment are provided in the <a href="https://github.com/aws-samples/amazon-sagemaker-studio-vpc-networkfirewall">GitHub repository</a>.</p>
 <p>Network Firewall is a Regional service; for more information on Region availability, see the <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">AWS Region Table</a>.</p>
-<p>Your CloudFormation stack doesn’t have any required parameters. You may want to change the <code>DomainName</code> or <code>*CIDR</code> parameters to avoid naming conflicts with the existing resources and your VPC CIDR allocations. Otherwise, use the following default values:</p>
-<ul>
-<li>ProjectName – <code>sagemaker-studio-vpc-firewall</code></li>
-<li>DomainName – <code>sagemaker-anfw-domain</code></li>
-<li>UserProfileName – <code>anfw-user-profile</code></li>
-<li>VPCCIDR – 10.2.0.0/16</li>
-<li>FirewallSubnetCIDR – 10.2.1.0/24</li>
-<li>NATGatewaySubnetCIDR – 10.2.2.0/24</li>
-<li>SageMakerStudioSubnetCIDR – 10.2.3.0/24</li>
-<li>Deploy the CloudFormation template</li>
-</ul>
-<p>To start experimenting with the Network Firewall and stateful rules, you need first to deploy the provided CloudFormation template to your AWS account.</p>
+<p>To start experimenting with the Network Firewall and stateful rules, you need first to deploy the provided <code>CloudFormation</code> template to the AWS account.</p>
 <ol>
-<li>Clone the GitHub repository:</li>
-</ol>
-<pre><code class="language-bash">git clone https://github.com/aws-samples/amazon-sagemaker-studio-vpc-networkfirewall.git
-cd amazon-sagemaker-studio-vpc-networkfirewall
-</code></pre>
-<ol>
-<li>Create an S3 bucket in the Region where you deploy the solution:</li>
+<li>
+<p>Clone the GitHub repository:</p>
+</li>
+<li>
+<p>Create an S3 bucket in the Region where you deploy the solution:</p>
+</li>
 </ol>
 <pre><code class="language-bash">aws s3 mb s3://&lt;your s3 bucket name&gt;
 </code></pre>
@@ -813,7 +594,7 @@ cd amazon-sagemaker-studio-vpc-networkfirewall
 <h2 id="experiment-with-network-firewall">Experiment with Network Firewall</h2>
 <p>Now you can learn how to control the internet inbound and outbound access with Network Firewall. In this section, we discuss the initial setup, accessing resources not on the allow list, adding domains to the allow list, configuring logging, and additional firewall rules.</p>
 <h3 id="initial-setup">Initial setup</h3>
-<p>The solution deploys a Network Firewall policy with a stateful rule group with an allow domain list. This policy is attached to the Network Firewall. All inbound and outbound internet traffic is blocked now, except for the .kaggle.com domain, which is on the allow list.</p>
+<p>The solution deploys a Network Firewall policy with a stateful rule group with an allow domain list. This policy is attached to the Network Firewall. All inbound and outbound internet traffic is blocked now, except for the <code>.kaggle.com</code> domain, which is on the allow list.</p>
 <table>
 <thead>
 <tr>
@@ -843,8 +624,8 @@ The following screenshot shows that the request succeeds because the domain is a
 </table>
 <h4 id="access-resources-not-on-the-allowed-domain-list">Access resources not on the allowed domain list</h4>
 <p>In the Studio notebook, try to clone any public GitHub repository, such as the following:</p>
-<p><code>!git clone https://github.com/aws-samples/amazon-sagemaker-studio-vpc-networkfirewall.git</code>
-This operation times out after 5 minutes because any internet traffic except to and from the .kaggle.com domain isn’t allowed and is dropped by Network Firewall.</p>
+<p><code>!git clone https://github.com/pytorch/examples.git</code>
+This operation times out after 5 minutes because any internet traffic except to and from the <code>.kaggle.com</code> domain isn’t allowed and is dropped by the firewall.</p>
 <table>
 <thead>
 <tr>
@@ -1114,26 +895,6 @@ This command fails with <code>ReadTimeoutError</code> because Network Firewall d
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../../hosting-and-deployment/gh-pages/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Github Pages" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Github Pages
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
