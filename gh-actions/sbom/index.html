@@ -1,0 +1,799 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="mike madsen">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Software Bill of Materials - ml-papers-with-code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sbom-software-bill-of-material-with-docker-container-and-github-actions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ml-papers-with-code" class="md-header__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ml-papers-with-code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Software Bill of Materials
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ml-papers-with-code" class="md-nav__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ml-papers-with-code
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Github Actions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Github Actions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Github Actions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-push-image/" class="md-nav__link">
+        Build and Push Image to ghcr
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Software Bill of Materials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Software Bill of Materials
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-sbom" class="md-nav__link">
+    What is SBOM?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cachetest/" class="md-nav__link">
+        Cache Testing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Hosting and Deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hosting and Deployment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Hosting and Deployment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hosting-and-deployment/gh-pages/" class="md-nav__link">
+        Github Pages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hosting-and-deployment/gh-pages-private-repo/" class="md-nav__link">
+        Private Repo with GH Pages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hosting-and-deployment/enable_github_pages/" class="md-nav__link">
+        Enable GH Pages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Sagemaker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sagemaker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Sagemaker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sagemaker/secure-sagemaker-network-firewall/" class="md-nav__link">
+        Secure Network
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sagemaker/secure-sagemaker-network-firewall-summary/" class="md-nav__link">
+        Secure Network Summary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-sbom" class="md-nav__link">
+    What is SBOM?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="sbom-software-bill-of-material-with-docker-container-and-github-actions">SBOM Software Bill of Material with Docker Container and Github Actions</h1>
+<p>Generate an SBOM from within a GitHub Actions workflow. In this way, the SBOM is shipped with the container image and is made available without having to scan the image each time.</p>
+<h2 id="what-is-sbom">What is SBOM?</h2>
+<p>From Wikipedia:</p>
+<pre><code>A software bill of materials (SBOM) is a list of components in a piece of software. Software vendors often create products by assembling open source and commercial software components. The SBOM describes the components in a product. It is analogous to a list of ingredients on food packaging: where you might consult a label to avoid foods that may cause an allergies, SBOMs can help companies avoid consumption of software that could harm their organization.
+
+The concept of a BOM is well-established in traditional manufacturing as part of supply chain management. A manufacturer uses a BOM to track the parts it uses to create a product. If defects are later found in a specific part, the BOM makes it easy to locate affected products.
+</code></pre>
+<hr />
+<h1 id="crane">Crane</h1>
+<p><a href="https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane.md">crane</a> is a tool for interacting with remote images and registries.</p>
+<p><a href="https://crane-docs.konveyor.io/content/getting-started/installation/">Install crane</a> </p>
+<pre><code class="language-shell">sudo snap install go --classic ## Install go 
+
+go install github.com/google/go-containerregistry/cmd/crane@latest
+
+</code></pre>
+<pre><code class="language-shell">curl -sL &quot;https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_Linux_x86_64.tar.gz&quot; &gt; go-containerregistry.tar.gz
+
+
+curl -sL https://api.github.com/repos/konveyor/crane/releases/latest | 
+jq -r &quot;.assets[] | select(.name | contains(\&quot;amd64-linux\&quot;)) | 
+.browser_download_url&quot; | wget -i-
+</code></pre>
+<h1 id="imagine-you-have-the-following-dockerfile">Imagine you have the following Dockerfile:</h1>
+<pre><code class="language-shell">FROM alpine:3.17.0
+
+RUN apk add --no-cache curl ca-certificates
+
+CMD [&quot;curl&quot;, &quot;https://www.google.com&quot;]
+</code></pre>
+<p>I know that there's a vulnerability in alpine 3.17.0 in the OpenSSL library. How do I know that? I recently updated every OpenFaaS Pro component to use 3.17.1 to fix a specific vulnerability.</p>
+<p>Now a typical workflow for this Dockerfile would look like the below:</p>
+<pre><code class="language-yml">name: build
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+permissions:
+  actions: read
+  checks: write
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+
+      - name: Build Docker image
+        run: docker build . --file Dockerfile.sbom --tag my-image-name:$(date +%s)
+
+    #   - name: Set up Docker Buildx
+    #     uses: docker/setup-buildx-action@v2
+
+    #   - name: Login to Docker Registry
+    #     uses: docker/login-action@v2
+    #     with:
+    #       username: ${{ github.repository_owner }}
+    #       password: ${{ secrets.GITHUB_TOKEN }}
+    #       registry: ghcr.io
+
+      - name: Publish image
+        uses: docker/build-push-action@v3
+        with:
+          build-args: |
+            GitCommit=${{ github.sha }}
+          outputs: &quot;type=registry,push=true&quot;
+          tags: |
+            ghcr.io/alexellis/gha-sbom:${{ github.sha }}
+</code></pre>
+<p>Upon each commit, an image is published to GitHub's Container Registry with the image name of: 
+<code>ghcr.io/np-completed/gha-sbom:SHA</code>.</p>
+<p>To generate an SBOM, we just need to update the <code>docker/build-push-action</code> to use the <code>sbom</code> flag:</p>
+<pre><code class="language-yml">- name: Local build
+    id: local_build
+    uses: docker/build-push-action@v3
+    with:
+        sbom: true
+        provenance: false
+</code></pre>
+<p>View the SBOM:</p>
+<pre><code class="language-shell">syft ghcr.io/np-completed/gha-sbom:840fc5b2f3c94099e5dc74434a6bbcc156407a6f
+
+ ✔ Loaded image            
+ ✔ Parsed image            
+ ✔ Cataloged packages      [21 packages]
+NAME                    VERSION      TYPE   
+alpine-baselayout       3.4.0-r0     apk     
+alpine-baselayout-data  3.4.0-r0     apk     
+alpine-keys             2.4-r1       apk     
+apk-tools               2.12.10-r1   apk     
+brotli-libs             1.0.9-r9     apk     
+busybox                 1.35.0       binary  
+busybox                 1.35.0-r29   apk     
+busybox-binsh           1.35.0-r29   apk     
+ca-certificates         20220614-r4  apk     
+ca-certificates-bundle  20220614-r2  apk     
+curl                    7.87.0-r1    apk     
+libc-utils              0.7.2-r3     apk     
+libcrypto3              3.0.7-r0     apk     
+libcurl                 7.87.0-r1    apk     
+libssl3                 3.0.7-r0     apk     
+musl                    1.2.3-r4     apk     
+musl-utils              1.2.3-r4     apk     
+nghttp2-libs            1.51.0-r0    apk     
+scanelf                 1.3.5-r1     apk     
+ssl_client              1.35.0-r29   apk     
+zlib                    1.2.13-r0    apk     
+</code></pre>
+<pre><code class="language-shell">grype ghcr.io/np-completed/gha-sbom:840fc5b2f3c94099e5dc74434a6bbcc156407a6f
+
+ ✔ Vulnerability DB        [no update available]
+ ✔ Pulled image            
+ ✔ Loaded image            
+ ✔ Parsed image            
+ ✔ Cataloged packages      [21 packages]
+ ✔ Scanned image           [2 vulnerabilities]
+NAME        INSTALLED  FIXED-IN  TYPE  VULNERABILITY  SEVERITY 
+libcrypto3  3.0.7-r0   3.0.7-r2  apk   CVE-2022-3996  High      
+libssl3     3.0.7-r0   3.0.7-r2  apk   CVE-2022-3996  High      
+
+</code></pre>
+<p>The image: <code>alpine:3.17.0</code> contains two High vulnerabilities, and from reading the notes, we can see that both have been fixed.</p>
+<p>We can resolve the issue by changing the Dockerfile to use <code>alpine:latest</code> instead, and re-running the build.</p>
+<pre><code class="language-shell">syft ghcr.io/np-completed/gha-sbom:1a7f4c36bad2a506d7403fe4dd904a356bd8bbfa
+ ✔ Pulled image            
+ ✔ Loaded image            
+ ✔ Parsed image            
+ ✔ Cataloged packages      [21 packages]
+NAME                    VERSION      TYPE   
+alpine-baselayout       3.4.0-r0     apk     
+alpine-baselayout-data  3.4.0-r0     apk     
+alpine-keys             2.4-r1       apk     
+apk-tools               2.12.10-r1   apk     
+brotli-libs             1.0.9-r9     apk     
+busybox                 1.35.0       binary  
+busybox                 1.35.0-r29   apk     
+busybox-binsh           1.35.0-r29   apk     
+ca-certificates         20220614-r4  apk     
+ca-certificates-bundle  20220614-r4  apk     
+curl                    7.87.0-r1    apk     
+libc-utils              0.7.2-r3     apk     
+libcrypto3              3.0.7-r2     apk     
+libcurl                 7.87.0-r1    apk     
+libssl3                 3.0.7-r2     apk     
+musl                    1.2.3-r4     apk     
+musl-utils              1.2.3-r4     apk     
+nghttp2-libs            1.51.0-r0    apk     
+scanelf                 1.3.5-r1     apk     
+ssl_client              1.35.0-r29   apk     
+zlib                    1.2.13-r0    apk 
+
+
+
+grype  ghcr.io/np-completed/gha-sbom:1a7f4c36bad2a506d7403fe4dd904a356bd8bbfa
+ ✔ Vulnerability DB        [no update available]
+ ✔ Loaded image            
+ ✔ Parsed image            
+ ✔ Cataloged packages      [21 packages]
+ ✔ Scanned image           [0 vulnerabilities]
+
+</code></pre>
+<hr />
+<h1 id="install-grype-and-syft">Install Grype and Syft</h1>
+<p>Anchore provides commercial solutions for creating, managing and inspecting SBOMs, however they also have two very useful open source tools that we can try out for free.</p>
+<ul>
+<li>
+<p><a href="https://github.com/anchore/syft">syft</a> - a command line tool that can be used to generate an SBOM for a container image.
+&nbsp;</p>
+</li>
+<li>
+<p><a href="https://github.com/anchore/grype">grype</a> - a command line tool that can be used to scan an SBOM for vulnerabilities.</p>
+</li>
+</ul>
+<h2 id="grype">Grype</h2>
+<p>Run the following command to install the latest version of Grype to the <code>/usr/local/bin</code> directory:</p>
+<pre><code class="language-shell">wget -qO - https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo bash -s -- -b /usr/local/bin
+
+## Verify install worked
+grype version
+</code></pre>
+<p>Run the <code>grype</code> command and specify the container image as argument:</p>
+<pre><code class="language-shell">$ grype ubuntu:latest
+
+ ✔ Vulnerability DB        [updated]
+ ✔ Pulled image            
+ ✔ Loaded image            
+ ✔ Parsed image            
+ ✔ Cataloged packages      [101 packages]
+ ✔ Scanned image           [18 vulnerabilities]
+NAME              INSTALLED                 FIXED-IN  TYPE  VULNERABILITY   SEVERITY   
+bash              5.1-6ubuntu1                        deb   CVE-2022-3715   Low         
+coreutils         8.32-4.1ubuntu1                     deb   CVE-2016-2781   Low         
+gpgv              2.2.27-3ubuntu2.1                   deb   CVE-2022-3219   Low         
+libc-bin          2.35-0ubuntu3.1                     deb   CVE-2016-20013  Negligible  
+libc6             2.35-0ubuntu3.1                     deb   CVE-2016-20013  Negligible  
+libgssapi-krb5-2  1.19.2-2                            deb   CVE-2022-42898  Medium      
+libk5crypto3      1.19.2-2                            deb   CVE-2022-42898  Medium     
+</code></pre>
+<h3 id="uninstall-grype">Uninstall grype</h3>
+<p><code>sudo rm -rf /usr/local/bin/grype</code></p>
+<p>and remove vulnerabilities database</p>
+<p><code>rm -rf ~/.cache/grype</code></p>
+<h2 id="install-syft">Install Syft</h2>
+<p>Run the following command to install the latest version of Syft to the <code>/usr/local/bin</code> directory:</p>
+<pre><code class="language-shell">wget -qO - https://raw.githubusercontent.com/anchore/syft/main/install.sh | sudo bash -s -- -b /usr/local/bin
+
+## Verify install worked
+syft version
+
+Application:        syft
+Version:            0.68.1
+JsonSchemaVersion:  6.2.0
+BuildDate:          2023-01-25T17:46:33Z
+GitCommit:          4c0aef09b8d7fb78200b04416f474b90b79370de
+GitDescription:     v0.68.1
+Platform:           linux/amd64
+GoVersion:          go1.18.10
+Compiler:           gc
+
+</code></pre>
+<h3 id="test-syft">Test Syft</h3>
+<p>Generate an SBOM for a container image:</p>
+<p><code>syft &lt;image&gt;</code></p>
+<p>The above output includes only software that is visible in the container (i.e., the squashed representation of the image). To include software from all image layers in the SBOM, regardless of its presence in the final image, provide <code>--scope all-layers</code>:</p>
+<p><code>syft &lt;image&gt; --scope all-layers</code></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../build-push-image/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Build and Push Image to ghcr" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Build and Push Image to ghcr
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../cachetest/" class="md-footer__link md-footer__link--next" aria-label="Next: Cache Testing" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Cache Testing
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+    
+  </body>
+</html>

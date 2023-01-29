@@ -10,19 +10,19 @@
         <meta name="author" content="mike madsen">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.11">
     
     
       
-        <title>ml-papers-with-code</title>
+        <title>Cache Testing - ml-papers-with-code</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
         
       
     
@@ -37,7 +37,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,6 +60,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#caching-docker-builds-in-github-actions-which-approach-is-fastest" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -70,7 +75,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="ml-papers-with-code" class="md-header__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
+    <a href="../.." title="ml-papers-with-code" class="md-header__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -89,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Cache Testing
             
           </span>
         </div>
@@ -156,7 +161,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="ml-papers-with-code" class="md-nav__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
+    <a href="../.." title="ml-papers-with-code" class="md-nav__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -175,7 +180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -188,12 +193,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -216,7 +223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/gh-actions/build-push-image/" class="md-nav__link">
+      <a href="../build-push-image/" class="md-nav__link">
         Build and Push Image to ghcr
       </a>
     </li>
@@ -230,7 +237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/gh-actions/sbom/" class="md-nav__link">
+      <a href="../sbom/" class="md-nav__link">
         Software Bill of Materials
       </a>
     </li>
@@ -242,11 +249,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/gh-actions/cachetest/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Cache Testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Cache Testing
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    Abstract:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -292,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hosting-and-deployment/gh-pages/" class="md-nav__link">
+      <a href="../../hosting-and-deployment/gh-pages/" class="md-nav__link">
         Github Pages
       </a>
     </li>
@@ -306,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hosting-and-deployment/gh-pages-private-repo/" class="md-nav__link">
+      <a href="../../hosting-and-deployment/gh-pages-private-repo/" class="md-nav__link">
         Private Repo with GH Pages
       </a>
     </li>
@@ -320,7 +375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hosting-and-deployment/enable_github_pages/" class="md-nav__link">
+      <a href="../../hosting-and-deployment/enable_github_pages/" class="md-nav__link">
         Enable GH Pages
       </a>
     </li>
@@ -368,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sagemaker/secure-sagemaker-network-firewall/" class="md-nav__link">
+      <a href="../../sagemaker/secure-sagemaker-network-firewall/" class="md-nav__link">
         Secure Network
       </a>
     </li>
@@ -382,7 +437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sagemaker/secure-sagemaker-network-firewall-summary/" class="md-nav__link">
+      <a href="../../sagemaker/secure-sagemaker-network-firewall-summary/" class="md-nav__link">
         Secure Network Summary
       </a>
     </li>
@@ -413,6 +468,30 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    Abstract:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -423,8 +502,35 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
 
+
+<h1 id="caching-docker-builds-in-github-actions-which-approach-is-fastest">Caching Docker builds in github actions: Which approach is fastest?</h1>
+<p>https://dev.to/dtinth/caching-docker-builds-in-github-actions-which-approach-is-the-fastest-a-research-18ei</p>
+<h2 id="abstract">Abstract:</h2>
+<p>In this post, I experimented with 6 different approaches for caching Docker builds in GitHub Actions to speed up the build process and compared the results. After trying out every approach, 10 times each, the results show that using GitHub Packages’ Docker registry as a build cache, as opposed to GitHub Actions’ built-in cache, yields the highest performance gain.</p>
+<p>Unlike self-hosted runners like Jenkins, most cloud-hosted build runners are stateless, providing us with a pristine environment each run. We cannot keep files from the previous runs around; anything that needs to be persisted must be externalized.</p>
+<p><a href="https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows">GitHub Actions has a built-in cache</a> to help do this. But there are many ways of creating that cache (<code>docker save</code> and <code>docker load</code> first comes to mind). Will the performance gains outweight the overhead caused by saving and loading caches? Are there more approaches other than using GitHub Action’s built-in cache? That’s what this research is about.</p>
+<h2 id="dockerfile">Dockerfile</h2>
+<pre><code class="language-shell">FROM node:14.21.2
+RUN yarn create react-app my-react-app
+RUN cd my-react-app &amp;&amp; yarn build
+RUN npm install -g @vue/cli &amp;&amp; (yes | vue create my-vue-app --default)
+RUN cd my-vue-app &amp;&amp; yarn build
+RUN mkdir -p my-tests &amp;&amp; cd my-tests &amp;&amp; yarn add playwright
+# test
+# test
+# test
+# test
+# test
+# test
+# test
+# test
+# test
+# test
+</code></pre>
+
+              
             </article>
           </div>
         </div>
@@ -432,6 +538,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../sbom/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Software Bill of Materials" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Software Bill of Materials
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../hosting-and-deployment/gh-pages/" class="md-footer__link md-footer__link--next" aria-label="Next: Github Pages" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Github Pages
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -453,10 +594,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
       
     
   </body>
