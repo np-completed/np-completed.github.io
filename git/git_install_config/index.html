@@ -1,0 +1,1496 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="mike madsen">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Git - ml-papers-with-code</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ml-papers-with-code" class="md-header__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ml-papers-with-code
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ml-papers-with-code" class="md-nav__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ml-papers-with-code
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Environments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Environments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Environments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/proj_environment/" class="md-nav__link">
+        Environment Setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/Makefile/" class="md-nav__link">
+        Make Workflow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/poetry_install/" class="md-nav__link">
+        Poetry Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/poetry_new_project/" class="md-nav__link">
+        Poetry New Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/pyproject_toml/" class="md-nav__link">
+        Poetry toml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/pyenv_cheatsheet/" class="md-nav__link">
+        Pyenv
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/vscode/" class="md-nav__link">
+        VS Code
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          git
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="git" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_workflow/" class="md-nav__link">
+        Git Workflow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_diff/" class="md-nav__link">
+        Diff
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_branch_v1/" class="md-nav__link">
+        Branch V1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_branching/" class="md-nav__link">
+        Branch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_log/" class="md-nav__link">
+        Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_ssh/" class="md-nav__link">
+        SSH key
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Github Actions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Github Actions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Github Actions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Projects
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Projects" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Projects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/build-push-image/" class="md-nav__link">
+        Build and Push Image to ghcr
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/sbom/" class="md-nav__link">
+        Software Bill of Materials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/cachetest/" class="md-nav__link">
+        Cache Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/gh_actions_tutorial/" class="md-nav__link">
+        GH Actions Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/gh_actions_cheatsheet/" class="md-nav__link">
+        GH Actions Cheatsheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/push_file_remote/" class="md-nav__link">
+        Push Remote File
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/ecr_actions_workflow/" class="md-nav__link">
+        ECR Build & Push
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/docker_build_push/" class="md-nav__link">
+        Docker Build and Push
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/dependabot/" class="md-nav__link">
+        Requirements Dependabot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/broken_links_report/" class="md-nav__link">
+        Broken URL Report
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/url_test_in_cloudfront/" class="md-nav__link">
+        Test URLs in Cloudfront
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/runner/" class="md-nav__link">
+        Self Hosted Runner
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/share_docker_job/" class="md-nav__link">
+        Share Artifacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/read_project_file/" class="md-nav__link">
+        Read Project File
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Checks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Checks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Checks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/checks/actions/" class="md-nav__link">
+        Actions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/checks/auth/" class="md-nav__link">
+        Auth
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/checks/git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/checks/internet/" class="md-nav__link">
+        Internet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/checks/network/" class="md-nav__link">
+        Network
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/checks/nodejs/" class="md-nav__link">
+        Nodejs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gh_actions/checks/ssl_certs/" class="md-nav__link">
+        SSL Certs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Hosting and Deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hosting and Deployment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Hosting and Deployment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hosting-and-deployment/gh-pages/" class="md-nav__link">
+        Github Pages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hosting-and-deployment/gh-pages-private-repo/" class="md-nav__link">
+        Private Repo with GH Pages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hosting-and-deployment/enable_github_pages/" class="md-nav__link">
+        Enable GH Pages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Markdown
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Markdown
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdown/content/" class="md-nav__link">
+        Content
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdown/mermaid_graphs/" class="md-nav__link">
+        Mermaid Graphs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdown/emoji_list/" class="md-nav__link">
+        markdown emoji list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../markdown/markdown/" class="md-nav__link">
+        markdown images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Sagemaker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sagemaker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Sagemaker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sagemaker/secure-sagemaker-network-firewall/" class="md-nav__link">
+        Secure Network
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sagemaker/secure-sagemaker-network-firewall-summary/" class="md-nav__link">
+        Secure Network Summary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git-refresher" class="md-nav__link">
+    GIT Refresher
+  </a>
+  
+    <nav class="md-nav" aria-label="GIT Refresher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-version-control" class="md-nav__link">
+    Why use version control?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-git" class="md-nav__link">
+    Why use git?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-of-files-in-git" class="md-nav__link">
+    State of files in git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-terminology" class="md-nav__link">
+    Git terminology
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-this-have-to-do-with-github-or-gitlab" class="md-nav__link">
+    What does this have to do with GitHub or GitLab?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-and-config-git" class="md-nav__link">
+    Install and Config git
+  </a>
+  
+    <nav class="md-nav" aria-label="Install and Config git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-git-for-your-os" class="md-nav__link">
+    Install git for your OS
+  </a>
+  
+    <nav class="md-nav" aria-label="Install git for your OS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-contents-of-my-git-config" class="md-nav__link">
+    list contents of my git config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-credentials" class="md-nav__link">
+    git credentials
+  </a>
+  
+    <nav class="md-nav" aria-label="git credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-keygen" class="md-nav__link">
+    SSH keygen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy-configuration" class="md-nav__link">
+    Proxy configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Proxy configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#us-proxy-settings-berkeley" class="md-nav__link">
+    US Proxy Settings Berkeley
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bayer-httphttps-proxies" class="md-nav__link">
+    Bayer HTTP/HTTPS proxies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-repo" class="md-nav__link">
+    Clone repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-branch-default-name" class="md-nav__link">
+    Git branch default name.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-aspects-to-consider-setting-up-a-repository" class="md-nav__link">
+    Some aspects to consider setting up a repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jupyter-and-rmarkdown-notebooks" class="md-nav__link">
+    Jupyter and RMarkdown notebooks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-stats" class="md-nav__link">
+    github Stats
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="git">Git</h1>
+<p>Install and configure git on local environment.</p>
+<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+<h2 id="git-refresher">GIT Refresher</h2>
+<ul>
+<li>Background discussion and common github commands.</li>
+<li>No advanced topics, but tutorials should be easier after becoming familiar with common git commands.</li>
+<li>The official <a href="https://git-scm.com/book/en/v2">git documentation</a> is excellent (most diagrams in this presentation are from the official documentation)</li>
+<li>This presentation is available from <a href="https://github.com/bayer-int/smol-cls-git-migration-template">GitHub.com</a></li>
+</ul>
+<h3 id="why-use-version-control">Why use version control?</h3>
+<ul>
+<li>Easier experimentation - you can always go back to a working version</li>
+<li>Identification of project versions</li>
+<li>Exchange of a consistent state of your project</li>
+</ul>
+<h3 id="why-use-git">Why use git?</h3>
+<ul>
+<li>Widespread use</li>
+<li>Integrates with many applications</li>
+<li>Fast and very flexible</li>
+<li>Distributed</li>
+</ul>
+<h3 id="state-of-files-in-git">State of files in git</h3>
+<ul>
+<li>Files are initially <em>untracked</em> - they will be ignored by git</li>
+<li>They need to be <em>staged</em> to be handled by git</li>
+<li>After <em>committing</em> the current state is recorded</li>
+<li>Every following change can be <em>staged</em> and <em>committed</em></li>
+</ul>
+<p><img alt="git lifecycle" src="../img/git_lifecycle.png" />
+The git lifecycle uses the concept of a <strong>remote repository</strong> for pushing files from a local environment.</p>
+<hr />
+<h3 id="git-terminology">Git terminology</h3>
+<ul>
+<li>Repository: Snapshots of the managed files and their version history</li>
+<li>Commit: A named snapshot of all managed files in the repository</li>
+<li>Remote: A connected git repository</li>
+<li>Push: Transmit commits to a remote</li>
+<li>Pull: Get commits from a remote</li>
+<li>Merge: Integrate changes</li>
+<li>Stash: Local cache of changes</li>
+<li>Clone: create a copy of a remote</li>
+<li>Branch: a named tracking variant of files</li>
+</ul>
+<h3 id="what-does-this-have-to-do-with-github-or-gitlab">What does this have to do with GitHub or GitLab?</h3>
+<ul>
+<li>GitHub or GitLab are remotes with a web interface</li>
+<li>They offer a lot of additional functionality but in the context of git they are not different from the repository you have on disk</li>
+<li>Git can be used with different workflows but often GitHub or GitLab are used as central hubs to share a project</li>
+</ul>
+<h2 id="install-and-config-git">Install and Config git</h2>
+<h3 id="install-git-for-your-os">Install git for your OS</h3>
+<ul>
+<li>Windows <code>scoop install git</code></li>
+<li>MacOS <code>brew install git</code></li>
+<li>linux <code>apt install git-all</code></li>
+<li>AWS prefers to use linux-like docker images??? debian and ubuntu commands used in practice.</li>
+<li>Setup global configuration</li>
+</ul>
+<pre><code class="language-bash">git config --global user.name &quot;elxsj&quot;
+git config --global user.email michael.madsen.ext@bayer.com
+</code></pre>
+<h4 id="list-contents-of-my-git-config">list contents of my git config</h4>
+<p>The <code>~/.gitconfig</code> file will show git details. Also, the local configuration will be in your repository's <code>.git/config</code> file.</p>
+<p>To view system, global and local values:</p>
+<pre><code class="language-bash">git config --list
+
+    ## My current git config shows these details
+    credential.helper=osxkeychain ## Personal access token
+    user.name=elxsj
+    user.email=93400240+elxsj@users.noreply.github.com
+    init.defaultbranch=master
+</code></pre>
+<p>Change the default email shown in the config file:</p>
+<pre><code class="language-shell">git config --global user.email 'michael.madsen@bayer.com'
+</code></pre>
+<hr />
+<h2 id="git-credentials">git credentials</h2>
+<p>SSH is the ideal method to clone and update repos from command line.</p>
+<p>To debug connectivity issues, a github Personal Access Token is a technically feasible alternative to SSH.</p>
+<p>If you want to store git credentials (this will store the password <em>unencrypted</em>!)</p>
+<blockquote>
+<p>:see_no_evil: Not recommended in production. Use only for testing.</p>
+</blockquote>
+<pre><code class="language-bash">git config --global credential.helper store
+</code></pre>
+<p>If you want to cache your credentials</p>
+<pre><code class="language-bash">git config credential.helper 'cache --timeout=&lt;timeout&gt;'
+</code></pre>
+<h4 id="ssh-keygen">SSH keygen</h4>
+<p>While ssh is the prefered method for users to clone and push to their repos, it is still possible to clone via https.</p>
+<pre><code class="language-shell">ssh-keygen -t ed25519 -C &quot;michael.madsen.ext@bayer.com&quot;
+
+## Output
+## Generating public/private ed25519 key pair.
+## Enter file in which to save the key (/Users/elxsj/.ssh/id_ed25519):
+</code></pre>
+<p>Next, add the SSH key to your GitHub account
+Goto your GitHub Account -&gt; Settings
+Then look for SSH and GPG keys under <strong>Account Settings -&gt; SSH and GPG keys </strong>
+After that click on New SSH Key. Assign some meaningful name to your key</p>
+<p>Copy the content of the key and paste the key inside your GitHub account.</p>
+<pre><code class="language-shell">cat /Users/elxsj/.ssh/id_ed25519.pub
+</code></pre>
+<hr />
+<h3 id="proxy-configuration">Proxy configuration</h3>
+<h4 id="us-proxy-settings-berkeley">US Proxy Settings Berkeley</h4>
+<pre><code class="language-bash">export http_proxy=http://10.86.255.70:8080
+export https_proxy=https://10.86.255.70:8080
+
+</code></pre>
+<p>Configure the Git client to refer to the cacerts that have the imported certificate:</p>
+<pre><code class="language-bash">git config --system http.sslCAPath /path/to/cacerts
+</code></pre>
+<p>From the official git docs but untested with Bayer network.</p>
+<pre><code class="language-bash">## This puts password in plain text
+git config --global http.proxy https://PROXY_USERNAME:PROXY_PASSWORD@PROXY_SERVER:8080
+</code></pre>
+<h3 id="bayer-httphttps-proxies">Bayer HTTP/HTTPS proxies</h3>
+<p>Misaligned Bayer proxies interfere with using git. It is technically feasible to temporarily bypass SSL but this deviates from best practices. <strong>Do not do this in production!</strong></p>
+<pre><code class="language-bash">git config --global http.sslVerify false
+</code></pre>
+<h3 id="clone-repo">Clone repo</h3>
+<p>Clone repo and bypass SSL <strong>Do not do this in production!</strong></p>
+<p>Useful to check if certificates require updating.</p>
+<pre><code class="language-bash">git -c http.sslVerify=false clone &lt;repository-name&gt;
+</code></pre>
+<h3 id="git-branch-default-name">Git branch default name.</h3>
+<p>If you want to use <em>master</em> instead of <em>main</em> as default branch name.</p>
+<pre><code class="language-bash">git config --global init.defaultBranch master
+</code></pre>
+<p>Update local branch name from <code>main</code> to <code>master</code>.</p>
+<pre><code>git branch -m main master
+git fetch origin
+git branch -u origin/master master
+git remote set-head origin -a
+</code></pre>
+<h3 id="some-aspects-to-consider-setting-up-a-repository">Some aspects to consider setting up a repository</h3>
+<ul>
+<li>Binary files can be handled by git, but large files make some operations in git slow</li>
+<li>For pure data repositories specialized software like <a href="https://dvc.org">DVC</a> might be a better option</li>
+<li>Removing changes from the git history is very hard - think twice if you want big files in your repository!</li>
+</ul>
+<h3 id="jupyter-and-rmarkdown-notebooks">Jupyter and RMarkdown notebooks</h3>
+<ul>
+<li>Jupyter and RMarkdown Notebooks embed code with output.</li>
+<li>They can get very big (file size)</li>
+<li>They may save many image files</li>
+<li>Changes on the cell (python) or hook (rmarkdown) outputs can hide changes in the code</li>
+<li>It can be very hard to merge concurrent changes</li>
+<li>Clean the output before committing</li>
+</ul>
+<h2 id="github-stats">github Stats</h2>
+<p>Gather insights into the usage of different programming languages and their dependencies within our organization.</p>
+<p>Useful Links</p>
+<ul>
+<li>UI URL: https://devtools-np.monsanto.net/github-stats</li>
+<li>UI Repo: https://github.platforms.engineering/APALA4/github-stats-ui</li>
+<li>API Docs: https://devtools-np.monsanto.net/github-stats-api/v1/docs</li>
+<li>API Repo: https://github.platforms.engineering/APALA4/github-stats-api</li>
+<li>Vulnerabilities API: https://ossindex.sonatype.org/rest</li>
+</ul>
+<h1 id="github-hooks">Github Hooks</h1>
+<p>Many people are familair with github actions and its common to use github actions to perform code formatting or testing. Another way to do this is using git <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">hooks</a>.</p>
+<h1 id="authors">Authors</h1>
+<p>fuad.abdallah@bayer.com</p>
+<p>michael.madsen@bayer.com</p>
+<h1 id="references">References</h1>
+<ul>
+<li>
+<p><a href="https://git-scm.com/">Git official docs</a></p>
+</li>
+<li>
+<p><a href="https://ndpsoftware.com/git-cheatsheet.html#loc=index;">Git visual cheat sheet </a></p>
+</li>
+<li>
+<p>Pro Git by Scott Chacon and Ben Straub is available to <a href="https://git-scm.com/book">read online for free</a>. A hard copy can be purchased online.</p>
+</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+    
+  </body>
+</html>
