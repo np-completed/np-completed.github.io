@@ -48,12 +48,16 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-teal">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -73,7 +77,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="ml-papers-with-code" class="md-header__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
       
@@ -101,6 +107,28 @@
       </div>
     </div>
     
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
     
     
       <label class="md-header__button md-icon" for="__search">
@@ -117,10 +145,16 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -137,15 +171,153 @@
 </div>
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/np-completed/np-completed.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    np-completed.github.io
+  </div>
+</a>
+      </div>
+    
   </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../proj_environment/" class="md-tabs__link md-tabs__link--active">
+        Environments
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../git/git_branching/" class="md-tabs__link">
+        git
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gh_actions/build-push-image/" class="md-tabs__link">
+        Github Actions
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../hosting-and-deployment/gh-pages/" class="md-tabs__link">
+        Hosting and Deployment
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../markdown/content/" class="md-tabs__link">
+        Markdown
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sagemaker/secure-sagemaker-network-firewall/" class="md-tabs__link">
+        Sagemaker
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
   
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -158,8 +330,12 @@
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="ml-papers-with-code" class="md-nav__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
       
@@ -169,6 +345,18 @@
     </a>
     ml-papers-with-code
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/np-completed/np-completed.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    np-completed.github.io
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -387,7 +575,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -410,10 +598,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" data-md-state="indeterminate" type="checkbox" id="__nav_3_1" checked>
       
       
       
@@ -569,10 +759,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
       
       
       
@@ -641,7 +833,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -846,10 +1038,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_14" type="checkbox" id="__nav_4_14" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_14" data-md-state="indeterminate" type="checkbox" id="__nav_4_14" checked>
       
       
       
@@ -988,7 +1182,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -1064,7 +1258,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -1168,7 +1362,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -1226,65 +1420,36 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#poetry-features" class="md-nav__link">
-    Poetry Features
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
+  <a href="https://github.com/np-completed/np-completed.github.io/blob/main/docs/environment/poetry_new_project.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
 
 
-<h1 id="poetry-package-manager">Poetry package manager</h1>
+
+<h1 id="poetry-package-manager">Poetry package manager<a class="headerlink" href="#poetry-package-manager" title="Permanent link">&para;</a></h1>
 <p>Poetry helps you declare, manage and install dependencies of Python projects, ensuring you have the right stack everywhere.</p>
 <p>Personally , I use <code>pyenv</code> and <code>poetry</code> for production projects. These decouple system settings from individual projects.</p>
-<h2 id="poetry-features">Poetry Features</h2>
+<h2 id="poetry-features">Poetry Features<a class="headerlink" href="#poetry-features" title="Permanent link">&para;</a></h2>
 <p>The <code>pyproject.toml</code> is a standardized file to manage the dependencies.</p>
 <p><code>poetry</code> will also detect if you are inside a virtualenv and install the packages accordingly. So, poetry can be installed globally and used everywhere.</p>
 <blockquote>
-<p>:fire: Poetry is isolated from your system. This is a really good thing, bc each OS is a unique environment.</p>
+<p><img alt="🔥" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f525.svg" title=":fire:" /> Poetry is isolated from your system. This is a really good thing, bc each OS is a unique environment.</p>
 </blockquote>
 <p><code>poetry</code> also comes with a full fledged dependency resolution library.</p>
 <hr />
-<h1 id="create-new-poetry-project">Create new poetry project</h1>
-<h2 id="abbreviated-create-new-project-with-poetry-env">Abbreviated:  Create new project with poetry env</h2>
+<h1 id="create-new-poetry-project">Create new poetry project<a class="headerlink" href="#create-new-poetry-project" title="Permanent link">&para;</a></h1>
+<h2 id="abbreviated-create-new-project-with-poetry-env">Abbreviated:  Create new project with poetry env<a class="headerlink" href="#abbreviated-create-new-project-with-poetry-env" title="Permanent link">&para;</a></h2>
 <p>This is the abbreviated directions for power users. Scroll past this section to see detailed explanations.</p>
 <ul>
 <li>
 <p><code>poetry new test_env</code></p>
 <blockquote>
-<p>:exclamation: Use <code>poetry init</code> for existing project</p>
+<p><img alt="❗" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2757.svg" title=":exclamation:" /> Use <code>poetry init</code> for existing project</p>
 </blockquote>
 </li>
 <li>
@@ -1310,25 +1475,25 @@
 &nbsp;</p>
 <p>open VSCode and the shell shows the correct environment
 - <code>(test-env-py3.9) [elxsj@WUST040517:~/test_env]$</code></p>
-<h3 id="activate-virtual-environment">Activate Virtual Environment</h3>
+<h3 id="activate-virtual-environment">Activate Virtual Environment<a class="headerlink" href="#activate-virtual-environment" title="Permanent link">&para;</a></h3>
 <p>Open existing poetry environment, by runnning
 <code>poetry shell</code></p>
-<p>The poetry environment will display in shell:</p>
-<pre><code>(breeding-apd-simulator-datapipeline-dw-py3.10) bash-3.2$
-</code></pre>
+<p>The poetry environment will display in shell:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(breeding-apd-simulator-datapipeline-dw-py3.10) bash-3.2$
+</code></pre></div></p>
 <hr />
-<h2 id="verbose-create-new-project-with-poetry-env">Verbose:  Create new project with poetry env</h2>
+<h2 id="verbose-create-new-project-with-poetry-env">Verbose:  Create new project with poetry env<a class="headerlink" href="#verbose-create-new-project-with-poetry-env" title="Permanent link">&para;</a></h2>
 <p>In a shell generate a default project scaffold</p>
 <ul>
 <li><code>poetry new poetry_env</code></li>
 <li><code>cd $_</code> switch into directory</li>
 </ul>
 <p><strong>OR Simulate an existing project.</strong> Create directory and add <code>pyproject.toml</code></p>
-<p>:pencil: <code>poetry new poetry-demo</code> creates a directory for a new project. This  is not required for an existing project. For an existing project run <code>poetry init</code> in the existing project directory and step through the interactive dialogue.</p>
-<pre><code class="language-shell">mkdir ~/test_error &amp;&amp; cd ~/test_error
-
-echo -e &quot;[tool.poetry] \nname = 'smol-cls-mwaa-dags' \nversion = '0.1.0' \ndescription = '' \nauthors = ['memadsen &lt;michael.madsen@bayer.com&gt;'] \n\n[tool.poetry.dependencies] \npython = '^3.9' \n\n[tool.poetry.dev-dependencies] \n\n[build-system] \nrequires = ['poetry-core&gt;=1.0.0'] \nbuild-backend = 'poetry.core.masonry.api'&quot; &gt; pyproject.toml
-</code></pre>
+<p><img alt="📝" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4dd.svg" title=":pencil:" /> <code>poetry new poetry-demo</code> creates a directory for a new project. This  is not required for an existing project. For an existing project run <code>poetry init</code> in the existing project directory and step through the interactive dialogue.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir ~/test_error <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/test_error
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">echo</span> -e <span class="s2">&quot;[tool.poetry] \nname = &#39;smol-cls-mwaa-dags&#39; \nversion = &#39;0.1.0&#39; \ndescription = &#39;&#39; \nauthors = [&#39;memadsen &lt;michael.madsen@bayer.com&gt;&#39;] \n\n[tool.poetry.dependencies] \npython = &#39;^3.9&#39; \n\n[tool.poetry.dev-dependencies] \n\n[build-system] \nrequires = [&#39;poetry-core&gt;=1.0.0&#39;] \nbuild-backend = &#39;poetry.core.masonry.api&#39;&quot;</span> &gt; pyproject.toml
+</code></pre></div>
 <ul>
 <li>
 <p><code>cd $_</code> switch into directory
@@ -1338,16 +1503,16 @@ echo -e &quot;[tool.poetry] \nname = 'smol-cls-mwaa-dags' \nversion = '0.1.0' \n
 <p>My directory scaffold has this structure</p>
 </li>
 </ul>
-<pre><code class="language-shell">$ tree
-
-.
-├── README.md
-├── poetry_env
-│   └── __init__.py
-├── pyproject.toml
-└── tests
-    └── __init__.py
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ tree
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>.
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── README.md
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>├── poetry_env
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│   └── __init__.py
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>├── pyproject.toml
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>└── tests
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    └── __init__.py
+</code></pre></div>
 <ul>
 <li>
 <p><code>pyenv install 3.9.5</code> Optional, if previously installed</p>
@@ -1357,9 +1522,9 @@ echo -e &quot;[tool.poetry] \nname = 'smol-cls-mwaa-dags' \nversion = '0.1.0' \n
 </li>
 <li>This creates a <code>.python_version</code> file.</li>
 </ul>
-<pre><code class="language-shell">cat .python-version
-3.9.1
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cat .python-version
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="m">3</span>.9.1
+</code></pre></div>
 <p><code>poetry env use 3.9.1</code> set the Python used for the Poetry-managed environment, creating it if it doesn't already exist. envs.toml is created to record what the 'current interpreter' for the environment is (as the user has explicitly selected one, instead of letting Poetry select the interpreter implicitly)</p>
 <p>Notice the <code>pyproject.toml</code>. This is where we define everything from our project’s metadata, dependencies, scripts, and more. If you’re familiar with Node.js, consider the <code>pyproject.toml</code> as an equivalent of the Node.js <code>package.json</code>.</p>
 <ul>
@@ -1369,54 +1534,53 @@ echo -e &quot;[tool.poetry] \nname = 'smol-cls-mwaa-dags' \nversion = '0.1.0' \n
 </ul>
 <p><code>poetry install</code> Install and activate the virtual environment</p>
 <hr />
-<h4 id="add-python-interpreter-to-path-required-for-pycharm">Add python interpreter to path, required for <code>Pycharm</code>.</h4>
+<h4 id="add-python-interpreter-to-path-required-for-pycharm">Add python interpreter to path, required for <code>Pycharm</code>.<a class="headerlink" href="#add-python-interpreter-to-path-required-for-pycharm" title="Permanent link">&para;</a></h4>
 <p><img alt="py_interpreter_path" src="img/pycharm_add_py_interpreter.png" /></p>
-<h4 id="check-poetry-toml-file-for-virtualenvs">Check <code>poetry .toml</code> file for <code>virtualenvs</code></h4>
+<h4 id="check-poetry-toml-file-for-virtualenvs">Check <code>poetry .toml</code> file for <code>virtualenvs</code><a class="headerlink" href="#check-poetry-toml-file-for-virtualenvs" title="Permanent link">&para;</a></h4>
 <p>My preference is to have all the logic to my virtualenv in one place, e.g the <code>.toml</code> file.</p>
-<pre><code class="language-shell">[tool.poetry]
-name = &quot;microservice-aws-app-runner&quot;
-version = &quot;0.1.0&quot;
-description = &quot;&quot;
-authors = [&quot;memadsen &lt;michael.madsen@bayer.com&gt;&quot;]
-
-[tool.poetry.dependencies]
-python = &quot;^3.9&quot;
-
-[tool.poetry.dev-dependencies]
-
-[build-system]
-requires = [&quot;poetry-core&gt;=1.0.0&quot;]
-build-backend = &quot;poetry.core.masonry.api&quot;
-
-[virtualenvs]
-create = true
-in-project = true
-</code></pre>
-<h2 id="project-dependencies">Project Dependencies</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">[</span>tool.poetry<span class="o">]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;microservice-aws-app-runner&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nv">description</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nv">authors</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;memadsen &lt;michael.madsen@bayer.com&gt;&quot;</span><span class="o">]</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="o">[</span>tool.poetry.dependencies<span class="o">]</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nv">python</span> <span class="o">=</span> <span class="s2">&quot;^3.9&quot;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">[</span>tool.poetry.dev-dependencies<span class="o">]</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="o">[</span>build-system<span class="o">]</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nv">requires</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;poetry-core&gt;=1.0.0&quot;</span><span class="o">]</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>build-backend <span class="o">=</span> <span class="s2">&quot;poetry.core.masonry.api&quot;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="o">[</span>virtualenvs<span class="o">]</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="nv">create</span> <span class="o">=</span> <span class="nb">true</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">in</span>-project <span class="o">=</span> <span class="nb">true</span>
+</code></pre></div>
+<h2 id="project-dependencies">Project Dependencies<a class="headerlink" href="#project-dependencies" title="Permanent link">&para;</a></h2>
 <p>Track project dependencies using <code>poetry show --tree</code>.</p>
 <p>Next</p>
-<pre><code class="language-bash">poetry show --tree
-requests-toolbelt 0.8.0 A utility belt for advanced users...
-└── requests &lt;3.0.0,&gt;=2.0.1
-    ├── certifi &gt;=2017.4.17
-    ├── chardet &gt;=3.0.2,&lt;3.1.0
-    ├── idna &gt;=2.5,&lt;2.7
-    └── urllib3 &lt;1.23,&gt;=1.21.1
-
-$ poetry show --latest
-pendulum 2.0.4   1.4.5 Python datetimes made easy.
-django   1.11.11 2.0.3 A high-level Python Web framework ...
-requests 2.18.4  2.18.4 Python HTTP for Humans.
-</code></pre>
-<h2 id="add-libraries">Add libraries</h2>
-<pre><code class="language-shell">poetry add mlrun==1.0.2
-
-## Specify constraints when adding library
-poetry add pendulum@^2.0.5
-poetry add &quot;pendulum&gt;=2.0.5&quot;
-
-</code></pre>
-<h4 id="options-to-add-libraries">Options to add libraries</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>poetry show --tree
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>requests-toolbelt <span class="m">0</span>.8.0 A utility belt <span class="k">for</span> advanced users...
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>└── requests &lt;<span class="m">3</span>.0.0,&gt;<span class="o">=</span><span class="m">2</span>.0.1
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    ├── certifi &gt;<span class="o">=</span><span class="m">2017</span>.4.17
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    ├── chardet &gt;<span class="o">=</span><span class="m">3</span>.0.2,&lt;<span class="m">3</span>.1.0
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    ├── idna &gt;<span class="o">=</span><span class="m">2</span>.5,&lt;<span class="m">2</span>.7
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    └── urllib3 &lt;<span class="m">1</span>.23,&gt;<span class="o">=</span><span class="m">1</span>.21.1
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>$ poetry show --latest
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>pendulum <span class="m">2</span>.0.4   <span class="m">1</span>.4.5 Python datetimes made easy.
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>django   <span class="m">1</span>.11.11 <span class="m">2</span>.0.3 A high-level Python Web framework ...
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>requests <span class="m">2</span>.18.4  <span class="m">2</span>.18.4 Python HTTP <span class="k">for</span> Humans.
+</code></pre></div>
+<h2 id="add-libraries">Add libraries<a class="headerlink" href="#add-libraries" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>poetry add <span class="nv">mlrun</span><span class="o">==</span><span class="m">1</span>.0.2
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">## Specify constraints when adding library</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>poetry add pendulum@^2.0.5
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>poetry add <span class="s2">&quot;pendulum&gt;=2.0.5&quot;</span>
+</code></pre></div>
+<h4 id="options-to-add-libraries">Options to add libraries<a class="headerlink" href="#options-to-add-libraries" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>--dev (-D)</code> : Add package as development dependency.</li>
 <li><code>--path</code> : The path to a dependency.</li>
@@ -1424,64 +1588,61 @@ poetry add &quot;pendulum&gt;=2.0.5&quot;
 <li><code>--dry-run</code> : Outputs the operations but will not execute anything (implicitly enables –verbose).</li>
 <li><code>--lock</code> : Do not perform install (only update the lockfile).</li>
 </ul>
-<h3 id="update-libraries">Update libraries</h3>
+<h3 id="update-libraries">Update libraries<a class="headerlink" href="#update-libraries" title="Permanent link">&para;</a></h3>
 <p>If you just want to update a few packages and not all, you can list them as such:</p>
-<pre><code class="language-shell">poetry update requests toml
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>poetry update requests toml
+</code></pre></div>
 <p>Note that this will not update versions for dependencies outside their version constraints specified in the <code>pyproject.toml</code> file. In other terms, <code>poetry update foo</code> will be a no-op if the version constraint specified for <code>foo</code> is <code>~2.3</code>or <code>2.3</code> and <code>2.4</code> is available. In order for <code>foo</code> to be updated, you must update the constraint, for example <code>^2.3</code>. You can do this using the <code>add</code> command.</p>
-<h4 id="options">Options</h4>
+<h4 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h4>
 <ul>
 <li>--dry-run : Outputs the operations but will not execute anything (implicitly enables –verbose).</li>
 <li>--no-dev : Do not install dev dependencies.</li>
 <li>--lock : Do not perform install (only update the lockfile).</li>
 </ul>
-<pre><code class="language-shell">poetry lock --no-update
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>poetry lock --no-update
+</code></pre></div>
 <p>This makes it possible to remove a dependency from <code>pyproject.toml</code> and update the lock file without upgrading dependencies.</p>
-<h3 id="dependency-group">Dependency Group</h3>
-<pre><code class="language-shell">poetry add --group dev httpx
-
-</code></pre>
+<h3 id="dependency-group">Dependency Group<a class="headerlink" href="#dependency-group" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>poetry add --group dev httpx
+</code></pre></div>
 <hr />
-<h3 id="current-configuration">Current Configuration</h3>
+<h3 id="current-configuration">Current Configuration<a class="headerlink" href="#current-configuration" title="Permanent link">&para;</a></h3>
 <p>List the current configuration.</p>
-<pre><code class="language-shell">$ poetry config --list
-
-cache-dir = &quot;/Users/elxsj/Library/Caches/pypoetry&quot;
-experimental.new-installer = true
-experimental.system-git-client = false
-installer.max-workers = null
-installer.no-binary = null
-installer.parallel = true
-virtualenvs.create = true
-virtualenvs.in-project = null
-virtualenvs.options.always-copy = false
-virtualenvs.options.no-pip = false
-virtualenvs.options.no-setuptools = false
-virtualenvs.options.system-site-packages = false
-virtualenvs.path = &quot;{cache-dir}/virtualenvs&quot;  # /Users/elxsj/Library/Caches/pypoetry/virtualenvs
-virtualenvs.prefer-active-python = false
-virtualenvs.prompt = &quot;{project_name}-py{python_version}&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ poetry config --list
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>cache-dir <span class="o">=</span> <span class="s2">&quot;/Users/elxsj/Library/Caches/pypoetry&quot;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>experimental.new-installer <span class="o">=</span> <span class="nb">true</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>experimental.system-git-client <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>installer.max-workers <span class="o">=</span> null
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>installer.no-binary <span class="o">=</span> null
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>installer.parallel <span class="o">=</span> <span class="nb">true</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>virtualenvs.create <span class="o">=</span> <span class="nb">true</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>virtualenvs.in-project <span class="o">=</span> null
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>virtualenvs.options.always-copy <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>virtualenvs.options.no-pip <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>virtualenvs.options.no-setuptools <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>virtualenvs.options.system-site-packages <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>virtualenvs.path <span class="o">=</span> <span class="s2">&quot;{cache-dir}/virtualenvs&quot;</span>  <span class="c1"># /Users/elxsj/Library/Caches/pypoetry/virtualenvs</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>virtualenvs.prefer-active-python <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>virtualenvs.prompt <span class="o">=</span> <span class="s2">&quot;{project_name}-py{python_version}&quot;</span>
+</code></pre></div>
 <p>Check the <code>Path</code> and <code>Executable</code> for this poetry environment:</p>
-<pre><code class="language-shell">
-$ poetry env info
-
-System
-Platform:   darwin
-OS:         posix
-Python:     3.10.0
-Path:       /Users/elxsj/.pyenv/versions/3.10.0
-Executable: /Users/elxsj/.pyenv/versions/3.10.0/bin/python3.10
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ poetry env info
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>System
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Platform:   darwin
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>OS:         posix
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Python:     <span class="m">3</span>.10.0
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>Path:       /Users/elxsj/.pyenv/versions/3.10.0
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>Executable: /Users/elxsj/.pyenv/versions/3.10.0/bin/python3.10
+</code></pre></div>
 <hr />
-<h3 id="poetry-export">Poetry Export</h3>
+<h3 id="poetry-export">Poetry Export<a class="headerlink" href="#poetry-export" title="Permanent link">&para;</a></h3>
 <p>If you have a Poetry project, you can create a requirements.txt file from your poetry.lock file:</p>
-<pre><code class="language-shell">poetry export --output requirements.txt
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>poetry <span class="nb">export</span> --output requirements.txt
+</code></pre></div>
 <hr />
-<h2 id="poetry-commands">Poetry Commands</h2>
+<h2 id="poetry-commands">Poetry Commands<a class="headerlink" href="#poetry-commands" title="Permanent link">&para;</a></h2>
 <p>Create a new project, create a virtual envrionment and add and remove dependencies using these commands:</p>
 <table>
 <thead>
@@ -1525,22 +1686,27 @@ Executable: /Users/elxsj/.pyenv/versions/3.10.0/bin/python3.10
 </tr>
 </tbody>
 </table>
-<h2 id="environment">Environment</h2>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
 <p><code>poetry env list</code> List all environments</p>
 <p><code>poetry env remove env-name</code> Remove environment</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <p>Some things to try if poetry has unusual errors.</p>
 <p><code>poetry cache clear --all .</code> Clear cache</p>
-<pre><code class="language-python">rm -f ./poetry.lock
-poetry install --remove-untracked
-</code></pre>
-<h1 id="references">References</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">poetry</span><span class="o">.</span><span class="n">lock</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">poetry</span> <span class="n">install</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">untracked</span>
+</code></pre></div>
+<h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
 <p>Poetry github https://github.com/python-poetry/poetry</p>
 
               
             </article>
           </div>
         </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
         
       </main>
       
@@ -1601,7 +1767,7 @@ poetry install --remove-untracked
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "content.tabs.link", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>

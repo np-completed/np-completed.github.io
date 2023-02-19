@@ -48,12 +48,16 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-teal">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -73,7 +77,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="ml-papers-with-code" class="md-header__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
       
@@ -101,6 +107,28 @@
       </div>
     </div>
     
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
     
     
       <label class="md-header__button md-icon" for="__search">
@@ -117,10 +145,16 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -137,15 +171,153 @@
 </div>
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/np-completed/np-completed.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    np-completed.github.io
+  </div>
+</a>
+      </div>
+    
   </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../environment/proj_environment/" class="md-tabs__link">
+        Environments
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../git/git_branching/" class="md-tabs__link">
+        git
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../build-push-image/" class="md-tabs__link md-tabs__link--active">
+        Github Actions
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../hosting-and-deployment/gh-pages/" class="md-tabs__link">
+        Hosting and Deployment
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../markdown/content/" class="md-tabs__link">
+        Markdown
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sagemaker/secure-sagemaker-network-firewall/" class="md-tabs__link">
+        Sagemaker
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
   
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -158,8 +330,12 @@
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="ml-papers-with-code" class="md-nav__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
       
@@ -169,6 +345,18 @@
     </a>
     ml-papers-with-code
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/np-completed/np-completed.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    np-completed.github.io
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -198,7 +386,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -344,7 +532,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -367,10 +555,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" data-md-state="indeterminate" type="checkbox" id="__nav_3_1" checked>
       
       
       
@@ -526,10 +716,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
       
       
       
@@ -846,10 +1038,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_14" type="checkbox" id="__nav_4_14" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_14" data-md-state="indeterminate" type="checkbox" id="__nav_4_14" checked>
       
       
       
@@ -988,7 +1182,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -1064,7 +1258,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -1168,7 +1362,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -1226,217 +1420,186 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-sbom" class="md-nav__link">
-    What is SBOM?
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
+  <a href="https://github.com/np-completed/np-completed.github.io/blob/main/docs/gh_actions/sbom.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
 
 
-<h1 id="sbom-software-bill-of-material-with-docker-container-and-github-actions">SBOM Software Bill of Material with Docker Container and Github Actions</h1>
+
+<h1 id="sbom-software-bill-of-material-with-docker-container-and-github-actions">SBOM Software Bill of Material with Docker Container and Github Actions<a class="headerlink" href="#sbom-software-bill-of-material-with-docker-container-and-github-actions" title="Permanent link">&para;</a></h1>
 <p>Generate an SBOM from within a GitHub Actions workflow. In this way, the SBOM is shipped with the container image and is made available without having to scan the image each time.</p>
-<h2 id="what-is-sbom">What is SBOM?</h2>
+<h2 id="what-is-sbom">What is SBOM?<a class="headerlink" href="#what-is-sbom" title="Permanent link">&para;</a></h2>
 <p>From Wikipedia:</p>
-<pre><code>A software bill of materials (SBOM) is a list of components in a piece of software. Software vendors often create products by assembling open source and commercial software components. The SBOM describes the components in a product. It is analogous to a list of ingredients on food packaging: where you might consult a label to avoid foods that may cause an allergies, SBOMs can help companies avoid consumption of software that could harm their organization.
+<div class="codehilite"><pre><span></span><code><span class="nv">A</span> <span class="nv">software</span> <span class="nv">bill</span> <span class="nv">of</span> <span class="nv">materials</span> <span class="ss">(</span><span class="nv">SBOM</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">list</span> <span class="nv">of</span> <span class="nv">components</span> <span class="nv">in</span> <span class="nv">a</span> <span class="nv">piece</span> <span class="nv">of</span> <span class="nv">software</span>. <span class="nv">Software</span> <span class="nv">vendors</span> <span class="nv">often</span> <span class="nv">create</span> <span class="nv">products</span> <span class="nv">by</span> <span class="nv">assembling</span> <span class="nv">open</span> <span class="nv">source</span> <span class="nv">and</span> <span class="nv">commercial</span> <span class="nv">software</span> <span class="nv">components</span>. <span class="nv">The</span> <span class="nv">SBOM</span> <span class="nv">describes</span> <span class="nv">the</span> <span class="nv">components</span> <span class="nv">in</span> <span class="nv">a</span> <span class="nv">product</span>. <span class="nv">It</span> <span class="nv">is</span> <span class="nv">analogous</span> <span class="nv">to</span> <span class="nv">a</span> <span class="nv">list</span> <span class="nv">of</span> <span class="nv">ingredients</span> <span class="nv">on</span> <span class="nv">food</span> <span class="nv">packaging</span>: <span class="nv">where</span> <span class="nv">you</span> <span class="nv">might</span> <span class="nv">consult</span> <span class="nv">a</span> <span class="nv">label</span> <span class="nv">to</span> <span class="nv">avoid</span> <span class="nv">foods</span> <span class="nv">that</span> <span class="nv">may</span> <span class="nv">cause</span> <span class="nv">an</span> <span class="nv">allergies</span>, <span class="nv">SBOMs</span> <span class="nv">can</span> <span class="nv">help</span> <span class="nv">companies</span> <span class="nv">avoid</span> <span class="nv">consumption</span> <span class="nv">of</span> <span class="nv">software</span> <span class="nv">that</span> <span class="nv">could</span> <span class="nv">harm</span> <span class="nv">their</span> <span class="nv">organization</span>.
 
-The concept of a BOM is well-established in traditional manufacturing as part of supply chain management. A manufacturer uses a BOM to track the parts it uses to create a product. If defects are later found in a specific part, the BOM makes it easy to locate affected products.
-</code></pre>
+<span class="nv">The</span> <span class="nv">concept</span> <span class="nv">of</span> <span class="nv">a</span> <span class="nv">BOM</span> <span class="nv">is</span> <span class="nv">well</span><span class="o">-</span><span class="nv">established</span> <span class="nv">in</span> <span class="nv">traditional</span> <span class="nv">manufacturing</span> <span class="nv">as</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">supply</span> <span class="nv">chain</span> <span class="nv">management</span>. <span class="nv">A</span> <span class="nv">manufacturer</span> <span class="nv">uses</span> <span class="nv">a</span> <span class="nv">BOM</span> <span class="nv">to</span> <span class="nv">track</span> <span class="nv">the</span> <span class="nv">parts</span> <span class="nv">it</span> <span class="nv">uses</span> <span class="nv">to</span> <span class="nv">create</span> <span class="nv">a</span> <span class="nv">product</span>. <span class="k">If</span> <span class="nv">defects</span> <span class="nv">are</span> <span class="nv">later</span> <span class="nv">found</span> <span class="nv">in</span> <span class="nv">a</span> <span class="nv">specific</span> <span class="nv">part</span>, <span class="nv">the</span> <span class="nv">BOM</span> <span class="nv">makes</span> <span class="nv">it</span> <span class="nv">easy</span> <span class="nv">to</span> <span class="nv">locate</span> <span class="nv">affected</span> <span class="nv">products</span>.
+</code></pre></div>
+
 <hr />
-<h1 id="crane">Crane</h1>
+<h1 id="crane">Crane<a class="headerlink" href="#crane" title="Permanent link">&para;</a></h1>
 <p><a href="https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane.md">crane</a> is a tool for interacting with remote images and registries.</p>
 <p><a href="https://crane-docs.konveyor.io/content/getting-started/installation/">Install crane</a> </p>
-<pre><code class="language-shell">sudo snap install go --classic ## Install go 
-
-go install github.com/google/go-containerregistry/cmd/crane@latest
-
-</code></pre>
-<pre><code class="language-shell">curl -sL &quot;https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_Linux_x86_64.tar.gz&quot; &gt; go-containerregistry.tar.gz
-
-
-curl -sL https://api.github.com/repos/konveyor/crane/releases/latest | 
-jq -r &quot;.assets[] | select(.name | contains(\&quot;amd64-linux\&quot;)) | 
-.browser_download_url&quot; | wget -i-
-</code></pre>
-<h1 id="imagine-you-have-the-following-dockerfile">Imagine you have the following Dockerfile:</h1>
-<pre><code class="language-shell">FROM alpine:3.17.0
-
-RUN apk add --no-cache curl ca-certificates
-
-CMD [&quot;curl&quot;, &quot;https://www.google.com&quot;]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo snap install go --classic <span class="c1">## Install go </span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>go install github.com/google/go-containerregistry/cmd/crane@latest
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl -sL <span class="s2">&quot;https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_Linux_x86_64.tar.gz&quot;</span> &gt; go-containerregistry.tar.gz
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>curl -sL https://api.github.com/repos/konveyor/crane/releases/latest <span class="p">|</span> 
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>jq -r <span class="s2">&quot;.assets[] | select(.name | contains(\&quot;amd64-linux\&quot;)) | </span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s2">.browser_download_url&quot;</span> <span class="p">|</span> wget -i-
+</code></pre></div>
+<h1 id="imagine-you-have-the-following-dockerfile">Imagine you have the following Dockerfile:<a class="headerlink" href="#imagine-you-have-the-following-dockerfile" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>FROM alpine:3.17.0
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>RUN apk add --no-cache curl ca-certificates
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>CMD <span class="o">[</span><span class="s2">&quot;curl&quot;</span>, <span class="s2">&quot;https://www.google.com&quot;</span><span class="o">]</span>
+</code></pre></div>
 <p>I know that there's a vulnerability in alpine 3.17.0 in the OpenSSL library. How do I know that? I recently updated every OpenFaaS Pro component to use 3.17.1 to fix a specific vulnerability.</p>
 <p>Now a typical workflow for this Dockerfile would look like the below:</p>
-<pre><code class="language-yml">name: build
-
-on:
-  push:
-    branches: [ master, main ]
-  pull_request:
-    branches: [ master, main ]
-
-permissions:
-  actions: read
-  checks: write
-  contents: read
-  packages: write
-
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-        with:
-          fetch-depth: 1
-
-      - name: Build Docker image
-        run: docker build . --file Dockerfile.sbom --tag my-image-name:$(date +%s)
-
-    #   - name: Set up Docker Buildx
-    #     uses: docker/setup-buildx-action@v2
-
-    #   - name: Login to Docker Registry
-    #     uses: docker/login-action@v2
-    #     with:
-    #       username: ${{ github.repository_owner }}
-    #       password: ${{ secrets.GITHUB_TOKEN }}
-    #       registry: ghcr.io
-
-      - name: Publish image
-        uses: docker/build-push-action@v3
-        with:
-          build-args: |
-            GitCommit=${{ github.sha }}
-          outputs: &quot;type=registry,push=true&quot;
-          tags: |
-            ghcr.io/alexellis/gha-sbom:${{ github.sha }}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>name: build
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>on:
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  push:
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    branches: [ master, main ]
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  pull_request:
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    branches: [ master, main ]
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>permissions:
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  actions: read
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  checks: write
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  contents: read
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  packages: write
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>jobs:
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  publish:
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    runs-on: ubuntu-latest
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    steps:
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>      - uses: actions/checkout@master
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        with:
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>          fetch-depth: 1
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>      - name: Build Docker image
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        run: docker build . --file Dockerfile.sbom --tag my-image-name:$(date +%s)
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    #   - name: Set up Docker Buildx
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    #     uses: docker/setup-buildx-action@v2
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    #   - name: Login to Docker Registry
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    #     uses: docker/login-action@v2
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>    #     with:
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    #       username: ${{ github.repository_owner }}
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    #       password: ${{ secrets.GITHUB_TOKEN }}
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    #       registry: ghcr.io
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>      - name: Publish image
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>        uses: docker/build-push-action@v3
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>        with:
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>          build-args: |
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>            GitCommit=${{ github.sha }}
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>          outputs: &quot;type=registry,push=true&quot;
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>          tags: |
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>            ghcr.io/alexellis/gha-sbom:${{ github.sha }}
+</code></pre></div>
 <p>Upon each commit, an image is published to GitHub's Container Registry with the image name of: 
 <code>ghcr.io/np-completed/gha-sbom:SHA</code>.</p>
 <p>To generate an SBOM, we just need to update the <code>docker/build-push-action</code> to use the <code>sbom</code> flag:</p>
-<pre><code class="language-yml">- name: Local build
-    id: local_build
-    uses: docker/build-push-action@v3
-    with:
-        sbom: true
-        provenance: false
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>- name: Local build
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    id: local_build
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    uses: docker/build-push-action@v3
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    with:
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        sbom: true
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        provenance: false
+</code></pre></div>
 <p>View the SBOM:</p>
-<pre><code class="language-shell">syft ghcr.io/np-completed/gha-sbom:840fc5b2f3c94099e5dc74434a6bbcc156407a6f
-
- ✔ Loaded image            
- ✔ Parsed image            
- ✔ Cataloged packages      [21 packages]
-NAME                    VERSION      TYPE   
-alpine-baselayout       3.4.0-r0     apk     
-alpine-baselayout-data  3.4.0-r0     apk     
-alpine-keys             2.4-r1       apk     
-apk-tools               2.12.10-r1   apk     
-brotli-libs             1.0.9-r9     apk     
-busybox                 1.35.0       binary  
-busybox                 1.35.0-r29   apk     
-busybox-binsh           1.35.0-r29   apk     
-ca-certificates         20220614-r4  apk     
-ca-certificates-bundle  20220614-r2  apk     
-curl                    7.87.0-r1    apk     
-libc-utils              0.7.2-r3     apk     
-libcrypto3              3.0.7-r0     apk     
-libcurl                 7.87.0-r1    apk     
-libssl3                 3.0.7-r0     apk     
-musl                    1.2.3-r4     apk     
-musl-utils              1.2.3-r4     apk     
-nghttp2-libs            1.51.0-r0    apk     
-scanelf                 1.3.5-r1     apk     
-ssl_client              1.35.0-r29   apk     
-zlib                    1.2.13-r0    apk     
-</code></pre>
-<pre><code class="language-shell">grype ghcr.io/np-completed/gha-sbom:840fc5b2f3c94099e5dc74434a6bbcc156407a6f
-
- ✔ Vulnerability DB        [no update available]
- ✔ Pulled image            
- ✔ Loaded image            
- ✔ Parsed image            
- ✔ Cataloged packages      [21 packages]
- ✔ Scanned image           [2 vulnerabilities]
-NAME        INSTALLED  FIXED-IN  TYPE  VULNERABILITY  SEVERITY 
-libcrypto3  3.0.7-r0   3.0.7-r2  apk   CVE-2022-3996  High      
-libssl3     3.0.7-r0   3.0.7-r2  apk   CVE-2022-3996  High      
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>syft ghcr.io/np-completed/gha-sbom:840fc5b2f3c94099e5dc74434a6bbcc156407a6f
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> ✔ Loaded image            
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a> ✔ Parsed image            
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a> ✔ Cataloged packages      <span class="o">[</span><span class="m">21</span> packages<span class="o">]</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>NAME                    VERSION      TYPE   
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>alpine-baselayout       <span class="m">3</span>.4.0-r0     apk     
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>alpine-baselayout-data  <span class="m">3</span>.4.0-r0     apk     
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>alpine-keys             <span class="m">2</span>.4-r1       apk     
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>apk-tools               <span class="m">2</span>.12.10-r1   apk     
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>brotli-libs             <span class="m">1</span>.0.9-r9     apk     
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>busybox                 <span class="m">1</span>.35.0       binary  
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>busybox                 <span class="m">1</span>.35.0-r29   apk     
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>busybox-binsh           <span class="m">1</span>.35.0-r29   apk     
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>ca-certificates         <span class="m">20220614</span>-r4  apk     
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>ca-certificates-bundle  <span class="m">20220614</span>-r2  apk     
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>curl                    <span class="m">7</span>.87.0-r1    apk     
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>libc-utils              <span class="m">0</span>.7.2-r3     apk     
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>libcrypto3              <span class="m">3</span>.0.7-r0     apk     
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>libcurl                 <span class="m">7</span>.87.0-r1    apk     
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>libssl3                 <span class="m">3</span>.0.7-r0     apk     
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>musl                    <span class="m">1</span>.2.3-r4     apk     
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>musl-utils              <span class="m">1</span>.2.3-r4     apk     
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>nghttp2-libs            <span class="m">1</span>.51.0-r0    apk     
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>scanelf                 <span class="m">1</span>.3.5-r1     apk     
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>ssl_client              <span class="m">1</span>.35.0-r29   apk     
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>zlib                    <span class="m">1</span>.2.13-r0    apk     
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>grype ghcr.io/np-completed/gha-sbom:840fc5b2f3c94099e5dc74434a6bbcc156407a6f
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a> ✔ Vulnerability DB        <span class="o">[</span>no update available<span class="o">]</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a> ✔ Pulled image            
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a> ✔ Loaded image            
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a> ✔ Parsed image            
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a> ✔ Cataloged packages      <span class="o">[</span><span class="m">21</span> packages<span class="o">]</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a> ✔ Scanned image           <span class="o">[</span><span class="m">2</span> vulnerabilities<span class="o">]</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>NAME        INSTALLED  FIXED-IN  TYPE  VULNERABILITY  SEVERITY 
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>libcrypto3  <span class="m">3</span>.0.7-r0   <span class="m">3</span>.0.7-r2  apk   CVE-2022-3996  High      
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>libssl3     <span class="m">3</span>.0.7-r0   <span class="m">3</span>.0.7-r2  apk   CVE-2022-3996  High      
+</code></pre></div>
 <p>The image: <code>alpine:3.17.0</code> contains two High vulnerabilities, and from reading the notes, we can see that both have been fixed.</p>
 <p>We can resolve the issue by changing the Dockerfile to use <code>alpine:latest</code> instead, and re-running the build.</p>
-<pre><code class="language-shell">syft ghcr.io/np-completed/gha-sbom:1a7f4c36bad2a506d7403fe4dd904a356bd8bbfa
- ✔ Pulled image            
- ✔ Loaded image            
- ✔ Parsed image            
- ✔ Cataloged packages      [21 packages]
-NAME                    VERSION      TYPE   
-alpine-baselayout       3.4.0-r0     apk     
-alpine-baselayout-data  3.4.0-r0     apk     
-alpine-keys             2.4-r1       apk     
-apk-tools               2.12.10-r1   apk     
-brotli-libs             1.0.9-r9     apk     
-busybox                 1.35.0       binary  
-busybox                 1.35.0-r29   apk     
-busybox-binsh           1.35.0-r29   apk     
-ca-certificates         20220614-r4  apk     
-ca-certificates-bundle  20220614-r4  apk     
-curl                    7.87.0-r1    apk     
-libc-utils              0.7.2-r3     apk     
-libcrypto3              3.0.7-r2     apk     
-libcurl                 7.87.0-r1    apk     
-libssl3                 3.0.7-r2     apk     
-musl                    1.2.3-r4     apk     
-musl-utils              1.2.3-r4     apk     
-nghttp2-libs            1.51.0-r0    apk     
-scanelf                 1.3.5-r1     apk     
-ssl_client              1.35.0-r29   apk     
-zlib                    1.2.13-r0    apk 
-
-
-
-grype  ghcr.io/np-completed/gha-sbom:1a7f4c36bad2a506d7403fe4dd904a356bd8bbfa
- ✔ Vulnerability DB        [no update available]
- ✔ Loaded image            
- ✔ Parsed image            
- ✔ Cataloged packages      [21 packages]
- ✔ Scanned image           [0 vulnerabilities]
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>syft ghcr.io/np-completed/gha-sbom:1a7f4c36bad2a506d7403fe4dd904a356bd8bbfa
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a> ✔ Pulled image            
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a> ✔ Loaded image            
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a> ✔ Parsed image            
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a> ✔ Cataloged packages      <span class="o">[</span><span class="m">21</span> packages<span class="o">]</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>NAME                    VERSION      TYPE   
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>alpine-baselayout       <span class="m">3</span>.4.0-r0     apk     
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>alpine-baselayout-data  <span class="m">3</span>.4.0-r0     apk     
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>alpine-keys             <span class="m">2</span>.4-r1       apk     
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>apk-tools               <span class="m">2</span>.12.10-r1   apk     
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>brotli-libs             <span class="m">1</span>.0.9-r9     apk     
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>busybox                 <span class="m">1</span>.35.0       binary  
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>busybox                 <span class="m">1</span>.35.0-r29   apk     
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>busybox-binsh           <span class="m">1</span>.35.0-r29   apk     
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>ca-certificates         <span class="m">20220614</span>-r4  apk     
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>ca-certificates-bundle  <span class="m">20220614</span>-r4  apk     
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>curl                    <span class="m">7</span>.87.0-r1    apk     
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>libc-utils              <span class="m">0</span>.7.2-r3     apk     
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>libcrypto3              <span class="m">3</span>.0.7-r2     apk     
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>libcurl                 <span class="m">7</span>.87.0-r1    apk     
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>libssl3                 <span class="m">3</span>.0.7-r2     apk     
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>musl                    <span class="m">1</span>.2.3-r4     apk     
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>musl-utils              <span class="m">1</span>.2.3-r4     apk     
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>nghttp2-libs            <span class="m">1</span>.51.0-r0    apk     
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>scanelf                 <span class="m">1</span>.3.5-r1     apk     
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>ssl_client              <span class="m">1</span>.35.0-r29   apk     
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>zlib                    <span class="m">1</span>.2.13-r0    apk 
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>grype  ghcr.io/np-completed/gha-sbom:1a7f4c36bad2a506d7403fe4dd904a356bd8bbfa
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a> ✔ Vulnerability DB        <span class="o">[</span>no update available<span class="o">]</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a> ✔ Loaded image            
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a> ✔ Parsed image            
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a> ✔ Cataloged packages      <span class="o">[</span><span class="m">21</span> packages<span class="o">]</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a> ✔ Scanned image           <span class="o">[</span><span class="m">0</span> vulnerabilities<span class="o">]</span>
+</code></pre></div>
 <hr />
-<h1 id="install-grype-and-syft">Install Grype and Syft</h1>
+<h1 id="install-grype-and-syft">Install Grype and Syft<a class="headerlink" href="#install-grype-and-syft" title="Permanent link">&para;</a></h1>
 <p>Anchore provides commercial solutions for creating, managing and inspecting SBOMs, however they also have two very useful open source tools that we can try out for free.</p>
 <ul>
 <li>
@@ -1447,54 +1610,53 @@ grype  ghcr.io/np-completed/gha-sbom:1a7f4c36bad2a506d7403fe4dd904a356bd8bbfa
 <p><a href="https://github.com/anchore/grype">grype</a> - a command line tool that can be used to scan an SBOM for vulnerabilities.</p>
 </li>
 </ul>
-<h2 id="grype">Grype</h2>
+<h2 id="grype">Grype<a class="headerlink" href="#grype" title="Permanent link">&para;</a></h2>
 <p>Run the following command to install the latest version of Grype to the <code>/usr/local/bin</code> directory:</p>
-<pre><code class="language-shell">wget -qO - https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo bash -s -- -b /usr/local/bin
-
-## Verify install worked
-grype version
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>wget -qO - https://raw.githubusercontent.com/anchore/grype/main/install.sh <span class="p">|</span> sudo bash -s -- -b /usr/local/bin
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1">## Verify install worked</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>grype version
+</code></pre></div>
 <p>Run the <code>grype</code> command and specify the container image as argument:</p>
-<pre><code class="language-shell">$ grype ubuntu:latest
-
- ✔ Vulnerability DB        [updated]
- ✔ Pulled image            
- ✔ Loaded image            
- ✔ Parsed image            
- ✔ Cataloged packages      [101 packages]
- ✔ Scanned image           [18 vulnerabilities]
-NAME              INSTALLED                 FIXED-IN  TYPE  VULNERABILITY   SEVERITY   
-bash              5.1-6ubuntu1                        deb   CVE-2022-3715   Low         
-coreutils         8.32-4.1ubuntu1                     deb   CVE-2016-2781   Low         
-gpgv              2.2.27-3ubuntu2.1                   deb   CVE-2022-3219   Low         
-libc-bin          2.35-0ubuntu3.1                     deb   CVE-2016-20013  Negligible  
-libc6             2.35-0ubuntu3.1                     deb   CVE-2016-20013  Negligible  
-libgssapi-krb5-2  1.19.2-2                            deb   CVE-2022-42898  Medium      
-libk5crypto3      1.19.2-2                            deb   CVE-2022-42898  Medium     
-</code></pre>
-<h3 id="uninstall-grype">Uninstall grype</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ grype ubuntu:latest
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a> ✔ Vulnerability DB        <span class="o">[</span>updated<span class="o">]</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a> ✔ Pulled image            
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a> ✔ Loaded image            
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a> ✔ Parsed image            
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a> ✔ Cataloged packages      <span class="o">[</span><span class="m">101</span> packages<span class="o">]</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a> ✔ Scanned image           <span class="o">[</span><span class="m">18</span> vulnerabilities<span class="o">]</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>NAME              INSTALLED                 FIXED-IN  TYPE  VULNERABILITY   SEVERITY   
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>bash              <span class="m">5</span>.1-6ubuntu1                        deb   CVE-2022-3715   Low         
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>coreutils         <span class="m">8</span>.32-4.1ubuntu1                     deb   CVE-2016-2781   Low         
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>gpgv              <span class="m">2</span>.2.27-3ubuntu2.1                   deb   CVE-2022-3219   Low         
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>libc-bin          <span class="m">2</span>.35-0ubuntu3.1                     deb   CVE-2016-20013  Negligible  
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>libc6             <span class="m">2</span>.35-0ubuntu3.1                     deb   CVE-2016-20013  Negligible  
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>libgssapi-krb5-2  <span class="m">1</span>.19.2-2                            deb   CVE-2022-42898  Medium      
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>libk5crypto3      <span class="m">1</span>.19.2-2                            deb   CVE-2022-42898  Medium     
+</code></pre></div>
+<h3 id="uninstall-grype">Uninstall grype<a class="headerlink" href="#uninstall-grype" title="Permanent link">&para;</a></h3>
 <p><code>sudo rm -rf /usr/local/bin/grype</code></p>
 <p>and remove vulnerabilities database</p>
 <p><code>rm -rf ~/.cache/grype</code></p>
-<h2 id="install-syft">Install Syft</h2>
+<h2 id="install-syft">Install Syft<a class="headerlink" href="#install-syft" title="Permanent link">&para;</a></h2>
 <p>Run the following command to install the latest version of Syft to the <code>/usr/local/bin</code> directory:</p>
-<pre><code class="language-shell">wget -qO - https://raw.githubusercontent.com/anchore/syft/main/install.sh | sudo bash -s -- -b /usr/local/bin
-
-## Verify install worked
-syft version
-
-Application:        syft
-Version:            0.68.1
-JsonSchemaVersion:  6.2.0
-BuildDate:          2023-01-25T17:46:33Z
-GitCommit:          4c0aef09b8d7fb78200b04416f474b90b79370de
-GitDescription:     v0.68.1
-Platform:           linux/amd64
-GoVersion:          go1.18.10
-Compiler:           gc
-
-</code></pre>
-<h3 id="test-syft">Test Syft</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>wget -qO - https://raw.githubusercontent.com/anchore/syft/main/install.sh <span class="p">|</span> sudo bash -s -- -b /usr/local/bin
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">## Verify install worked</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>syft version
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>Application:        syft
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>Version:            <span class="m">0</span>.68.1
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>JsonSchemaVersion:  <span class="m">6</span>.2.0
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>BuildDate:          <span class="m">2023</span>-01-25T17:46:33Z
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>GitCommit:          4c0aef09b8d7fb78200b04416f474b90b79370de
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>GitDescription:     v0.68.1
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>Platform:           linux/amd64
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>GoVersion:          go1.18.10
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>Compiler:           gc
+</code></pre></div>
+<h3 id="test-syft">Test Syft<a class="headerlink" href="#test-syft" title="Permanent link">&para;</a></h3>
 <p>Generate an SBOM for a container image:</p>
 <p><code>syft &lt;image&gt;</code></p>
 <p>The above output includes only software that is visible in the container (i.e., the squashed representation of the image). To include software from all image layers in the SBOM, regardless of its presence in the final image, provide <code>--scope all-layers</code>:</p>
@@ -1504,6 +1666,11 @@ Compiler:           gc
             </article>
           </div>
         </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
         
       </main>
       
@@ -1564,7 +1731,7 @@ Compiler:           gc
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "content.tabs.link", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>

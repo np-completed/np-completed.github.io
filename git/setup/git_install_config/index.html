@@ -48,12 +48,16 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-teal">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -73,7 +77,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="ml-papers-with-code" class="md-header__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
       
@@ -101,6 +107,28 @@
       </div>
     </div>
     
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
     
     
       <label class="md-header__button md-icon" for="__search">
@@ -117,10 +145,16 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -137,15 +171,153 @@
 </div>
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/np-completed/np-completed.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    np-completed.github.io
+  </div>
+</a>
+      </div>
+    
   </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../environment/proj_environment/" class="md-tabs__link">
+        Environments
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../git_branching/" class="md-tabs__link md-tabs__link--active">
+        git
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../gh_actions/build-push-image/" class="md-tabs__link">
+        Github Actions
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../hosting-and-deployment/gh-pages/" class="md-tabs__link">
+        Hosting and Deployment
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../markdown/content/" class="md-tabs__link">
+        Markdown
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../sagemaker/secure-sagemaker-network-firewall/" class="md-tabs__link">
+        Sagemaker
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
   
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -158,8 +330,12 @@
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="ml-papers-with-code" class="md-nav__button md-logo" aria-label="ml-papers-with-code" data-md-component="logo">
       
@@ -169,6 +345,18 @@
     </a>
     ml-papers-with-code
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/np-completed/np-completed.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    np-completed.github.io
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -198,7 +386,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -369,10 +557,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" data-md-state="indeterminate" type="checkbox" id="__nav_3_1" checked>
       
       
       
@@ -530,7 +720,9 @@
   
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
@@ -799,7 +991,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -1004,10 +1196,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_14" type="checkbox" id="__nav_4_14" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_14" data-md-state="indeterminate" type="checkbox" id="__nav_4_14" checked>
       
       
       
@@ -1146,7 +1340,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -1222,7 +1416,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -1326,7 +1520,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -1384,225 +1578,40 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#git-refresher" class="md-nav__link">
-    GIT Refresher
-  </a>
-  
-    <nav class="md-nav" aria-label="GIT Refresher">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-use-version-control" class="md-nav__link">
-    Why use version control?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-use-git" class="md-nav__link">
-    Why use git?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#state-of-files-in-git" class="md-nav__link">
-    State of files in git
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#git-terminology" class="md-nav__link">
-    Git terminology
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-does-this-have-to-do-with-github-or-gitlab" class="md-nav__link">
-    What does this have to do with GitHub or GitLab?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-and-config-git" class="md-nav__link">
-    Install and Config git
-  </a>
-  
-    <nav class="md-nav" aria-label="Install and Config git">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-git-for-your-os" class="md-nav__link">
-    Install git for your OS
-  </a>
-  
-    <nav class="md-nav" aria-label="Install git for your OS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#list-contents-of-my-git-config" class="md-nav__link">
-    list contents of my git config
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-credentials" class="md-nav__link">
-    git credentials
-  </a>
-  
-    <nav class="md-nav" aria-label="git credentials">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ssh-keygen" class="md-nav__link">
-    SSH keygen
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#proxy-configuration" class="md-nav__link">
-    Proxy configuration
-  </a>
-  
-    <nav class="md-nav" aria-label="Proxy configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#us-proxy-settings" class="md-nav__link">
-    US Proxy Settings
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#corporate-httphttps-proxies" class="md-nav__link">
-    Corporate HTTP/HTTPS proxies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clone-repo" class="md-nav__link">
-    Clone repo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#git-branch-default-name" class="md-nav__link">
-    Git branch default name.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#some-aspects-to-consider-setting-up-a-repository" class="md-nav__link">
-    Some aspects to consider setting up a repository
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jupyter-and-rmarkdown-notebooks" class="md-nav__link">
-    Jupyter and RMarkdown notebooks
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#github-stats" class="md-nav__link">
-    github Stats
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
+  <a href="https://github.com/np-completed/np-completed.github.io/blob/main/docs/git/setup/git_install_config.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
 
 
-<h1 id="git">Git</h1>
+
+<h1 id="git">Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
 <p>Install and configure git on local environment.</p>
 <p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
-<h2 id="git-refresher">GIT Refresher</h2>
+<h2 id="git-refresher">GIT Refresher<a class="headerlink" href="#git-refresher" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Background discussion and common github commands.</li>
 <li>No advanced topics, but tutorials should be easier after becoming familiar with common git commands.</li>
 <li>The official <a href="https://git-scm.com/book/en/v2">git documentation</a> is excellent (most diagrams in this presentation are from the official documentation)</li>
 </ul>
-<h3 id="why-use-version-control">Why use version control?</h3>
+<h3 id="why-use-version-control">Why use version control?<a class="headerlink" href="#why-use-version-control" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Easier experimentation - you can always go back to a working version</li>
 <li>Identification of project versions</li>
 <li>Exchange of a consistent state of your project</li>
 </ul>
-<h3 id="why-use-git">Why use git?</h3>
+<h3 id="why-use-git">Why use git?<a class="headerlink" href="#why-use-git" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Widespread use</li>
 <li>Integrates with many applications</li>
 <li>Fast and very flexible</li>
 <li>Distributed</li>
 </ul>
-<h3 id="state-of-files-in-git">State of files in git</h3>
+<h3 id="state-of-files-in-git">State of files in git<a class="headerlink" href="#state-of-files-in-git" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Files are initially <em>untracked</em> - they will be ignored by git</li>
 <li>They need to be <em>staged</em> to be handled by git</li>
@@ -1612,7 +1621,7 @@
 <p><img alt="git lifecycle" src="img/git_lifecycle.png" />
 The git lifecycle uses the concept of a <strong>remote repository</strong> for pushing files from a local environment.</p>
 <hr />
-<h3 id="git-terminology">Git terminology</h3>
+<h3 id="git-terminology">Git terminology<a class="headerlink" href="#git-terminology" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Repository: Snapshots of the managed files and their version history</li>
 <li>Commit: A named snapshot of all managed files in the repository</li>
@@ -1624,14 +1633,14 @@ The git lifecycle uses the concept of a <strong>remote repository</strong> for p
 <li>Clone: create a copy of a remote</li>
 <li>Branch: a named tracking variant of files</li>
 </ul>
-<h3 id="what-does-this-have-to-do-with-github-or-gitlab">What does this have to do with GitHub or GitLab?</h3>
+<h3 id="what-does-this-have-to-do-with-github-or-gitlab">What does this have to do with GitHub or GitLab?<a class="headerlink" href="#what-does-this-have-to-do-with-github-or-gitlab" title="Permanent link">&para;</a></h3>
 <ul>
 <li>GitHub or GitLab are remotes with a web interface</li>
 <li>They offer a lot of additional functionality but in the context of git they are not different from the repository you have on disk</li>
 <li>Git can be used with different workflows but often GitHub or GitLab are used as central hubs to share a project</li>
 </ul>
-<h2 id="install-and-config-git">Install and Config git</h2>
-<h3 id="install-git-for-your-os">Install git for your OS</h3>
+<h2 id="install-and-config-git">Install and Config git<a class="headerlink" href="#install-and-config-git" title="Permanent link">&para;</a></h2>
+<h3 id="install-git-for-your-os">Install git for your OS<a class="headerlink" href="#install-git-for-your-os" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Windows <code>scoop install git</code></li>
 <li>MacOS <code>brew install git</code></li>
@@ -1639,90 +1648,91 @@ The git lifecycle uses the concept of a <strong>remote repository</strong> for p
 <li>AWS prefers to use linux-like docker images??? debian and ubuntu commands used in practice.</li>
 <li>Setup global configuration</li>
 </ul>
-<pre><code class="language-bash">git config --global user.name &quot;np-completed&quot;
-git config --global user.email mmadsen1978@gmail.com
-</code></pre>
-<h4 id="list-contents-of-my-git-config">list contents of my git config</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git config --global user.name <span class="s2">&quot;np-completed&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git config --global user.email mmadsen1978@gmail.com
+</code></pre></div>
+<h4 id="list-contents-of-my-git-config">list contents of my git config<a class="headerlink" href="#list-contents-of-my-git-config" title="Permanent link">&para;</a></h4>
 <p>The <code>~/.gitconfig</code> file will show git details. Also, the local configuration will be in your repository's <code>.git/config</code> file.</p>
 <p>To view system, global and local values:</p>
-<pre><code class="language-bash">git config --list
-
-    ## My current git config shows these details
-    credential.helper=osxkeychain ## Personal access token
-    user.name=np-completed
-    user.email=93400240+np-completed@users.noreply.github.com
-    init.defaultbranch=master
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git config --list
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="c1">## My current git config shows these details</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    credential.helper<span class="o">=</span>osxkeychain <span class="c1">## Personal access token</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    user.name<span class="o">=</span>np-completed
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    user.email<span class="o">=</span><span class="m">93400240</span>+np-completed@users.noreply.github.com
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    init.defaultbranch<span class="o">=</span>master
+</code></pre></div>
 <p>Change the default email shown in the config file:</p>
-<pre><code class="language-shell">git config --global user.email 'mmadsen1978@gmail.com'
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git config --global user.email <span class="s1">&#39;mmadsen1978@gmail.com&#39;</span>
+</code></pre></div>
 <hr />
-<h2 id="git-credentials">git credentials</h2>
+<h2 id="git-credentials">git credentials<a class="headerlink" href="#git-credentials" title="Permanent link">&para;</a></h2>
 <p>SSH is the ideal method to clone and update repos from command line.</p>
 <p>To debug connectivity issues, a github Personal Access Token is a technically feasible alternative to SSH.</p>
 <p>If you want to store git credentials (this will store the password <em>unencrypted</em>!)</p>
 <blockquote>
-<p>:see_no_evil: Not recommended in production. Use only for testing.</p>
+<p><img alt="🙈" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f648.svg" title=":see_no_evil:" /> Not recommended in production. Use only for testing.</p>
 </blockquote>
-<pre><code class="language-bash">git config --global credential.helper store
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git config --global credential.helper store
+</code></pre></div>
 <p>If you want to cache your credentials</p>
-<pre><code class="language-bash">git config credential.helper 'cache --timeout=&lt;timeout&gt;'
-</code></pre>
-<h4 id="ssh-keygen">SSH keygen</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git config credential.helper <span class="s1">&#39;cache --timeout=&lt;timeout&gt;&#39;</span>
+</code></pre></div>
+<h4 id="ssh-keygen">SSH keygen<a class="headerlink" href="#ssh-keygen" title="Permanent link">&para;</a></h4>
 <p>While ssh is the prefered method for users to clone and push to their repos, it is still possible to clone via https.</p>
-<pre><code class="language-shell">ssh-keygen -t ed25519 -C &quot;mmadsen1978@gmail.com&quot;
-
-## Output
-## Generating public/private ed25519 key pair.
-## Enter file in which to save the key (/Users/np-completed/.ssh/id_ed25519):
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ssh-keygen -t ed25519 -C <span class="s2">&quot;mmadsen1978@gmail.com&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">## Output</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">## Generating public/private ed25519 key pair.</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">## Enter file in which to save the key (/Users/np-completed/.ssh/id_ed25519):</span>
+</code></pre></div>
 <p>Next, add the SSH key to your GitHub account
 Goto your GitHub Account -&gt; Settings
-Then look for SSH and GPG keys under <strong>Account Settings -&gt; SSH and GPG keys </strong>
+Then look for SSH and GPG keys under **Account Settings -&gt; SSH and GPG keys **
 After that click on New SSH Key. Assign some meaningful name to your key</p>
 <p>Copy the content of the key and paste the key inside your GitHub account.</p>
-<pre><code class="language-shell">cat /Users/elxsj/.ssh/id_ed25519.pub
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cat /Users/elxsj/.ssh/id_ed25519.pub
+</code></pre></div>
 <hr />
-<h3 id="proxy-configuration">Proxy configuration</h3>
-<h4 id="us-proxy-settings">US Proxy Settings</h4>
-<pre><code class="language-bash">export http_proxy=http://10.44.255.70:8080
-export https_proxy=https://10.44.255.70:8080
-</code></pre>
+<h3 id="proxy-configuration">Proxy configuration<a class="headerlink" href="#proxy-configuration" title="Permanent link">&para;</a></h3>
+<h4 id="us-proxy-settings">US Proxy Settings<a class="headerlink" href="#us-proxy-settings" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://10.44.255.70:8080
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span>https://10.44.255.70:8080
+</code></pre></div>
 <p>Configure the Git client to refer to the cacerts that have the imported certificate:</p>
-<pre><code class="language-bash">git config --system http.sslCAPath /path/to/cacerts
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git config --system http.sslCAPath /path/to/cacerts
+</code></pre></div>
 <p>From the official git docs but untested with corporate network.</p>
-<pre><code class="language-bash">## This puts password in plain text
-git config --global http.proxy https://PROXY_USERNAME:PROXY_PASSWORD@PROXY_SERVER:8080
-</code></pre>
-<h3 id="corporate-httphttps-proxies">Corporate HTTP/HTTPS proxies</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">## This puts password in plain text</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git config --global http.proxy https://PROXY_USERNAME:PROXY_PASSWORD@PROXY_SERVER:8080
+</code></pre></div>
+<h3 id="corporate-httphttps-proxies">Corporate HTTP/HTTPS proxies<a class="headerlink" href="#corporate-httphttps-proxies" title="Permanent link">&para;</a></h3>
 <p>Misaligned proxies interfere with using git. It is technically feasible to temporarily bypass SSL but this deviates from best practices. <strong>Do not do this in production!</strong></p>
-<pre><code class="language-bash">git config --global http.sslVerify false
-</code></pre>
-<h3 id="clone-repo">Clone repo</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git config --global http.sslVerify <span class="nb">false</span>
+</code></pre></div>
+<h3 id="clone-repo">Clone repo<a class="headerlink" href="#clone-repo" title="Permanent link">&para;</a></h3>
 <p>Clone repo and bypass SSL <strong>Do not do this in production!</strong></p>
 <p>Useful to check if certificates require updating.</p>
-<pre><code class="language-bash">git -c http.sslVerify=false clone &lt;repository-name&gt;
-</code></pre>
-<h3 id="git-branch-default-name">Git branch default name.</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git -c http.sslVerify<span class="o">=</span><span class="nb">false</span> clone &lt;repository-name&gt;
+</code></pre></div>
+<h3 id="git-branch-default-name">Git branch default name.<a class="headerlink" href="#git-branch-default-name" title="Permanent link">&para;</a></h3>
 <p>If you want to use <em>master</em> instead of <em>main</em> as default branch name.</p>
-<pre><code class="language-bash">git config --global init.defaultBranch master
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git config --global init.defaultBranch master
+</code></pre></div>
 <p>Update local branch name from <code>main</code> to <code>master</code>.</p>
-<pre><code>git branch -m main master
+<div class="codehilite"><pre><span></span><code>git branch -m main master
 git fetch origin
 git branch -u origin/master master
 git remote set-head origin -a
-</code></pre>
-<h3 id="some-aspects-to-consider-setting-up-a-repository">Some aspects to consider setting up a repository</h3>
+</code></pre></div>
+
+<h3 id="some-aspects-to-consider-setting-up-a-repository">Some aspects to consider setting up a repository<a class="headerlink" href="#some-aspects-to-consider-setting-up-a-repository" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Binary files can be handled by git, but large files make some operations in git slow</li>
 <li>For pure data repositories specialized software like <a href="https://dvc.org">DVC</a> might be a better option</li>
 <li>Removing changes from the git history is very hard - think twice if you want big files in your repository!</li>
 </ul>
-<h3 id="jupyter-and-rmarkdown-notebooks">Jupyter and RMarkdown notebooks</h3>
+<h3 id="jupyter-and-rmarkdown-notebooks">Jupyter and RMarkdown notebooks<a class="headerlink" href="#jupyter-and-rmarkdown-notebooks" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Jupyter and RMarkdown Notebooks embed code with output.</li>
 <li>They can get very big (file size)</li>
@@ -1731,7 +1741,7 @@ git remote set-head origin -a
 <li>It can be very hard to merge concurrent changes</li>
 <li>Clean the output before committing</li>
 </ul>
-<h2 id="github-stats">github Stats</h2>
+<h2 id="github-stats">github Stats<a class="headerlink" href="#github-stats" title="Permanent link">&para;</a></h2>
 <p>Gather insights into the usage of different programming languages and their dependencies within our organization.</p>
 <p>Useful Links</p>
 <ul>
@@ -1741,9 +1751,9 @@ git remote set-head origin -a
 <li>API Repo: https://github.platforms.engineering/APALA4/github-stats-api</li>
 <li>Vulnerabilities API: https://ossindex.sonatype.org/rest</li>
 </ul>
-<h1 id="github-hooks">Github Hooks</h1>
+<h1 id="github-hooks">Github Hooks<a class="headerlink" href="#github-hooks" title="Permanent link">&para;</a></h1>
 <p>Many people are familair with github actions and its common to use github actions to perform code formatting or testing. Another way to do this is using git <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">hooks</a>.</p>
-<h1 id="references">References</h1>
+<h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
 <ul>
 <li>
 <p><a href="https://git-scm.com/">Git official docs</a></p>
@@ -1760,6 +1770,11 @@ git remote set-head origin -a
             </article>
           </div>
         </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
         
       </main>
       
@@ -1820,7 +1835,7 @@ git remote set-head origin -a
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "content.tabs.link", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
