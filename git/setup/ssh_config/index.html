@@ -1550,18 +1550,24 @@ Host github.com-personal
 </code></pre>
 <h3 id="things-to-be-taken-care">Things to be taken care</h3>
 <ul>
-<li>If you have the repository already cloned update remote URLs like below:</li>
+<li><strong>Check Remote URL</strong> <code>git remote -v</code> This will show the correct host from the ssh config.</li>
 </ul>
-<p><code>git remote set-url &lt;remote-name&gt; git@github.com-personal:&lt;username&gt;/&lt;repo-name&gt;.git</code></p>
+<pre><code class="language-shell">$ git remote -v
+origin  git@github.com-npcompleted:np-completed/aws_cloud_practitioner.git (fetch)
+origin  git@github.com-npcompleted:np-completed/aws_cloud_practitioner.git (push)
+</code></pre>
 <ul>
-<li>If you are creating a new repository set remote like below:</li>
+<li><strong>Update remote url</strong> The repository remote url requires an update after updating a ssh key and the config.</li>
+<li>Copy the host from ssh config: git@github.com-npcompleted</li>
+<li>Change remote url: <code>git remote set-url origin git@github.com-npcompleted:np-completed/aws_cloud_practitioner.git</code></li>
+<li>
+<p><strong>Syntax</strong> <code>git remote set-url &lt;remote-name&gt; git@&lt;host_ssh_config&gt;:&lt;username&gt;/&lt;repo-name&gt;.git</code>
+  &nbsp;</p>
+</li>
+<li>
+<p><strong>Clone using ssh config host</strong> <code>git clone git@github.com-personal:&lt;username&gt;/&lt;repo-name&gt;.git</code></p>
+</li>
 </ul>
-<p><code>git remote add &lt;remote-name&gt; git@github.com-personal:&lt;username&gt;/&lt;repo-name&gt;.git</code></p>
-<ul>
-<li>If you are cloning a repository
-<code>git clone git@github.com-personal:&lt;username&gt;/&lt;repo-name&gt;.git</code></li>
-</ul>
-<p>(same for work repositories, use github.com-work)</p>
 <p>All set, rest will be taken care by SSH configuration!</p>
 
               
