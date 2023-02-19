@@ -1115,6 +1115,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../markdown/mkdocs/" class="md-nav__link">
+        Mkdocs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../markdown/emoji_list/" class="md-nav__link">
         markdown emoji list
       </a>
@@ -1276,6 +1290,9 @@ hello:
 install:
     cat requirements.txt | xargs poetry add
     # poetry add tox setuptools
+
+install_dev:
+    cat requirements_dev.txt | xargs  poetry add  --group dev
 
 post-install:
     python -m textblob.download_corpora
