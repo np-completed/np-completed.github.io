@@ -1256,6 +1256,7 @@
 <h2 id="example-jobsjob_idif">Example <code>jobs.&lt;job_id&gt;.if</code></h2>
 <p>Only run job for specific repository. This example uses if to control when the <code>production-deploy</code> job can run. It will only run if the repository is named <code>MY_REPO</code> and is within the <code>bayer-int</code> organization. Otherwise, the job will be marked as skipped.</p>
 <p><a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif:~:text=see%20%22Expressions.%22-,jobs.%3Cjob_id%3E.if,if%20conditional%20as%20an%20expression.%20For%20more%20information%2C%20see%20%22Expressions.%22,-Example%3A%20Only%20run">github actions workflow syntax docs</a></p>
+<p><a href="https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables">github actions default environment variables</a></p>
 <pre><code class="language-yaml">name: example-workflow
 on: [push]
 jobs:

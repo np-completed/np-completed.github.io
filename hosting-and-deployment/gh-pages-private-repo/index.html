@@ -1032,8 +1032,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-github-action-in-private-repopermalink" class="md-nav__link">
-    Create github action in private repoPermalink
+  <a href="#create-github-action-in-private-repository" class="md-nav__link">
+    Create github action in private repository
   </a>
   
 </li>
@@ -1260,8 +1260,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-github-action-in-private-repopermalink" class="md-nav__link">
-    Create github action in private repoPermalink
+  <a href="#create-github-action-in-private-repository" class="md-nav__link">
+    Create github action in private repository
   </a>
   
 </li>
@@ -1283,6 +1283,12 @@
 <h1 id="github-pages-private-source-code">Github Pages Private Source Code</h1>
 <p>Github pages are great, it provides a free static page hosting, but the only caveat is the repository has to be public repository. And, if you want to keep your source private, you will have to opt for premium plans to host pages from private repository.</p>
 <p>Here is what I have done, github allows unlimited private repositories, so I created a new private repo where I kept my source code and another repo where my site is hosted.</p>
+<ul>
+<li>Create a private github repository</li>
+<li>Create a public github repository https://github.com/np-completed/np-completed.github.io</li>
+<li>Save PAT for github action</li>
+<li>Host site URL https://np-completed.github.io/</li>
+</ul>
 <h2 id="create-personal-token">Create Personal Token</h2>
 <p>Create a personal access token. Navigate to <strong>Settings</strong> and create a PAT.</p>
 <p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213952811-20c57c38-913f-4de4-8536-c437b0716c11.png" /></p>
@@ -1300,10 +1306,10 @@
 <p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213952864-84850ec5-7b6e-4a4f-aff2-49f568c02f42.png" /></p>
 <p>Once you are done copy the generated token, we will need to set this token during our build.</p>
 <h2 id="create-secret-in-private-repository">Create secret in private repository</h2>
-<p>Go to your private repo and click the settings:</p>
+<p>Go to your private repo and navigate to the settings. We will add the PAT created a moment ago:</p>
 <p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213953053-8ace5fbc-1a23-4d80-b485-e087f71d794e.png" /></p>
 <p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213953005-9fa12325-d710-4cda-8f8e-7de603479746.png" /></p>
-<h2 id="create-github-action-in-private-repopermalink">Create github action in private repoPermalink</h2>
+<h2 id="create-github-action-in-private-repository">Create github action in private repository</h2>
 <p>This is where the magic begins, we will build a github action in our private repo. You will need to create a file at .github/workflows/ci.yml</p>
 <pre><code class="language-yaml">name: Build &amp; Publish
 
