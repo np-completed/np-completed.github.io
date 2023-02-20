@@ -1664,10 +1664,23 @@
 <a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>Path:       /Users/elxsj/.pyenv/versions/3.10.0
 <a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>Executable: /Users/elxsj/.pyenv/versions/3.10.0/bin/python3.10
 </code></pre></div>
+<h3 id="modify-poetry-virtual-environment-path">Modify Poetry virtual environment path<a class="headerlink" href="#modify-poetry-virtual-environment-path" title="Permanent link">&para;</a></h3>
+<p>Changes to the python version (using pyenv) require update to the path used for poetry virtual environment.</p>
+<h5 id="python-version-using-pyenv">Python Version using <code>pyenv</code><a class="headerlink" href="#python-version-using-pyenv" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$ pyenv version
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="m">3</span>.9.5 <span class="o">(</span><span class="nb">set</span> by ~/MY_PROJECT/.python-version<span class="o">)</span>
+</code></pre></div>
+<h5 id="set-python-version-for-poetry">Set python version for poetry<a class="headerlink" href="#set-python-version-for-poetry" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$ pyenv <span class="nb">local</span> <span class="m">3</span>.9.5
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>$ poetry env use <span class="m">3</span>.9.5
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1">## Successfull output looks like this:</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Recreating virtualenv MY_PROJECT <span class="k">in</span> ~/MY_PROJECT/.venv
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>Using virtualenv: ~/MY_PROJECT/.venv
+</code></pre></div>
 <hr />
 <h3 id="poetry-export">Poetry Export<a class="headerlink" href="#poetry-export" title="Permanent link">&para;</a></h3>
 <p>If you have a Poetry project, you can create a requirements.txt file from your poetry.lock file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>poetry <span class="nb">export</span> --output requirements.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>poetry <span class="nb">export</span> --output requirements.txt
 </code></pre></div>
 <hr />
 <h2 id="poetry-commands">Poetry Commands<a class="headerlink" href="#poetry-commands" title="Permanent link">&para;</a></h2>
@@ -1720,8 +1733,8 @@
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <p>Some things to try if poetry has unusual errors.</p>
 <p><code>poetry cache clear --all .</code> Clear cache</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">poetry</span><span class="o">.</span><span class="n">lock</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">poetry</span> <span class="n">install</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">untracked</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">poetry</span><span class="o">.</span><span class="n">lock</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">poetry</span> <span class="n">install</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">untracked</span>
 </code></pre></div>
 <h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
 <p>Poetry github https://github.com/python-poetry/poetry</p>
