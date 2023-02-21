@@ -1607,6 +1607,9 @@
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">## Specify constraints when adding library</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>poetry add pendulum@^2.0.5
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>poetry add <span class="s2">&quot;pendulum&gt;=2.0.5&quot;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1">## --- Add from requirements.txt</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>poetry add <span class="sb">`</span>cat requirements.txt<span class="sb">`</span>
 </code></pre></div>
 <h4 id="options-to-add-libraries">Options to add libraries<a class="headerlink" href="#options-to-add-libraries" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1682,6 +1685,9 @@
 <p>If you have a Poetry project, you can create a requirements.txt file from your poetry.lock file:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>poetry <span class="nb">export</span> --output requirements.txt
 </code></pre></div>
+<p>Export without hashes to speed up install.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>poetry <span class="nb">export</span> --without-hashes --format<span class="o">=</span>requirements.txt &gt; requirements.txt
+</code></pre></div>
 <hr />
 <h2 id="poetry-commands">Poetry Commands<a class="headerlink" href="#poetry-commands" title="Permanent link">&para;</a></h2>
 <p>Create a new project, create a virtual envrionment and add and remove dependencies using these commands:</p>
@@ -1733,8 +1739,8 @@
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <p>Some things to try if poetry has unusual errors.</p>
 <p><code>poetry cache clear --all .</code> Clear cache</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">poetry</span><span class="o">.</span><span class="n">lock</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">poetry</span> <span class="n">install</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">untracked</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">poetry</span><span class="o">.</span><span class="n">lock</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">poetry</span> <span class="n">install</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">untracked</span>
 </code></pre></div>
 <h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
 <p>Poetry github https://github.com/python-poetry/poetry</p>
