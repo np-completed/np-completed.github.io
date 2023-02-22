@@ -925,6 +925,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#security-hardening-with-oidc" class="md-nav__link">
+    Security Hardening with OIDC
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1461,7 +1468,8 @@
 
 <h1 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h1>
 <p>Github actions is a virtual machine used to do work.</p>
-<p>Unlike self-hosted runners like Jenkins, most cloud-hosted build runners are stateless, providing us with a pristine environment each run. We cannot keep files from the previous runs around; anything that needs to be persisted must be externalized.</p>
+<p>Each workflow is configured by the YAML file located in <code>.github/workflows</code>. Workflow triggers can be time or event based.  </p>
+<p>Unlike self-hosted runners like Jenkins, most cloud-hosted build runners are stateless, providing a pristine runtime environment. We cannot keep files from the previous runs around; anything that needs to be persisted must be externalized.</p>
 <h2 id="github-actions-architecture">Github Actions - Architecture<a class="headerlink" href="#github-actions-architecture" title="Permanent link">&para;</a></h2>
 <p>GitHub Actions are formed by a set of components. There are six main components of GitHub Actions:</p>
 <ul>
@@ -1477,7 +1485,29 @@
 <p>A useful <a href="https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/ci-cd/github-actions/">cheatsheet for syntax to GitHub action workflows</a></p>
 <p><a href="https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/github-action-runners-analyzing-the-environment-and-security-in-action">Network security testing on GitHub Actions</a></p>
 <hr />
-<p><img alt="image" src="https://user-images.githubusercontent.com/8270630/220763035-3f294fcd-7a03-430a-a6cf-4642499d842e.png" /></p>
+<h2 id="security-hardening-with-oidc">Security Hardening with OIDC<a class="headerlink" href="#security-hardening-with-oidc" title="Permanent link">&para;</a></h2>
+<p>Security hardening with short lived tokens from cloud service. GitHub Actions workflows can access a cloud provider (such as AWS, Azure, GCP, or HashiCorp Vault) in order to deploy software or use the cloud's services. </p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="image" src="https://user-images.githubusercontent.com/8270630/220763035-3f294fcd-7a03-430a-a6cf-4642499d842e.png" /></td>
+</tr>
+<tr>
+<td align="center">Github's OIDC provider overview</td>
+</tr>
+</tbody>
+</table>
+<p>OIDC tokens are good security practice and reduce tech debt for developers.
+- No cloud secrets
+- authentication and authorization management
+- rotating credentials</p>
+<p><a href="https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect">Github Actions documentation on OIDC</a></p>
+<hr />
 <h1 id="end">End<a class="headerlink" href="#end" title="Permanent link">&para;</a></h1>
 
               
