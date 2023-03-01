@@ -15,7 +15,7 @@
     
     
       
-        <title>Enable GH Pages - ml-papers-with-code</title>
+        <title>Poetry environment - ml-papers-with-code</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enable-github-pages" class="md-skip">
+        <a href="#use-entrypoint-with-poetry-environment" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enable GH Pages
+              Poetry environment
             
           </span>
         </div>
@@ -206,13 +206,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../docker/poetry_docker/" class="md-tabs__link">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         Docker
       </a>
     </li>
@@ -277,15 +279,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../gh-pages/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../hosting-and-deployment/gh-pages/" class="md-tabs__link">
         Hosting and Deployment
       </a>
     </li>
@@ -397,12 +397,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -423,11 +425,48 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../docker/poetry_docker/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Poetry environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Poetry environment
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#use-entrypoint-with-poetry-environment" class="md-nav__link">
+    Use entrypoint with poetry environment
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1240,14 +1279,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -1270,7 +1307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gh-pages/" class="md-nav__link">
+      <a href="../../hosting-and-deployment/gh-pages/" class="md-nav__link">
         Github Pages
       </a>
     </li>
@@ -1284,7 +1321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gh-pages-private-repo/" class="md-nav__link">
+      <a href="../../hosting-and-deployment/gh-pages-private-repo/" class="md-nav__link">
         Private Repo with GH Pages
       </a>
     </li>
@@ -1296,21 +1333,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../hosting-and-deployment/enable_github_pages/" class="md-nav__link">
         Enable GH Pages
       </a>
-      
     </li>
   
 
@@ -1500,30 +1527,54 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/np-completed/np-completed.github.io/blob/main/docs/hosting-and-deployment/enable_github_pages.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/np-completed/np-completed.github.io/blob/main/docs/docker/poetry_docker.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="enable-github-pages">Enable Github Pages<a class="headerlink" href="#enable-github-pages" title="Permanent link">&para;</a></h1>
-<p>Github pages requires permissions to be enabled but the process is pretty easy.</p>
-<ul>
-<li>
-<p>Create a public repository</p>
-</li>
-<li>
-<p>Navigate to <strong>Settings &gt; Pages</strong></p>
-</li>
-</ul>
-<p><img alt="image" src="https://user-images.githubusercontent.com/8270630/213953963-629f7e92-551a-4096-afc5-6c0c0f14ac59.png" /></p>
-<ul>
-<li>Configure the branch and build directory. 
-<img alt="image" src="https://user-images.githubusercontent.com/8270630/213954022-5a4c3244-a2bb-4e6d-ad64-3e86e6c609a9.png" /></li>
-</ul>
-<blockquote>
-<p>❗ github.io requires using the owner name to make the web site visible.</p>
-</blockquote>
+  <h1>Poetry environment</h1>
+
+<p>Install poetry in a Dockerfile.</p>
+<p><code>RUN pip3 --disable-pip-version-check --no-cache-dir install poetry</code></p>
+<h2 id="use-entrypoint-with-poetry-environment">Use entrypoint with poetry environment<a class="headerlink" href="#use-entrypoint-with-poetry-environment" title="Permanent link">&para;</a></h2>
+<p>I use groups from the <code>pyproject.toml</code> , so modify <mark>MY_POETRY_GROUP_IN_TOML</mark> in the file below. </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>FROM python:3.9.5
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>RUN apt-get update <span class="o">&amp;&amp;</span> apt-get install --no-install-recommends -y build-essential tree <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   apt-get clean <span class="o">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">## ----- install poetry </span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>RUN curl -sSL https://install.python-poetry.org <span class="p">|</span> python3 - --git https://github.com/python-poetry/poetry.git@master
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ENV <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/root/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1">## ------ Copy poetry environment to local and duplicate on remote</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>COPY poetry.lock pyproject.toml ./
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1">## ----- create poetry environment</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>RUN poetry config virtualenvs.create <span class="nb">false</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>RUN poetry install --without MY_POETRY_GROUP_IN_TOML
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>RUN pip install --no-cache-dir -U pandas-gbq
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1">## ------ Optional - Confirm Poetry is working</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c1"># RUN poetry add pycowsay </span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1"># RUN poetry run pycowsay &#39;Hello world!&#39;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1">##  entrypoint directory</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>WORKDIR <span class="s2">&quot;/usr/src&quot;</span>                   
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>COPY <span class="s2">&quot;src/&quot;</span> <span class="s2">&quot;/usr/src&quot;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="c1"># COPY . .</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>RUN ls -la <span class="o">&amp;&amp;</span> <span class="nb">pwd</span> 
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1">#&amp;&amp; tree -d</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="c1">## ---- CLI can overwrite params</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1"># CMD [&quot;poetry&quot;, &quot;run&quot;, &quot;python3&quot;, &quot;src/entrypoint_ingest.py&quot;]    </span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="c1">## ---- CLI cannot overwrite params</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>ENTRYPOINT <span class="o">[</span><span class="s2">&quot;python3&quot;</span>, <span class="s2">&quot;entrypoint_ingest.py&quot;</span><span class="o">]</span>              
+</code></pre></div>
 
               
             </article>
@@ -1542,7 +1593,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../gh-pages-private-repo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Private Repo with GH Pages" rel="prev">
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1551,20 +1602,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Private Repo with GH Pages
+              Home
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../markdown/content/" class="md-footer__link md-footer__link--next" aria-label="Next: Content" rel="next">
+        <a href="../../environment/proj_environment/" class="md-footer__link md-footer__link--next" aria-label="Next: Environment Setup" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Content
+              Environment Setup
             </div>
           </div>
           <div class="md-footer__button md-icon">
