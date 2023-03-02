@@ -1,0 +1,66 @@
+
+Resources:
+  GenerateJWTLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: cloudeng-jwt-token-creator-role
+      Path: /protected/
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+              AWS:
+                - arn:aws:iam::640315046644:role/jwtcreator-role
+            Action:
+              - sts:AssumeRole
+      Policies:
+        - PolicyName: jwt-token-creator-role-policy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+            - Effect: Allow
+              Action:
+              - ssm:*
+              Resource: "*"
+            - Effect: Allow
+              Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+              Resource: "*"
+ 
+  GenerateJWT:
+    Type: AWS::Lambda::Function
+    DependsOn: GenerateJWTLambdaExecutionRole
+    Properties:
+      Code:
+        ZipFile: |
+          import urllib3
+          import cfnresponse
+          def lambda_handler(event,context):
+            data = {}
+            acc_id = context.invoked_function_arn.split(":")[4]
+            http = urllib3.PoolManager()
+            api_url = "https://a08aiytnfh.execute-api.us-east-1.amazonaws.com/test/jwt-creator/"
+            req_url = api_url + acc_id
+            if event['RequestType'] == 'Create':
+              http.request("GET", req_url,headers={"x-api-key":"liJ7ucjCl631gQx9uI8Nd1a2VqHehU752GZtVUzZ"})
+              data["Reason"] = "Token generated"
+              cfnresponse.send(event, context, "SUCCESS", data)
+            elif event['RequestType'] == 'Delete':
+              data["Reason"] = "nothing happens"
+              cfnresponse.send(event, context, "SUCCESS", data)
+
+      Handler: index.lambda_handler
+      Role:
+        !Sub 'arn:aws:iam::${AWS::AccountId}:role/protected/cloudeng-jwt-token-creator-role'
+      Runtime: python3.9
+
+  GenerateJWTInvoke:
+    Type: AWS::CloudFormation::CustomResource
+    DependsOn: GenerateJWT
+    Properties:
+      ServiceToken: !GetAtt GenerateJWT.Arn

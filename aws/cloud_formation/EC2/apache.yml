@@ -1,0 +1,180 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: |
+  CloudFormation Template for creating EC2 with apache webserver.
+
+
+Parameters:
+  StacknameToCopy:
+    Type: String
+    Description: Copy and paste this stack name above when deploying
+    Default: apache-priv
+  # error No export named vpc-pub-priv-az-PrivateSubnet1
+  # StackName: apache-priv
+  # ParentVPCStackName: vpc-pub-priv-az
+  ParentVpcStack:
+    Description: Stack name of parent VPCs stack.
+    Type: String
+    Default: vpc-pub-priv-az
+
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
+    Type: 'AWS::EC2::KeyPair::KeyName'
+    ConstraintDescription: Please select the name of an existing EC2 KeyPair.
+
+  # ImageId:
+  #   Description: Please select id of the AMI, Amazon Linux image.
+  #   Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+  #   Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+  #   AllowedValues:
+  #     - '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+  #     - bay-ubuntu-18.04
+  #     - mon-amzn-2
+
+  InstanceName:
+    Description: Name your instance will have when viewing in ec2
+    Type: String
+
+  InstanceType:
+    Type: String
+    Default: t2.small
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.medium
+      - t2.large
+      - t2.xlarge
+      - t2.2xlarge
+      - m4.large
+      - m4.xlarge
+    Description: 'Enter t2.micro, t2.small, t2.medium, t2.large, m4.large, m4.xlarge.'
+
+  AZ:
+    Type: String
+    Default: us-east-1a
+    AllowedValues:
+      - us-east-1a
+      - us-east-1b
+    Description: 'Enter AvailabilityZone for the VPC us-east-1a, us-east-1b.'
+
+  SecurityGroupIds:
+    Description: |
+      Instance security groups. Use the default VPC, when not sure.
+    Type: 'AWS::EC2::SecurityGroup::Id'
+
+  EnvironmentType:
+      Description: In Which AWS Environment are you deploying?
+      Type: String
+      Default: dev
+      AllowedValues:
+        - dev
+        - prod
+      ConstraintDescription: must be dev or prod
+
+  ProjectTag:
+    Description: Project title
+    AllowedPattern: "[-_a-zA-Z0-9]*"
+    ConstraintDescription: Can only contain alphanumeric characters, spaces, dashes and underscores
+    MinLength: "4"
+    MaxLength: "64"
+    Type: String
+
+Mappings:
+  RegionAndInstanceTypeToAMIID:
+      us-east-1:
+        dev: "ami-0b5eea76982371e91"
+        prod: "ami-0b5eea76982371e91"
+      us-west-2:
+        dev: "ami-6cd6f714"
+        prod: "ami-6cd6f714 "
+
+  #  This is the Amazon Linux 2 AMI.  Adjust these values as needed, they can change a few times per year:
+  # AmazonLinuxAMI:
+  #   us-east-1:
+  #     #AMI: ami-04681a1dbd79675a5    # N Virginia
+  #     AMI: ami-0b5eea76982371e91    # N Virginia
+  #   us-east-2:
+  #     AMI: ami-0cf31d971a3ca20d6    # Ohio
+  #   us-west-1:
+  #     AMI: ami-0782017a917e973e7    # N California
+  #   us-west-2:
+  #     AMI: ami-6cd6f714             # Oregon
+  #   eu-west-1:
+  #     AMI: ami-0bdb1d6c15a40392c    # Ireland
+  #   eu-central-1:
+  #     AMI: ami-0f5dbc86dd9cbf7a8    # Frankfurt
+  #   sa-east-1:
+  #     AMI: ami-0ad7b0031d41ed4b9    # Sao Paulo
+
+Metadata:
+    AWS::CloudFormation::Interface:
+      ParameterGroups:
+        -
+          Label:
+            default: "Tags"
+          Parameters:
+            - EnvironmentType
+            - ProjectTag
+        -
+          Label:
+            default: "Stack Name Config"
+          Parameters:
+            - StacknameToCopy
+      ParameterLabels:
+        StacknameToCopy:
+          default: apache-priv
+
+
+Resources:
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: !FindInMap [ RegionAndInstanceTypeToAMIID, !Ref "AWS::Region", !Ref EnvironmentType]  # We lookup the AMI from the Region Map
+      AvailabilityZone: !Ref AZ
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: 'false'
+          DeviceIndex: '0'
+          GroupSet:
+            - !Ref SecurityGroupIds
+          SubnetId: !ImportValue
+            'Fn::Sub': '${ParentVpcStack}-PrivateSubnetA'
+      UserData: !Base64 |
+        #!/bin/bash -xe
+        yum update -y
+        yum install -y httpd
+        systemctl start httpd
+        systemctl enable httpd
+        ## Start on boot
+        chkconfig httpd on
+      Tags:
+          - Key: Name
+            Value: !Ref InstanceName
+          # - Key: "owner"
+          #   Value: !Ref OwnerTag
+          - Key: "env"
+            Value: !Ref EnvironmentType
+          - Key: "project"
+            Value: !Ref ProjectTag
+
+
+Outputs:
+  StackName:
+    Value: !Ref 'AWS::StackName'
+    Description: Name of the resulting cloudformation stack
+
+  EC2Image:
+      Description: Return the name of the AMI ID that matches the region and environment type keys
+      Value: !FindInMap [RegionAndInstanceTypeToAMIID, !Ref "AWS::Region", !Ref EnvironmentType]
+
+  InstanceId:
+    Value: !Ref EC2Instance
+
+  PrivateIp:
+    Value: !GetAtt EC2Instance.PrivateIp
+
+  EC2Name:
+    Value: !Ref InstanceName
+    Description: Name of EC2 instance

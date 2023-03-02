@@ -1,0 +1,153 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: |
+  CloudFormation Template for creating EC2. Bayer approved AMIs Ubuntu or Amazon Linux.
+
+Parameters:
+  ParentVpcStack:
+    Description: Stack name of parent VPC stack based on CloudOps template.
+    Type: String
+
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
+    Type: 'AWS::EC2::KeyPair::KeyName'
+    ConstraintDescription: Please select the name of an existing EC2 KeyPair.
+
+  ImagePrefix:
+    Description: Please select either an Ubuntu or Amazon Linux image.
+    Type: String
+    Default: mon-amzn-2
+    AllowedValues:
+      - bay-ubuntu-20.04
+      - bay-ubuntu-18.04
+      - mon-amzn-2
+
+  InstanceName:
+    Description: Name your instance will have when viewing in ec2
+    Type: String
+
+  InstanceType:
+    Type: String
+    Default: t2.small
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.medium
+      - t2.large
+      - t2.xlarge
+      - t2.2xlarge
+      - m4.large
+      - m4.xlarge
+    Description: 'Enter t2.micro, t2.small, t2.medium, t2.large, m4.large, m4.xlarge.'
+
+  AZ:
+    Type: String
+    Default: us-east-1a
+    AllowedValues:
+      - us-east-1a
+      - us-east-1b
+    Description: 'Enter AvailabilityZone for the VPC us-east-1a, us-east-1b.'
+
+  SecurityGroupIds:
+    Description: |
+      Instance security groups. Use the default VPC, when not sure.
+    Type: 'AWS::EC2::SecurityGroup::Id'
+
+  EnvironmentTag:
+      Description: In Which AWS Environment are you deploying?
+      Type: String
+      Default: non-prod
+      AllowedValues:
+        - non-prod
+        - prod
+
+  BayOwnerTag:
+    Description: Individuals responsible for the resources
+    AllowedPattern: "[-_a-zA-Z0-9]*"
+    ConstraintDescription: Can only contain alphanumeric characters, spaces, dashes and underscores
+    MinLength: "4"
+    MaxLength: "64"
+    Type: String
+
+  ProjectTag:
+    Description: Project title
+    AllowedPattern: "[-_a-zA-Z0-9]*"
+    ConstraintDescription: Can only contain alphanumeric characters, spaces, dashes and underscores
+    MinLength: "4"
+    MaxLength: "64"
+    Type: String
+
+
+Metadata:
+    AWS::CloudFormation::Interface:
+      ParameterGroups:
+        -
+          Label:
+            default: "Tags"
+          Parameters:
+            - EnvironmentTag
+            - OwnerTag
+            - ProjectTag
+
+Resources:
+  AMILookup:
+    Type: Custom::AmiLookup
+    Properties:
+      ServiceToken:
+        Fn::Join:
+          - ':'
+          - - 'arn:aws:lambda:us-east-1'
+            - !Ref AWS::AccountId
+            - 'function:FindCurrentAmi'
+      AmiNamePrefix: !Ref ImagePrefix
+      Region: !Ref AWS::Region
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: !GetAtt
+        - AMILookup
+        - Id
+      AvailabilityZone: !Ref AZ
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: 'false'
+          DeviceIndex: '0'
+          GroupSet:
+            - !Ref SecurityGroupIds
+          SubnetId: !ImportValue
+            'Fn::Sub': '${ParentVpcStack}-PrivateSubnet1'
+      UserData: !Base64 |
+        #!/bin/bash -xe
+        yum update -y
+        yum install -y httpd
+        systemctl start httpd
+        systemctl enable httpd
+        ## Start on boot
+        chkconfig httpd on
+      Tags:
+          - Key: Name
+            Value: !Ref InstanceName
+          - Key: "bay:owner"
+            Value: !Ref BayOwnerTag
+          - Key: "bay:env"
+            Value: !Ref EnvironmentTag
+          - Key: "bay:project"
+            Value: !Ref ProjectTag
+
+
+Outputs:
+  StackName:
+    Value: !Ref 'AWS::StackName'
+    Description: Name of the resulting cloudformation stack
+  InstanceId:
+    Value: !Ref EC2Instance
+  PrivateIp:
+    Value: !GetAtt EC2Instance.PrivateIp
+  EC2Image:
+    Value: !Ref ImagePrefix
+    Description: Bayer Image used to create the ec2 instance
+  EC2Name:
+    Value: !Ref InstanceName
+    Description: Name of EC2 instance

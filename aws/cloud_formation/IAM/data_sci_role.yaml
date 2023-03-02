@@ -1,0 +1,250 @@
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  IAM role suitable for daily use by data scientists in Science@Scale.
+  Tries to grant full visibility across the account, while preventing accidental data loss due to deletion (S3, RDS, EFS).
+  Also tries to prevent full-on infrastructure engineering in this account by not granting needed services!
+  Usage:  aws cloudformation deploy --template-file SatS-datasci-role.yaml --stack-name SomeUserName --capabilities CAPABILITY_NAMED_IAM --tags 'mon:owner=elyud/idavi' 'mon:project=base-infrastructure'
+# Parameters:
+#   UserName:
+#     Type: String
+#     Description: Name for IAM user
+    
+Resources:
+  DatasciRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: 'datasci-role'
+      # 8-hour logins:
+      MaxSessionDuration: 28800
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Action: 'sts:AssumeRoleWithSAML'
+            Principal:
+              Federated: 'arn:aws:iam::418806281117:saml-provider/AzureAD'
+            Condition:
+              StringEquals:
+                'SAML:aud': 'https://signin.aws.amazon.com/saml'
+          - Effect: Allow
+            Action: 'sts:AssumeRoleWithSAML'
+            Principal:
+              Federated: 'arn:aws:iam::418806281117:saml-provider/PingOne'
+            Condition:
+              StringEquals:
+                'SAML:aud': 'https://signin.aws.amazon.com/saml'
+          - Effect: Allow
+            Action: 'sts:AssumeRole'
+            Principal:
+              Service: "sagemaker.amazonaws.com"
+      ManagedPolicyArns:
+          # Allows users visibility into what resources exist in each service, but not the data they contain.
+          # This makes using the console to explore more comfortable, with little risk.
+          - arn:aws:iam::aws:policy/job-function/ViewOnlyAccess
+          # This provides more detail for IAM, which is often needed to debug problems.
+          - arn:aws:iam::aws:policy/IAMReadOnlyAccess
+          # CloudWatch, Logs, SNS, and accessory services.
+          # I *think* the intent is to allow users to create their own CloudWatch alarms, but I'm not sure this is needed...
+          - arn:aws:iam::aws:policy/CloudWatchFullAccess
+          # This is to allow logging in to instances via the WebConsole.
+          # It would be nice to trim it down (?), but SSM is hard to understand...
+          - arn:aws:iam::aws:policy/AmazonSSMFullAccess
+          # SageMaker requires additional permissions beyond sagemaker:*
+          - arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
+
+          # Below here are policies authored by S@S
+          # This encapsulates most permissions needed for dsub, AWFL, and BatSub, including EFS (but not including Batch)
+          - arn:aws:iam::418806281117:policy/ECSClusterPolicy
+          # Why do we need this policy?  dsub is accessed through APIs, not direct SQS...
+          # - arn:aws:iam::418806281117:policy/BiodsaSQSPolicy
+          # S@S policy for EMR, but we're not using EMR in Biotech right now
+          # - arn:aws:iam::418806281117:policy/EMRUserPolicy
+  
+  DatasciPolicy:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: "datasci-role"
+      Roles:
+        - !Ref DatasciRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          # TODO: confer billing / cost-explorer access
+
+          # Unfortunately, even "normal" users may need to create IAM Users as application accounts.
+          # It's difficult to do this without allowing privilege escalation, but that's ok (?),
+          # because we're trying to prevent accidental damage, not intentional damage.
+          - Sid: ManageAppUsers
+            Effect: Allow
+            Action: 
+              - "iam:*AccessKey*"
+              - "iam:*User*"
+              # PassRole is needed to launch many services, e.g. creating a SageMaker notebook
+              - "iam:PassRole"
+              # Missing this causes a bunch of random errors in the console.
+              - kms:ListAliases
+              # - "iam:GetUser"
+            Resource: "*"
+
+          # S3 access is the most complicated part of S@S access.
+          # First comes general policy that applies to most buckets,
+          # then custom policy for a few "special" buckets.
+          - Sid: ListAllBuckets
+            Effect: Allow
+            Action:
+              - s3:GetAccountPublicAccessBlock
+              - s3:GetBucketAcl
+              - s3:GetBucketLocation
+              - s3:GetBucketPolicyStatus
+              - s3:GetBucketPublicAccessBlock
+              - s3:ListAllMyBuckets
+              - s3:ListBucket # Allows listing file names even in restricted buckets, but already granted by ViewOnlyAccess policy above.
+            Resource: "*"
+          # General policy for most buckets, except those listed special cases
+          - Sid: S3ReadWriteDelete
+            Effect: Allow
+            Action:
+              - "s3:Get*"
+              - "s3:List*"
+              - s3:AbortMultipartUpload
+              - s3:DeleteObject
+              - s3:GetObject
+              - s3:GetObjectAcl
+              - s3:GetObjectTagging
+              - s3:GetObjectTorrent
+              - s3:ListBucketVersions
+              - s3:ListMultipartUploadParts
+              - s3:PutObject
+              - s3:PutObjectAcl
+              - s3:RestoreObject
+            # Note the "NOT" -- the above applies to ALL buckets in the account EXCEPT those listed here:
+            NotResource:
+              - "arn:aws:s3:::biodsa-logs/*"
+              - "arn:aws:s3:::biodsa-sequencing-data/*"
+              - "arn:aws:s3:::biodsa-sequencing-legacy/*"
+              - "arn:aws:s3:::biodsa-sequencing-external/*"
+              # These USED TO feature per-user spaces;  see below for notes.
+              # - "arn:aws:s3:::biodsa-perm-space/*"
+              # - "arn:aws:s3:::biodsa-scratch-space/*"
+          # Specialized policies for specific buckets.
+          # Every time you add a bucket here, add it to the general policy exclusion list above!
+          # Buckets that store sequencing data are read-only to avoid data loss
+          - Sid: S3ReadOnlyBuckets
+            Effect: Allow
+            Action:
+              # - s3:AbortMultipartUpload
+              # - s3:DeleteObject
+              - s3:GetObject
+              - s3:GetObjectAcl
+              - s3:GetObjectTagging
+              - s3:GetObjectTorrent
+              - s3:ListBucketVersions
+              - s3:ListMultipartUploadParts
+              # - s3:PutObject
+              # - s3:PutObjectAcl
+              - s3:RestoreObject
+            Resource:
+              - "arn:aws:s3:::biodsa-logs/*"
+              - "arn:aws:s3:::biodsa-sequencing-data/*"
+              - "arn:aws:s3:::biodsa-sequencing-legacy/*"
+              - "arn:aws:s3:::biodsa-sequencing-external/*"
+          # Scratch and perm buckets have special per-user spaces
+          # This works technically, but is not usable.
+          # Originally `saml:sub` resolved to a user ID (CWID),
+          # but with Azure AD it's an email address.
+          # S3 can't rename "directories", and email as a directory name is ugly anyway.
+          # 
+          # So I think we have to give up on per-user directories.
+          # - Sid: PerUserSpaces
+          #   Effect: Allow
+          #   # Remember, users already have list permissions for all parts of all buckets.
+          #   # "normal" bucket permissions from above:
+          #   Action:
+          #     - "s3:Get*"
+          #     - "s3:List*"
+          #     - s3:AbortMultipartUpload
+          #     - s3:DeleteObject
+          #     - s3:GetObject
+          #     - s3:GetObjectAcl
+          #     - s3:GetObjectTagging
+          #     - s3:GetObjectTorrent
+          #     - s3:ListBucketVersions
+          #     - s3:ListMultipartUploadParts
+          #     - s3:PutObject
+          #     - s3:PutObjectAcl
+          #     - s3:RestoreObject
+          #   Resource:
+          #   - arn:aws:s3:::biodsa-perm-space/${saml:sub}/*
+          #   - arn:aws:s3:::biodsa-perm-space/projects/*
+          #   - arn:aws:s3:::biodsa-perm-space/shared/*
+          #   - arn:aws:s3:::biodsa-scratch-space/shared/*
+          #   - arn:aws:s3:::biodsa-scratch-space/${saml:sub}/*
+          #   - arn:aws:s3:::biodsa-scratch-space/${aws:userid}/*
+          #   - arn:aws:s3:::biodsa-scratch-space/scratch/dsub/${saml:sub}/*
+
+          # This is only needed for users/roles OUTSIDE of this account.  So not relevant here.
+          # - Sid: WritePerms
+          #   Effect: Allow
+          #   Action:
+          #     - s3:PutObject
+          #     - s3:PutObjectAcl
+          #   Resource:
+          #     - !Sub "arn:aws:s3:::${BucketName}/*"
+          #   Condition:
+          #     StringEquals:
+          #       "s3:x-amz-acl": "bucket-owner-full-control"
+        
+          - Sid: WorkflowServices
+            Effect: Allow
+            Action: 
+              # All containers are built from Dockerfiles and could easily be regenerated, right?
+              - batch:*
+              - ecr:*
+              - "dynamodb:ConditionCheckItem"
+              - "dynamodb:GetItem"
+              - "dynamodb:Query" 
+              - states:Describe*
+              - states:Get*
+              - states:List*
+              - states:StopExecution
+            Resource: "*"
+
+          # Full access to Cloudformation is needed, but very dangerous to base infrastructure!
+          # Compromise by limiting to stack names that start "awsm-wf-..."
+          #- Sid: WorkflowServices2
+          #  Effect: Allow
+          #  Action:
+          #    - cloudformation:*
+          #  Resource: "arn:aws:cloudformation:us-east-1:418806281117:stack/awsm-wf-*"
+
+          - Sid: FullAccessMiscServices
+            Effect: Allow
+            Action: 
+              # These are useful for big data analysis, but we don't want to encourage data lake engineering in the S@S account.
+              # I'm not sure whether to allow these or not:
+              - "athena:*"
+              - "glue:*"
+              # As a rule, we shouldn't be doing infrastructure engineering in S@S.  Read/List to Lambda is enough.
+              # - "lambda:*"
+            Resource: "*"
+
+          - Sid: APIGatewayAccess
+            Effect: Allow
+            Action:
+              - execute-api:Invoke
+            Resource: "*"
+
+          # You can't use cloud resources wisely if you can't see what you're spending.
+          # It's possible that additional privs are needed to make this work, based on my memory...
+          - Sid: SmartSpending
+            Effect: Allow
+            Action:
+              # Billing info and console pages
+              - aws-portal:View*
+              # Cost Explorer
+              - ce:*
+              # Cost and Usage Reports
+              - cur:*
+              # I think "Budgets" can take automated actions and cause damage, and is unneeded here.
+            Resource: "*"

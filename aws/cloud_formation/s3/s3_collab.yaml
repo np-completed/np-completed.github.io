@@ -1,0 +1,161 @@
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  Template for a basic external collaboration bucket with encryption, intelligent tiering, and versioning.
+  Note:  in the Bayer environment, object-level logging is already enabled for all S3 buckets in CloudTrail.
+  Usage:  aws cloudformation deploy --template-file s3.yaml --stack-name s3-SomeInstitutionName --parameter-overrides BucketName=dse-smol-1xx --capabilities CAPABILITY_NAMED_IAM--tags 'mon:owner=...cwids...' 'mon:project=...'
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: Name for S3 Bucket
+    # S3 bucket names are globally unique and map to DNS names, so this is an actual risk.
+    AllowedPattern: 'dse-smol-[0-9]{3,}'
+  
+  PrincipalArns:
+    Type: CommaDelimitedList
+    Description: >
+      Comma-separated list of ARN(s) to give access, either account roots (arn:aws:iam::111122223333:root), IAM users (arn:aws:iam::111122223333:user/ExampleUser), or roles.
+      If left blank, an IAM user will be created.
+    Default: ''
+  
+  LogBucketName:
+    Type: String
+    Description: Where access logs for the bucket will be delivered
+    Default: dse-smol-logs
+
+  DataClassificationTag:
+    Description: Classification for the data stored in this stack
+    Type: String
+    Default: internal
+    AllowedValues:
+      - critical
+      - restricted
+      - internal
+      - public
+
+  EnvironmentTag:
+      Description: In Which AWS Environment are you deploying?
+      Type: String
+      Default: non-prod
+      AllowedValues:
+        - non-prod
+        - prod
+
+  OwnerTag:
+    Description: Individuals responsible for the resources
+    AllowedPattern: "[-_a-zA-Z0-9]*"
+    ConstraintDescription: Can only contain alphanumeric characters, spaces, dashes and underscores
+    MinLength: 4
+    MaxLength: 64
+    Type: String
+
+  RegulatedTag: 
+      Description: Should the resources deployed with this stack be tracked as regulated
+      Type: String
+      Default: "no"
+      AllowedValues: 
+        - sox
+        - gxp
+        - "no"
+
+
+Metadata:
+    AWS::CloudFormation::Interface: 
+      ParameterGroups: 
+        - 
+          Label: 
+            default: "Tags"
+          Parameters:   
+            - DataClassificationTag
+            - EnvironmentTag
+            - OwnerTag 
+            - RegulatedTag 
+
+Conditions:
+  # One tests for an empty list by joining its elements into an empty string:
+  CreateUser: !Equals [ !Join [ "", !Ref PrincipalArns ] , "" ]
+
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      AccessControl: Private
+      BucketName: !Ref BucketName
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LoggingConfiguration:
+        DestinationBucketName: !Ref LogBucketName
+        LogFilePrefix: !Sub "s3-logs/${BucketName}/"
+
+      VersioningConfiguration:
+        Status: Enabled
+      LifecycleConfiguration:
+        Rules:
+        - AbortIncompleteMultipartUpload:
+            DaysAfterInitiation:  7
+          Status: Enabled
+        # Old versions retained long term in case of questions about who overwrote or deleted data.
+        # 395 days = 1 year + 1 month
+        - NoncurrentVersionExpirationInDays: 395
+          Status: Enabled
+        - NoncurrentVersionTransition:
+            StorageClass: GLACIER
+            TransitionInDays: 30
+          Status: Enabled
+        - Transition:
+            StorageClass: INTELLIGENT_TIERING
+            TransitionInDays: 30
+          Status: Enabled
+
+  BucketUser:
+    Type: 'AWS::IAM::User'
+    Condition: CreateUser
+    Properties:
+      UserName: !Sub "ExternalCollaborator-${S3Bucket}"
+
+  BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: CollaboratorReadDeletePerms
+            Principal:
+              AWS: !If [ CreateUser, !GetAtt BucketUser.Arn, !Ref PrincipalArns ]
+            Effect: Allow
+            Action:
+              - s3:AbortMultipartUpload
+              - s3:DeleteObject
+              - s3:GetObject
+              - s3:GetObjectAcl
+              - s3:GetObjectTagging
+              - s3:GetObjectTorrent
+              - s3:ListBucket
+              - s3:ListBucketVersions
+              - s3:ListMultipartUploadParts
+              - s3:RestoreObject
+            Resource:
+              - !Sub "${S3Bucket.Arn}"
+              - !Sub "${S3Bucket.Arn}/*"
+
+          - Sid: CollaboratorWritePerms
+            Principal:
+              AWS: !If [ CreateUser, !GetAtt BucketUser.Arn, !Ref PrincipalArns ]
+            Effect: Allow
+            Action:
+              - s3:PutObject
+            Resource:
+              - !Sub "${S3Bucket.Arn}/*"
+            Condition:
+              StringEquals:
+                "s3:x-amz-acl": "bucket-owner-full-control"

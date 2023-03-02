@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Parameters:
+  TemplateBucketName:
+    Type: String
+    Default: cognito-409072330537
+
+  Prefix:
+    Type: String
+    Default: user-signin
+    # https://cognito-409072330537.s3.amazonaws.com/cf-cognito/cf-cognito.yaml
+    
+
+Resources:
+  S3Stack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      # TemplateURL: !Sub "https://${TemplateBucketName}.s3.${AWS::Region}.amazonaws.com/${Prefix}/${Prefix}-s3.yaml"
+      # https://cognito-409072330537.s3.amazonaws.com/cf-cognito/user-signin.yaml
+      TemplateURL: !Sub "https://${TemplateBucketName}.s3.amazonaws.com/${Prefix}/${Prefix}-s3.yaml"
+      Parameters:
+        Prefix: !Ref Prefix
+        
+  CognitoStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      # TemplateURL: !Sub "https://${TemplateBucketName}.s3.${AWS::Region}.amazonaws.com/${Prefix}/${Prefix}-user-pool.yaml"
+      # https://cognito-409072330537.s3.amazonaws.com/cf-cognito/cf-cognito-user-pool.yaml
+      TemplateURL: !Sub "https://${TemplateBucketName}.s3.amazonaws.com/${Prefix}/${Prefix}-user-pool.yaml"
+      Parameters:
+        BucketWesSiteEndpointUrl: !GetAtt S3Stack.Outputs.BucketWesSiteEndpointUrl
+        Prefix: !Ref Prefix
+        SigninHtml: signin.html
+        SignoutHtml: signout.html

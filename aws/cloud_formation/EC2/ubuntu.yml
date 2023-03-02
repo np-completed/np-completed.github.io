@@ -1,0 +1,87 @@
+
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  AWS CloudFormation Template for creating either an Ubuntu or Amazon Linux ec2, these images are Bayer approved.
+
+Parameters:
+  ParentVpcStack:
+    Description: Stack name of parent VPC stack based on CloudOps template.
+    Type: String
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
+    Type: 'AWS::EC2::KeyPair::KeyName'
+    ConstraintDescription: Please select the name of an existing EC2 KeyPair.
+  ImagePrefix:
+    Description: Please select either an Ubuntu or Amazon Linux image.
+    Type: String
+    Default: bay-ubuntu-20.04
+    AllowedValues:
+      - bay-ubuntu-20.04
+      - bay-ubuntu-18.04
+      - mon-amzn-2
+  InstanceName:
+    Description: Name your instance will have when viewing in ec2
+    Type: String
+  InstanceType:
+    Type: String
+    Default: t2.small
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.medium
+      - t2.large
+      - t2.xlarge
+      - t2.2xlarge
+      - m4.large
+      - m4.xlarge
+    Description: 'Enter t2.micro, t2.small, t2.medium, t2.large, m4.large, m4.xlarge.'
+  AZ:
+    Type: String
+    Default: us-east-1a
+    AllowedValues:
+      - us-east-1a
+      - us-east-1b
+    Description: 'Enter AvailabilityZone for the VPC us-east-1a, us-east-1b.'
+  SecurityGroupIds:
+    Description: security groups to which instance should belong
+    Type: 'AWS::EC2::SecurityGroup::Id'
+Resources:
+  AMILookup:
+    Type: Custom::AmiLookup
+    Properties:
+      ServiceToken:
+        Fn::Join:
+          - ':'
+          - - 'arn:aws:lambda:us-east-1'
+            - !Ref AWS::AccountId
+            - 'function:FindCurrentAmi'
+      AmiNamePrefix: !Ref ImagePrefix
+      Region: !Ref AWS::Region
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: !GetAtt
+        - AMILookup
+        - Id
+      AvailabilityZone: !Ref AZ
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+      Tags:
+        - Key: Name
+          Value: !Ref InstanceName
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: 'false'
+          DeviceIndex: '0'
+          GroupSet:
+            - !Ref SecurityGroupIds
+          SubnetId: !ImportValue
+            'Fn::Sub': '${ParentVpcStack}-PrivateSubnet1'
+
+Outputs:
+  StackName:
+    Value: !Ref 'AWS::StackName'
+    Description: Name of the resulting cloudformation stack
+  InstanceId:
+    Value: !Ref EC2Instance
+  PrivateIp:
+    Value: !GetAtt EC2Instance.PrivateIp
