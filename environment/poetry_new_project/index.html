@@ -1991,6 +1991,28 @@
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1">## --- Add from requirements.txt</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>poetry add <span class="sb">`</span>cat requirements.txt<span class="sb">`</span>
 </code></pre></div>
+<h3 id="add-local-py-modules">Add local py modules<a class="headerlink" href="#add-local-py-modules" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">[</span>tool.poetry.dependencies<span class="o">]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">python</span> <span class="o">=</span> <span class="s2">&quot;3.9.5&quot;</span> 
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nv">merge_inference_results</span> <span class="o">=</span> <span class="o">{</span><span class="nv">path</span> <span class="o">=</span> <span class="s2">&quot;src/utils/MY_MODULE.py&quot;</span>, <span class="nv">develop</span> <span class="o">=</span> true<span class="o">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>WUST040517@elxsj $ tree
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>.
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>├── README.md
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>├── pyproject.toml
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>│   └── utils
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>│       ├── __init__.py
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>│       ├── __pycache__
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>│       │   ├── __init__.cpython-310.pyc
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>│       │   ├── auth.cpython-310.pyc
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>│       │   ├── file_utils.cpython-310.pyc
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>│       │   ├── get_vault_creds.cpython-310.pyc
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>│       │   ├── utils.cpython-310.pyc
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>│       │   └── vault_app_role.cpython-310.pyc
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>│       ├── auth.py
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>│       ├── get_vault_creds.py
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>│       ├── merge_inference_results.py
+</code></pre></div>
 <h4 id="options-to-add-libraries">Options to add libraries<a class="headerlink" href="#options-to-add-libraries" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>--dev (-D)</code> : Add package as development dependency.</li>
@@ -2001,7 +2023,7 @@
 </ul>
 <h3 id="update-libraries">Update libraries<a class="headerlink" href="#update-libraries" title="Permanent link">&para;</a></h3>
 <p>If you just want to update a few packages and not all, you can list them as such:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>poetry update requests toml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>poetry update requests toml
 </code></pre></div>
 <p>Note that this will not update versions for dependencies outside their version constraints specified in the <code>pyproject.toml</code> file. In other terms, <code>poetry update foo</code> will be a no-op if the version constraint specified for <code>foo</code> is <code>~2.3</code>or <code>2.3</code> and <code>2.4</code> is available. In order for <code>foo</code> to be updated, you must update the constraint, for example <code>^2.3</code>. You can do this using the <code>add</code> command.</p>
 <h4 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h4>
@@ -2010,63 +2032,63 @@
 <li>--no-dev : Do not install dev dependencies.</li>
 <li>--lock : Do not perform install (only update the lockfile).</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>poetry lock --no-update
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>poetry lock --no-update
 </code></pre></div>
 <p>This makes it possible to remove a dependency from <code>pyproject.toml</code> and update the lock file without upgrading dependencies.</p>
 <h3 id="dependency-group">Dependency Group<a class="headerlink" href="#dependency-group" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>poetry add --group dev httpx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>poetry add --group dev httpx
 </code></pre></div>
 <hr />
 <h3 id="current-configuration">Current Configuration<a class="headerlink" href="#current-configuration" title="Permanent link">&para;</a></h3>
 <p>List the current configuration.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ poetry config --list
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>cache-dir <span class="o">=</span> <span class="s2">&quot;/Users/elxsj/Library/Caches/pypoetry&quot;</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>experimental.new-installer <span class="o">=</span> <span class="nb">true</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>experimental.system-git-client <span class="o">=</span> <span class="nb">false</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>installer.max-workers <span class="o">=</span> null
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>installer.no-binary <span class="o">=</span> null
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>installer.parallel <span class="o">=</span> <span class="nb">true</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>virtualenvs.create <span class="o">=</span> <span class="nb">true</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>virtualenvs.in-project <span class="o">=</span> null
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>virtualenvs.options.always-copy <span class="o">=</span> <span class="nb">false</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>virtualenvs.options.no-pip <span class="o">=</span> <span class="nb">false</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>virtualenvs.options.no-setuptools <span class="o">=</span> <span class="nb">false</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>virtualenvs.options.system-site-packages <span class="o">=</span> <span class="nb">false</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>virtualenvs.path <span class="o">=</span> <span class="s2">&quot;{cache-dir}/virtualenvs&quot;</span>  <span class="c1"># /Users/elxsj/Library/Caches/pypoetry/virtualenvs</span>
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>virtualenvs.prefer-active-python <span class="o">=</span> <span class="nb">false</span>
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>virtualenvs.prompt <span class="o">=</span> <span class="s2">&quot;{project_name}-py{python_version}&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$ poetry config --list
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>cache-dir <span class="o">=</span> <span class="s2">&quot;/Users/elxsj/Library/Caches/pypoetry&quot;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>experimental.new-installer <span class="o">=</span> <span class="nb">true</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>experimental.system-git-client <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>installer.max-workers <span class="o">=</span> null
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>installer.no-binary <span class="o">=</span> null
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>installer.parallel <span class="o">=</span> <span class="nb">true</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>virtualenvs.create <span class="o">=</span> <span class="nb">true</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>virtualenvs.in-project <span class="o">=</span> null
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>virtualenvs.options.always-copy <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>virtualenvs.options.no-pip <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>virtualenvs.options.no-setuptools <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>virtualenvs.options.system-site-packages <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>virtualenvs.path <span class="o">=</span> <span class="s2">&quot;{cache-dir}/virtualenvs&quot;</span>  <span class="c1"># /Users/elxsj/Library/Caches/pypoetry/virtualenvs</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>virtualenvs.prefer-active-python <span class="o">=</span> <span class="nb">false</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>virtualenvs.prompt <span class="o">=</span> <span class="s2">&quot;{project_name}-py{python_version}&quot;</span>
 </code></pre></div>
 <p>Check the <code>Path</code> and <code>Executable</code> for this poetry environment:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ poetry env info
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>System
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Platform:   darwin
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>OS:         posix
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Python:     <span class="m">3</span>.10.0
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>Path:       /Users/elxsj/.pyenv/versions/3.10.0
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>Executable: /Users/elxsj/.pyenv/versions/3.10.0/bin/python3.10
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$ poetry env info
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>System
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Platform:   darwin
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>OS:         posix
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>Python:     <span class="m">3</span>.10.0
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>Path:       /Users/elxsj/.pyenv/versions/3.10.0
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>Executable: /Users/elxsj/.pyenv/versions/3.10.0/bin/python3.10
 </code></pre></div>
 <h3 id="modify-poetry-virtual-environment-path">Modify Poetry virtual environment path<a class="headerlink" href="#modify-poetry-virtual-environment-path" title="Permanent link">&para;</a></h3>
 <p>Changes to the python version (using pyenv) require update to the path used for poetry virtual environment.</p>
 <h5 id="python-version-using-pyenv">Python Version using <code>pyenv</code><a class="headerlink" href="#python-version-using-pyenv" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$ pyenv version
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="m">3</span>.9.5 <span class="o">(</span><span class="nb">set</span> by ~/MY_PROJECT/.python-version<span class="o">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$ pyenv version
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="m">3</span>.9.5 <span class="o">(</span><span class="nb">set</span> by ~/MY_PROJECT/.python-version<span class="o">)</span>
 </code></pre></div>
 <h5 id="set-python-version-for-poetry">Set python version for poetry<a class="headerlink" href="#set-python-version-for-poetry" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$ pyenv <span class="nb">local</span> <span class="m">3</span>.9.5
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>$ poetry env use <span class="m">3</span>.9.5
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1">## Successfull output looks like this:</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Recreating virtualenv MY_PROJECT <span class="k">in</span> ~/MY_PROJECT/.venv
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>Using virtualenv: ~/MY_PROJECT/.venv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$ pyenv <span class="nb">local</span> <span class="m">3</span>.9.5
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>$ poetry env use <span class="m">3</span>.9.5
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">## Successfull output looks like this:</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Recreating virtualenv MY_PROJECT <span class="k">in</span> ~/MY_PROJECT/.venv
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Using virtualenv: ~/MY_PROJECT/.venv
 </code></pre></div>
 <hr />
 <h3 id="poetry-export">Poetry Export<a class="headerlink" href="#poetry-export" title="Permanent link">&para;</a></h3>
 <p>If you have a Poetry project, you can create a requirements.txt file from your poetry.lock file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>poetry <span class="nb">export</span> --output requirements.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>poetry <span class="nb">export</span> --output requirements.txt
 </code></pre></div>
 <p>Export without hashes to speed up install.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>poetry <span class="nb">export</span> --without-hashes --format<span class="o">=</span>requirements.txt &gt; requirements.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>poetry <span class="nb">export</span> --without-hashes --format<span class="o">=</span>requirements.txt &gt; requirements.txt
 </code></pre></div>
 <hr />
 <h2 id="poetry-commands">Poetry Commands<a class="headerlink" href="#poetry-commands" title="Permanent link">&para;</a></h2>
@@ -2119,8 +2141,8 @@
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <p>Some things to try if poetry has unusual errors.</p>
 <p><code>poetry cache clear --all .</code> Clear cache</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">poetry</span><span class="o">.</span><span class="n">lock</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">poetry</span> <span class="n">install</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">untracked</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">poetry</span><span class="o">.</span><span class="n">lock</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">poetry</span> <span class="n">install</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">untracked</span>
 </code></pre></div>
 <h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
 <p>Poetry github https://github.com/python-poetry/poetry</p>
