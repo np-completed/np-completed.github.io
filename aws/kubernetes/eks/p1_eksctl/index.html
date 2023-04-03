@@ -1893,14 +1893,16 @@
 <a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span><span class="nt">withAddonPolicies</span><span class="p">:</span><span class="w"></span>
 <a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="nt">imageBuilder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 </code></pre></div>
-<p><strong>Note</strong> </p>
+<p><strong>Note</strong></p>
 <p>The cluster name or nodegroup name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and can't be longer than 128 characters otherwise you will get a validation error. More information can be found <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-parameters.html">here</a></p>
 <p>To delete this cluster, run:</p>
 <p><code>eksctl delete cluster -f cluster.yml</code></p>
-<p><strong>Note</strong> </p>
+<p>OR</p>
+<p><code>eksctl delete cluster --name=my_cluster</code></p>
+<p><strong>Note</strong></p>
 <p>Without the --wait flag, this will only issue a delete operation to the cluster's CloudFormation stack and won't wait for its deletion.</p>
 <p>In some cases, AWS resources using the cluster or its VPC may cause cluster deletion to fail. To ensure any deletion errors are propagated in eksctl delete cluster, the --wait flag must be used. If your delete fails or you forget the wait flag, you may have to go to the CloudFormation GUI and delete the eks stacks from there.</p>
-<p><strong>Note</strong> </p>
+<p><strong>Note</strong></p>
 <p>When deleting a cluster with nodegroups, in some scenarios, Pod Disruption Budget (PDB) policies can prevent nodes from being removed successfully from nodepools. E.g. a cluster with aws-ebs-csi-driver installed, by default, spins off two pods while having a PDB policy that allows at most one pod to be unavailable at a time. This will make the other pod unevictable during deletion. To successfully delete the cluster, one should use disable-nodegroup-eviction flag. This will bypass checking PDB policies.</p>
 <p>eksctl delete cluster -f cluster.yaml --disable-nodegroup-eviction</p>
 
