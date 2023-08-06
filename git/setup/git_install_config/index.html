@@ -1335,33 +1335,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#proxy-configuration" class="md-nav__link">
-    Proxy configuration
-  </a>
-  
-    <nav class="md-nav" aria-label="Proxy configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#us-proxy-settings" class="md-nav__link">
-    US Proxy Settings
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#corporate-httphttps-proxies" class="md-nav__link">
-    Corporate HTTP/HTTPS proxies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#clone-repo" class="md-nav__link">
     Clone repo
   </a>
@@ -2162,33 +2135,17 @@ Goto your GitHub Account -&gt; Settings
 Then look for SSH and GPG keys under **Account Settings -&gt; SSH and GPG keys **
 After that click on New SSH Key. Assign some meaningful name to your key</p>
 <p>Copy the content of the key and paste the key inside your GitHub account.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cat /Users/elxsj/.ssh/id_ed25519.pub
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cat /Users/memadsen/.ssh/id_ed25519.pub
 </code></pre></div>
 <hr />
-<h3 id="proxy-configuration">Proxy configuration<a class="headerlink" href="#proxy-configuration" title="Permanent link">&para;</a></h3>
-<h4 id="us-proxy-settings">US Proxy Settings<a class="headerlink" href="#us-proxy-settings" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://10.44.255.70:8080
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span>https://10.44.255.70:8080
-</code></pre></div>
-<p>Configure the Git client to refer to the cacerts that have the imported certificate:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git config --system http.sslCAPath /path/to/cacerts
-</code></pre></div>
-<p>From the official git docs but untested with corporate network.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">## This puts password in plain text</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git config --global http.proxy https://PROXY_USERNAME:PROXY_PASSWORD@PROXY_SERVER:8080
-</code></pre></div>
-<h3 id="corporate-httphttps-proxies">Corporate HTTP/HTTPS proxies<a class="headerlink" href="#corporate-httphttps-proxies" title="Permanent link">&para;</a></h3>
-<p>Misaligned proxies interfere with using git. It is technically feasible to temporarily bypass SSL but this deviates from best practices. <strong>Do not do this in production!</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git config --global http.sslVerify <span class="nb">false</span>
-</code></pre></div>
 <h3 id="clone-repo">Clone repo<a class="headerlink" href="#clone-repo" title="Permanent link">&para;</a></h3>
 <p>Clone repo and bypass SSL <strong>Do not do this in production!</strong></p>
 <p>Useful to check if certificates require updating.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git -c http.sslVerify<span class="o">=</span><span class="nb">false</span> clone &lt;repository-name&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git -c http.sslVerify<span class="o">=</span><span class="nb">false</span> clone &lt;repository-name&gt;
 </code></pre></div>
 <h3 id="git-branch-default-name">Git branch default name.<a class="headerlink" href="#git-branch-default-name" title="Permanent link">&para;</a></h3>
 <p>If you want to use <em>master</em> instead of <em>main</em> as default branch name.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git config --global init.defaultBranch master
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git config --global init.defaultBranch master
 </code></pre></div>
 <p>Update local branch name from <code>main</code> to <code>master</code>.</p>
 <div class="codehilite"><pre><span></span><code>git branch -m main master
@@ -2216,14 +2173,10 @@ git remote set-head origin -a
 <p>Gather insights into the usage of different programming languages and their dependencies within our organization.</p>
 <p>Useful Links</p>
 <ul>
-<li>UI URL: https://devtools-np.monsanto.net/github-stats</li>
-<li>UI Repo: https://github.platforms.engineering/APALA4/github-stats-ui</li>
-<li>API Docs: https://devtools-np.monsanto.net/github-stats-api/v1/docs</li>
-<li>API Repo: https://github.platforms.engineering/APALA4/github-stats-api</li>
 <li>Vulnerabilities API: https://ossindex.sonatype.org/rest</li>
 </ul>
 <h1 id="github-hooks">Github Hooks<a class="headerlink" href="#github-hooks" title="Permanent link">&para;</a></h1>
-<p>Many people are familair with github actions and its common to use github actions to perform code formatting or testing. Another way to do this is using git <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">hooks</a>.</p>
+<p>Many people are familiar with github actions and its common to use github actions to perform code formatting or testing. Another way to do this is using git <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">hooks</a>.</p>
 <h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
 <ul>
 <li>
