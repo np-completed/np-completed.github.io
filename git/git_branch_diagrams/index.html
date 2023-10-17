@@ -15,7 +15,7 @@
     
     
       
-        <title>Branch V1 - ml-papers-with-code</title>
+        <title>Branch Diagrams - ml-papers-with-code</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-branches" class="md-skip">
+        <a href="#branching-workflow-for-continuous-delivery" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Branch V1
+              Branch Diagrams
             
           </span>
         </div>
@@ -1014,10 +1014,65 @@
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Branch Diagrams
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Branch Diagrams
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#merge-vs-rebase" class="md-nav__link">
+    Merge vs Rebase
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
-      <a href="../git_branching/" class="md-nav__link">
-        Branching
+      <a href="../git_branch/" class="md-nav__link">
+        Branch Commands
       </a>
     </li>
   
@@ -1102,115 +1157,6 @@
     <li class="md-nav__item">
       <a href="../git_workflow/" class="md-nav__link">
         Workflow
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Branch V1
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Branch V1
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#change-to-remote-branch" class="md-nav__link">
-    Change to remote branch
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#remotes" class="md-nav__link">
-    Remotes
-  </a>
-  
-    <nav class="md-nav" aria-label="Remotes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#change-remotes" class="md-nav__link">
-    Change remotes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#delete-branch" class="md-nav__link">
-    Delete branch
-  </a>
-  
-    <nav class="md-nav" aria-label="Delete branch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#delete-local-branches-not-in-remote" class="md-nav__link">
-    Delete local branches not in remote
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../git_branching/" class="md-nav__link">
-        Branch
       </a>
     </li>
   
@@ -1910,120 +1856,221 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/np-completed/np-completed.github.io/blob/main/docs/git/git_branch_v1.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/np-completed/np-completed.github.io/blob/main/docs/git/git_branch_diagrams.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="git-branches">Git Branches<a class="headerlink" href="#git-branches" title="Permanent link">&para;</a></h1>
-<p>Create a new branch and merge into main.</p>
-<p><code>git checkout -b &lt;branch&gt;</code> The <code>-b</code> is a convenience flag , to run <code>git branch</code> before running <code>git checkout &lt;branch&gt;</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git pull
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git checkout -b mike <span class="c1">## create new branch</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">## Make some changes to mike branch</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>git add .
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>git commit
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>git push --set-upstream origin mike
-</code></pre></div>
-<h2 id="change-to-remote-branch">Change to remote branch<a class="headerlink" href="#change-to-remote-branch" title="Permanent link">&para;</a></h2>
-<p>Create a local branch <code>np</code>, which tracks the remote <code>np</code> and switch to it</p>
-<p><code>git checkout -b np origin/np</code></p>
-<h2 id="remotes">Remotes<a class="headerlink" href="#remotes" title="Permanent link">&para;</a></h2>
-<p>Show github repo remotes (URL)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git remote -v
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>origin  https://github.com/aws-samples/amazon-sagemaker-studio-vpc-networkfirewall.git <span class="o">(</span>fetch<span class="o">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>origin  https://github.com/aws-samples/amazon-sagemaker-studio-vpc-networkfirewall.git <span class="o">(</span>push<span class="o">)</span>
-</code></pre></div>
-<h3 id="change-remotes">Change remotes<a class="headerlink" href="#change-remotes" title="Permanent link">&para;</a></h3>
-<p>To push repo to a new remote, clone repo and change remote path.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git push git@github.com:prfrl/amazon-sagemaker-studio-vpc-networkfirewall.git
-</code></pre></div>
-<h2 id="delete-branch">Delete branch<a class="headerlink" href="#delete-branch" title="Permanent link">&para;</a></h2>
-<p>Delete local branch <code>git branch -d &lt;branch&gt;</code></p>
-<p>Delete branch in remote <code>git push origin -d &lt;branch&gt;</code></p>
-<h3 id="delete-local-branches-not-in-remote">Delete local branches not in remote<a class="headerlink" href="#delete-local-branches-not-in-remote" title="Permanent link">&para;</a></h3>
-<p>Delete branches that are in local repo but have been removed from remote.</p>
-<p>First, check that branches of interest are not in this list, e.g.  <code>main/master</code> and important feature branches.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ git fetch -p <span class="o">&amp;&amp;</span> git branch -vv <span class="p">|</span> awk <span class="s1">&#39;/: gone]/{print $1}&#39;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>- <span class="o">[</span>deleted<span class="o">]</span>         <span class="o">(</span>none<span class="o">)</span>     -&gt; origin/dependabot/github_actions/actions/setup-python-3
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>- <span class="o">[</span>deleted<span class="o">]</span>         <span class="o">(</span>none<span class="o">)</span>     -&gt; origin/dependabot/github_actions/actions/setup-python-4
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>- <span class="o">[</span>deleted<span class="o">]</span>         <span class="o">(</span>none<span class="o">)</span>     -&gt; origin/dependabot/pip/mkdocs-1.3.1
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>- <span class="o">[</span>deleted<span class="o">]</span>         <span class="o">(</span>none<span class="o">)</span>     -&gt; origin/dependabot/pip/mkdocs-1.4.0
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>- <span class="o">[</span>deleted<span class="o">]</span>         <span class="o">(</span>none<span class="o">)</span>     -&gt; origin/dependabot/pip/mkdocs-1.4.1
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>- <span class="o">[</span>deleted<span class="o">]</span>         <span class="o">(</span>none<span class="o">)</span>     -&gt; origin/dependabot/pip/mkdocs-git-revision-date-localized-plugin-1.1.0
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>- <span class="o">[</span>deleted<span class="o">]</span>         <span class="o">(</span>none<span class="o">)</span>     -&gt; origin/dependabot/pip/mkdocs-material-8.2.15
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>- <span class="o">[</span>deleted<span class="o">]</span>         <span class="o">(</span>none<span class="o">)</span>     -&gt; origin/dependabot/pip/mkdocs-material-8.2.5
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>- <span class="o">[</span>deleted<span class="o">]</span>         <span class="o">(</span>none<span class="o">)</span>     -&gt; origin/dependabot/pip/mkdocs-material-8.3.5
-</code></pre></div>
-<p>If the list looks as expected,  delete local branches.</p>
-<p><code>git fetch -p &amp;&amp; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d</code></p>
-<p>Works by pruning your tracking branches then deleting the local ones that show they are "gone" in <code>git branch -vv</code></p>
-<p>To finish, verify all important local branches are intact.</p>
-<p><code>git branch -a</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ git branch -a
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  * main
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  remotes/origin/HEAD -&gt; origin/main
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  remotes/origin/dependabot/github_actions/actions/checkout-3.1.0
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  remotes/origin/dependabot/github_actions/actions/setup-python-4.1.0
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  remotes/origin/dependabot/pip/mkdocs-material-8.5.7
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  remotes/origin/main
-</code></pre></div>
-<h1 id="compare-branches">Compare branches<a class="headerlink" href="#compare-branches" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git diff  &lt;my branch_v1&gt; &lt;my branch_v2&gt;
-</code></pre></div>
-<h1 id="update-branch-from-remote">Update branch from remote<a class="headerlink" href="#update-branch-from-remote" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git stash <span class="o">(</span>optional, to save <span class="nb">local</span> changes which differs from the remote repository <span class="k">if</span> any<span class="o">)</span>
-</code></pre></div>
-<p><code>git checkout my_local_branch</code> Checkout branch to work on</p>
-<p><code>git pull</code> Pull from remote</p>
-<p>Additionally you can checkout a new local branch and reset it to the remote branches last commit.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git checkout -b ＜branchname＞
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git reset --hard origin/＜branchname＞
-</code></pre></div>
-<h2 id="update-branch-from-main">Update branch from main<a class="headerlink" href="#update-branch-from-main" title="Permanent link">&para;</a></h2>
-<p>When git status shows "Your branch is ahead of 'origin/main' by 2 commits", this measn</p>
-<p>If your local changes are bad then just remove them locally and reset to the state of remote using <code>git reset</code></p>
-<h3 id="git-reset">git reset<a class="headerlink" href="#git-reset" title="Permanent link">&para;</a></h3>
+<h1 id="branching-workflow-for-continuous-delivery">Branching Workflow for Continuous Delivery<a class="headerlink" href="#branching-workflow-for-continuous-delivery" title="Permanent link">&para;</a></h1>
+<p>This simple workflow has two guiding principles:</p>
+<ul>
+<li>master is always production-like and deployable.</li>
+<li>rebase during feature development, explicit (non fast-forward) merge when done. The n commits from this branch will be rebased and added to base branch</li>
+</ul>
+<p>Pulling change-sets using rebase rewrites the history of the branch you’re working on and keeps your changes on top.</p>
+<h2 id="merge-vs-rebase">Merge vs Rebase<a class="headerlink" href="#merge-vs-rebase" title="Permanent link">&para;</a></h2>
+<p><strong>Merge branch to main</strong></p>
+<p>Create a <code>feature</code> branch and make some file edits.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "1"
+   commit id: "2"
+   branch feature
+   commit id: "A"
+   commit id: "B"
+   checkout main
+   commit id: "3"
+   commit id: "4"</code></pre>
+<p>Next, <code>merge</code> the main branch into the feature branch.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "1"
+   commit id: "2"
+   branch feature
+   commit id: "A"
+   commit id: "B"
+   checkout main
+   commit id: "3"
+   commit id: "4"
+   merge feature tag: "Merge Commit"</code></pre>
+<blockquote>
+<p>This creates a new “merge commit” in the feature branch that ties together the histories of both branches, giving you a branch structure that looks like this:</p>
+</blockquote>
+<p><strong>What is a rebase?</strong></p>
+<p>Preserving the order of change-sets.</p>
+<p>Create a <code>feature</code> branch and make some file edits.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "1"
+   commit id: "2"
+   branch feature
+   commit id: "A"
+   commit id: "B"
+   checkout main
+   commit id: "3"
+   commit id: "4"</code></pre>
+<hr />
+<p>Rebase moves feature branch to the tip of the main branch.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "1"
+   commit id: "2"
+   branch feature
+   commit id: "A"
+   commit id: "B"
+   checkout main
+   commit id: "3"
+   commit id: "4"
+   merge feature</code></pre>
+<hr />
+<p>Commit history maintains a linear record.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "1"
+   commit id: "2"
+   commit id: "3"
+   commit id: "4"
+   commit id: "A" type: HIGHLIGHT
+   commit id: "B" type: HIGHLIGHT</code></pre>
 <ol>
-<li>
-<p><code>git checkout &lt;branch&gt;</code>   Optional, You may already be in the branch</p>
-</li>
-<li>
-<p><code>git pull -s recursive -X theirs</code>
-Take remote branch changes and replace with their changes if conflict arise. Here if you do git status you will get something like this your branch is ahead of 'origin/master' by 3 commits.</p>
-</li>
-<li>
-<p><code>git reset --hard origin/&lt;branch&gt;</code></p>
-</li>
-<li>
-<p><code>git fetch</code></p>
-</li>
+<li>Start by pulling down the latest changes from master
+This is done easily with the common git commands:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>## Cheatsheet
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Push branch to remote `git push origin &lt;branch&gt;`
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Delete branch `git branch -d &lt;branch&gt;`
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a># replace local changes
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>In case you did something wrong, which for sure never happens ;), you can replace local changes using the command
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>`git checkout -- &lt;filename&gt;`
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>this replaces the changes in your working tree with the last content in HEAD. Changes already added to the index, as well as new files, will be kept.
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>If you instead want to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it like this
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>```shell
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>git fetch origin
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>git reset --hard origin/master
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git checkout master
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git fetch origin
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git merge master
 </code></pre></div>
+<ol>
+<li>Branch off to isolate the feature or bug-fix work in a branch</li>
+</ol>
+<p>Now create a branch for the feature or bug-fix:</p>
+<p>git checkout -b PRJ-123-awesome-feature</p>
+<p>The branch name structure I show here is just the one we use, but you can pick any convention you feel comfortable with.</p>
+<ol>
+<li>Now you can work on the feature</li>
+</ol>
+<p>Work on the feature as long as needed. Make sure your commits are meaningful and do not cluster separate changes together.</p>
+<ol>
+<li>To keep your feature branch fresh and up to date with the latest changes in master, use rebase</li>
+</ol>
+<p>Every once in a while during the development update the feature branch with the latest changes in master. You can do this with:</p>
+<p>git fetch origin
+git rebase origin/master</p>
+<p>In the (somewhat less common) case where other people are also working on the same shared remote feature branch, also rebase changes coming from it:</p>
+<p>git rebase origin/PRJ-123-awesome-feature</p>
+<p>At this point solve any conflicts that come out of the rebase.</p>
+<p>Resolving conflicts during the rebase allows you to have always clean merges at the end of the feature development. It also keeps your feature branch history clean and focused without spurious noise.</p>
+<ol>
+<li>When ready for feedback push your branch remotely and create a pull request</li>
+</ol>
+<p>When it’s time to share your work and solicit feedback you can push your branch remotely with:</p>
+<p>git push -u origin PRJ-123-awesome-feature</p>
+<p>(if the branch is already set as 'upstream' and your remote is called 'origin', 'git push' is enough)</p>
+<p>Now you can create a pull request.</p>
+<p>After the initial push you can keep pushing updates to the remote branch multiple times throughout. This can happen in response to feedback, or because you’re not done with the development of the feature.</p>
+<ol>
+<li>Perform a final rebase cleanup after the pull request has been approved</li>
+</ol>
+<p>After the review is done, it’s good to perform a final cleanup and scrub of the feature branch commit history to remove spurious commits that are not providing relevant information. In some cases – if your team is experienced and they can handle it – you can rebase also during development, but I strongly advise against it.:</p>
+<p>git rebase -i origin/master</p>
+<p>(At this point if you have rewritten the history of a published branch and provided that no one else will commit to it or use it, you might need to push your changes using the –force flag).</p>
+<ol>
+<li>When development is complete record an explicit merge</li>
+</ol>
+<p>When finished with the development of the feature branch and reviewers have reviewed your work, merge using the flag –no-ff. This will preserve the context of the work and will make it easy to revert the whole feature if needed. Here are the commands:</p>
+<p>git checkout master
+git pull origin master</p>
+<p>git merge --no-ff PRJ-123-awesome-feature
+If you followed the advice above and you have used rebase to keep your feature branch up to date, the actual merge commit will not include any changes; this is cool! The merge commit becomes just a marker that stores the context about the feature branch.</p>
+<p>Good documentation comparing <a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">git rebase vs git merge</a></p>
+<hr />
+<h1 id="fix-conflicts">Fix Conflicts<a class="headerlink" href="#fix-conflicts" title="Permanent link">&para;</a></h1>
+<p>Take remote branch changes and replace with their changes if conflict arise. Here if you do git status you will get something like this your branch is ahead of 'origin/master' by 3 commits.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git checkout <span class="nb">test</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git pull
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git checkout master
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>git pull
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>git merge --no-ff --no-commit <span class="nb">test</span>
+</code></pre></div>
+<p>Test merge before commit, avoid a fast-forward commit by --no-ff,</p>
+<p>If conflict is encountered, we can run git status to check details about the conflicts and try to solve</p>
+<p><code>git status</code></p>
+<p>Once we solve the conflicts, or if there is no conflict, we commit and push them</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git commit -m <span class="s1">&#39;merge test branch&#39;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git push
+</code></pre></div>
+<p>But this way will lose the changes history logged in test branch, and it would make master branch to be hard for other developers to understand the history of the project.</p>
+<p>So the best method is we have to use rebase instead of merge (suppose, when in this time, we have solved the branch conflicts).</p>
+<p>Following is one simple sample, for advanced operations, please refer to http://git-scm.com/book/en/v2/Git-Branching-Rebasing</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git checkout master
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git pull
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git checkout <span class="nb">test</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>git pull
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>git rebase -i master
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>git checkout master
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>git merge <span class="nb">test</span>
+</code></pre></div>
+<p>Yep, when you have uppers done, all the Test branch's commits will be moved onto the head of Master branch. The major benefit of rebasing is that you get a linear and much cleaner project history.</p>
+<p>The only thing you need to avoid is: never use rebase on public branch, like master branch.</p>
+<p>Never do operations like the following:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git checkout master
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git rebase -i <span class="nb">test</span>
+</code></pre></div>
+<hr />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git checkout main
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git pull origin main
+</code></pre></div>
+<p>Find merge base hash</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git merge-base origin main
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># 106f9f893e1ac36e55711fc870f6a30a60a9febc</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git merge --squash <span class="nb">test</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git commit
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>git push origin master
+</code></pre></div>
+<hr />
+<h2 id="3-way-merge">3 way merge<a class="headerlink" href="#3-way-merge" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">echo</span> <span class="nv">$USER</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>branch name dev_<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># Create new branch</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>git checkout -b dev main
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Edit some files</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nb">echo</span> <span class="s2">&quot;insert text here&quot;</span> &gt; scratches/a_file.txt
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>git add &lt;file&gt;
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>git commit -m <span class="s2">&quot;Start a feature&quot;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1"># Edit some files</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>git add &lt;file&gt;
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>git commit -m <span class="s2">&quot;Finish a feature&quot;</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="c1"># compare branch to main</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>git request-pull main ./
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="c1"># Optional</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="c1"># push branch to remote</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>git push -u origin &lt;branch&gt;
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="c1"># Develop the main branch</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>git checkout main
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="c1"># Edit some files</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>git add &lt;file&gt;
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>git commit -m <span class="s2">&quot;Make some super-stable changes to main&quot;</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="c1"># Merge in the new-feature branch</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>git merge new-feature
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>    <span class="c1"># To write a commit message and get out of VI, follow these steps:</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>    <span class="c1"># press i (i for insert)</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>    <span class="c1"># write your merge message</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>    <span class="c1"># press esc (escape)</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>    <span class="c1"># write :wq (write &amp; quit)</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>    <span class="c1"># then press enter</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="c1"># optional</span>
+<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="c1"># uncomment to delete local branch</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a><span class="c1"># git branch -d dev</span>
+</code></pre></div>
+<p>Note that it’s impossible for Git to perform a fast-forward merge, as there is no way to move main up to new-feature without backtracking.</p>
 
               
             </article>
@@ -2042,7 +2089,7 @@ Take remote branch changes and replace with their changes if conflict arise. Her
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../git_workflow/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Workflow" rel="prev">
+        <a href="../sync_git/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sync Repo" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2051,20 +2098,20 @@ Take remote branch changes and replace with their changes if conflict arise. Her
               <span class="md-footer__direction">
                 Previous
               </span>
-              Workflow
+              Sync Repo
             </div>
           </div>
         </a>
       
       
         
-        <a href="../git_branching/" class="md-footer__link md-footer__link--next" aria-label="Next: Branch" rel="next">
+        <a href="../git_branch/" class="md-footer__link md-footer__link--next" aria-label="Next: Branch Commands" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Branch
+              Branch Commands
             </div>
           </div>
           <div class="md-footer__button md-icon">
